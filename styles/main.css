@@ -1,0 +1,229 @@
+body {
+  margin : 0;
+  padding: 0;
+  font-family: sans-serif;
+}
+
+*, *::before, *::after {
+    box-sizing: inherit;
+}
+
+.TopHeaderContext {
+  color  : white;
+  display: flex;
+  justify-content: space-between;
+  margin-left: -30px;
+  margin-right: -30px;
+}
+
+.TopHeaderBackground {
+  background-color: #222;
+  padding         : 5px 0;
+}
+
+.fa-phone-alt,
+.fa-envelope {
+  color: #ff7d06 !important;
+}
+
+.call-msg-item {
+  list-style   : outside none none;
+  font-size    : 14px;
+  margin-top   : 2px;
+  margin-bottom: 2px;
+  text-decoration: none;
+}
+
+.call-msg-item a:hover  {
+  color: white;
+  text-decoration: none;
+}
+
+.call-msg-item a {
+  color: rgba(255, 255, 255, 0.78);
+  text-decoration: none;
+  font-size    : 14px;
+  margin-left: 3px;
+}
+
+.Call-msg {
+  display: flex;
+}
+
+.Footer-Menu-Container {
+  overflow: hidden;
+  padding: 70px 0;
+  color: #fff;
+}
+
+.Site-Branding {
+  float: left;
+  font-size: 27px;
+  line-height: 0.8;
+  margin-bottom: 0;
+  padding: 0 15px;
+}
+
+img {
+    height: auto;
+    max-width: 100%;
+}
+
+.Site-Branding a {
+  color: #222;
+}
+
+.Custom-Logo-Link {
+  float: left;
+  margin-right: 15px;
+}
+
+.Right-Navbar {
+  float: right;
+  padding: 0 15px;
+}
+
+.Main-Navbar {
+  background: transparent;
+  clear: both;
+  transition: all 0.5s ease-in-out 0s;
+/*   margin-top: 10px;
+  margin-bottom: 5px */;
+}
+
+.Primary-Menu {
+  display: block;
+  margin: 0;
+  padding: 0;
+  list-style: disc;
+}
+
+.Inner-Wrapper {
+  margin-left: -15px;
+  margin-right: -15px;
+  display: flex;
+  align-items: center;
+}
+
+.Main-Navigation li:before {
+  content: '';
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  width: 15%;
+  height: 3px;
+  background-color: #ff6700;
+  -webkit-transition: all 0.33s ease-out;
+  -moz-transition: all 0.33s ease-out;
+  -o-transition: all 0.33s ease-out;
+  -ms-transition: all 0.33s ease-out;
+  transition: all 0.33s ease-out;
+  opacity: 0;
+}
+
+.Main-Navigation li::after {
+  background: #ff6700 none repeat scroll 0 0;
+  border-radius: 100%;
+  content: "";
+  display: block;
+  height: 4px;
+  position: absolute;
+  right: -25px;
+  top: 47%;
+  width: 4px;
+}
+
+.Main-Navigation li {
+  display: inline-block;
+  margin-bottom: 0;
+  position: relative;
+  margin-right: 50px;
+}
+
+.Custom-Card-Button {
+  border-color:#7a7a7a !important;
+}
+
+.Footer-Menu-Header {
+  border-bottom: 1px dotted;
+  color: #dddddd;
+  font-size: 20px;
+  margin-bottom: 10px;
+  padding-bottom: 10px;
+}
+
+.Footer-Menu-List {
+  list-style: none;
+  margin: 0;
+  margin: 0 0 0.5em 1em;
+  padding: 0;
+}
+
+.Footer-Menu-List li {
+  font-size: 14px;
+  letter-spacing: 0.5px;
+  position: relative;
+  color: #7a7a7a;
+}
+
+
+.Footer-Menu-List li:before {
+  content: '';
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  width: 15%;
+  height: 3px;
+  background-color: #ff6700;
+  -webkit-transition: all 0.33s ease-out;
+  -moz-transition: all 0.33s ease-out;
+  -o-transition: all 0.33s ease-out;
+  -ms-transition: all 0.33s ease-out;
+  transition: all 0.33s ease-out;
+  opacity: 0;
+}
+
+.Footer-Menu-List li::after {
+  background: #ff6700 none repeat scroll 0 0;
+  border-radius: 100%;
+  content: "";
+  display: block;
+  height: 4px;
+  position: absolute;
+  left: -15px;
+  top: 47%;
+  width: 4px;
+}
+
+.Prefix {
+  font-size: 18px;
+  font-weight: bold;
+}
+
+.Number-Ph {
+  font-size: 18px;
+  font-weight: bold;
+  margin-left: 5px;
+}
+
+.Footer-Menu-List p {
+  text-align: right;
+}
+
+.Footer-Bottom {
+  background-color: #111;
+  clear: both;
+  color: #ffffff;
+  font-size: 14px;
+  padding: 15px 0;
+  border-top: 1px solid #202020;
+}
+
+.Footer-Bottom-Inner {
+  display: flex;
+  justify-content: space-between;
+}
+
+.Footer {
+  background: #111 none repeat scroll 0 0;
+}
