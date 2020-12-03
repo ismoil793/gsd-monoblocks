@@ -9,6 +9,7 @@ import {
   Row
 } from 'react-bootstrap';
 import CustomCard from '../../components/Layout/Cards/index';
+import CustomCard2 from '../../components/Layout/Cards/Cards2';
 
 const { Option } = Select;
 
@@ -80,6 +81,9 @@ const Home = () => {
           <Meta title="Europe Street beat" />
         </Card> */}
           {[1,2,3].map((card => <CustomCard id={card} />))}
+        </div>
+        <div className="wrapper">
+          {[1,2,3].map(card => <CustomCard2 key={card} />)}
         </div>
       </Container>
       <Footer />

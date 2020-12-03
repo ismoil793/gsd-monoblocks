@@ -9,11 +9,13 @@ const CustomNavbar = () => {
         <div className="Site-Branding">
           <Link href="#">
               <a className="Custom-Logo-Link">
-                {/* <Image
+                <Image
                   src="/static/img/croppedlogo.png"
                   alt="Picture of the author"
-                /> */}
-                <img src="/static/img/croppedlogo.png" />
+                  width="100"
+                  height="72"
+                />
+               {/*  <img src="/static/img/croppedlogo.png" /> */}
               </a>
           </Link>
         </div>
@@ -21,9 +23,39 @@ const CustomNavbar = () => {
             <nav className="Main-Navigation">
               <ul className="Primary-Menu">
                 <li>Main</li>
-                <li>About us</li>
-                <li>Solutions</li>
-                <li>Services</li>
+                <li className="Dropdown">
+                  About us
+                  <ul className="Dropdown-Content">
+                    <li>Company Profile</li>
+                    <li>Mission and Vision</li>
+                    <li>History</li>
+                    <li>Our presence</li>
+                    <li>Career</li>
+                  </ul>
+                 {/*  <div className="DropdownTest">
+                    <p>Main</p>
+                    <p>Company Profile</p>
+                    <p>Services</p>
+                    <p>Solutions</p>
+                    <p>Career</p>
+                  </div> */}
+                </li>
+                <li className="Dropdown">
+                  Solutions
+                   <ul className="Dropdown-Content">
+                    <li>hello</li>
+                    <li>hello</li>
+                    <li>hello</li>
+                  </ul>
+                </li>
+                <li className="Dropdown">
+                  Services
+                   <ul className="Dropdown-Content">
+                    <li>hello</li>
+                    <li>hello</li>
+                    <li>hello</li>
+                  </ul>
+                </li>
                 <li>Vendors</li>
                 <li>Newsroom</li>
                 <li>Contacts</li>
