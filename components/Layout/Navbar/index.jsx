@@ -1,10 +1,10 @@
-import { Container } from 'react-bootstrap';
+/* import { Container } from 'react-bootstrap'; */
 import Link from 'next/link';
 import Image from 'next/image';
 
 const CustomNavbar = () => {
   return (
-    <Container>
+    <div className="Container">
       <div className="Inner-Wrapper">
         <div className="Site-Branding">
               <a href="http://thelongestdomainnameintheworldandthensomeandthensomemoreandmore.uz/" className="Custom-Logo-Link">
@@ -61,7 +61,7 @@ const CustomNavbar = () => {
             </nav>
         </div> */}
       </div>
-    </Container>
+    </div>
   );
 }
 

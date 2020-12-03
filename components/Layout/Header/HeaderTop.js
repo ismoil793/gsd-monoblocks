@@ -1,10 +1,10 @@
 import './header.module.css';
-import { Container, Row, Col } from 'react-bootstrap';
+import { Row, Col } from 'react-bootstrap';
 
 const HeaderTop = ({ children }) => {
   return (
     <div className="TopHeaderBackground">
-      <Container>
+      <div className="Container">
         <Row>
           <Col>
             <div className="TopHeaderContext">
@@ -12,7 +12,7 @@ const HeaderTop = ({ children }) => {
             </div>
           </Col>
         </Row>
-      </Container>
+      </div>
     </div>
 );
 }

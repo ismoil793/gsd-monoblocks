@@ -1,6 +1,11 @@
 @font-face {
- font-family: Gandhi;
- src: url("/static/fonts/GandhiSans-Regular.otf") format("opentype"),
+ font-family: Rajdhani;
+ src: url("/static/fonts/Rajdhani-SemiBold.eot") format("opentype"),
+ url("/static/fonts/Rajdhani-SemiBold.ttf") format("opentype"),
+ url("/static/fonts/Rajdhani-SemiBold.woff") format("woff")
+ /* src: url("/static/fonts/Rajdhani-Regular.eot") format("opentype"),
+ url("/static/fonts/Rajdhani-Regular.ttf") format("opentype"),
+ url("/static/fonts/Rajdhani-Regular.woff") format("woff") */
 }
 
 body {
@@ -10,7 +15,14 @@ body {
 
 *, *::before, *::after {
     box-sizing: inherit;
-    font-family: Gandhi;
+    font-family: Rajdhani;
+}
+
+.Container {
+  width: 1430px;
+  margin: 0 auto;
+  padding: 0 16px;
+  max-width: 100%;
 }
 
 .TopHeaderContext {

@@ -1,6 +1,6 @@
 import { Breadcrumb } from 'antd';
 import {
-  Container,
+ /*  Container, */
   Row,
   Col
 } from 'react-bootstrap';
@@ -11,7 +11,7 @@ const CustomBreadCrumb = () => {
       borderBottom: '3px double #ddd',
       borderTop: '1px solid #ddd'
     }}>
-      <Container>
+      <div className="Container">
       <Row>
         <Col>
           <Breadcrumb style={{ paddingTop: 20, paddingBottom: 20 }}>
@@ -22,7 +22,7 @@ const CustomBreadCrumb = () => {
           </Breadcrumb>
         </Col>
       </Row>
-    </Container>
+    </div>
     </div>
   );
 };

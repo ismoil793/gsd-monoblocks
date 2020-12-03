@@ -1,14 +1,14 @@
 import {
   Col,
   Row,
-  Container
+  /* Container */
 } from 'react-bootstrap';
 
 const Footer = () => {
   return (
     <div className="Footer">
       <div className="Footer-Menu-Container">
-      <Container>
+      <div className="Container">
       <Row>
         <Col>
           <h3 className="Footer-Menu-Header">
@@ -62,15 +62,15 @@ const Footer = () => {
           </div>
         </Col>
       </Row>
-    </Container>
+    </div>
     </div>
     <footer className="Footer-Bottom">
-      <Container>
+      <div className="Container">
         <div className="Footer-Bottom-Inner">
           <p>Global Smart Distribution© All rights reserved.</p>
           <p>Powered by GSD</p>
         </div>
-      </Container>
+      </div>
     </footer>
     </div>
   );

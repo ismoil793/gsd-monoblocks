@@ -4,7 +4,7 @@ import Footer from '../../components/Layout/Footer/index';
 import CustomNavbar from '../../components/Layout/Navbar/index';
 import { Select, Pagination } from 'antd';
 import {
-  Container,
+  /* Container, */
   Col,
   Row
 } from 'react-bootstrap';
@@ -48,7 +48,7 @@ const Home = () => {
           <CustomNavbar />
         </div>
       <CustomBreadCrumb />
-      <Container>
+      <div className="Container">
         <Row>
           <Col>
             <h2 style={{ fontWeight: 900, marginTop: 20 }}>All-in-one constructor</h2>
@@ -61,8 +61,8 @@ const Home = () => {
             <h4 style={{ color: '#383838', fontWeight: 600 }}>Select model for configuration:</h4>
           </Col>
         </Row>
-      </Container>
-      <Container>
+      </div>
+      <div className="Container">
         <Row>
           <Col span={8}>
             <CustomCard />
@@ -106,7 +106,7 @@ const Home = () => {
             marginBottom: 30
           }}
         />
-      </Container>
+      </div>
       <Footer />
     </>
   );
