@@ -7,8 +7,7 @@ const CustomNavbar = () => {
     <Container>
       <div className="Inner-Wrapper">
         <div className="Site-Branding">
-          <Link href="#">
-              <a className="Custom-Logo-Link">
+              <a href="http://thelongestdomainnameintheworldandthensomeandthensomemoreandmore.uz/" className="Custom-Logo-Link">
                 <Image
                   src="/static/img/croppedlogo.png"
                   alt="Picture of the author"
@@ -17,9 +16,8 @@ const CustomNavbar = () => {
                 />
                {/*  <img src="/static/img/croppedlogo.png" /> */}
               </a>
-          </Link>
         </div>
-        <div className="Main-Navbar">
+        {/* <div className="Main-Navbar">
             <nav className="Main-Navigation">
               <ul className="Primary-Menu">
                 <li>Main</li>
@@ -38,7 +36,7 @@ const CustomNavbar = () => {
                     <p>Services</p>
                     <p>Solutions</p>
                     <p>Career</p>
-                  </div> */}
+                  </div> 
                 </li>
                 <li className="Dropdown">
                   Solutions
@@ -61,7 +59,7 @@ const CustomNavbar = () => {
                 <li>Contacts</li>
               </ul>
             </nav>
-        </div>
+        </div> */}
       </div>
     </Container>
   );

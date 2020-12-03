@@ -19,17 +19,21 @@ const Card2 = () => {
 export default Card2;
  */
 /* import { Card } from 'antd'; */
+import Link from 'next/link';
 
-const Card2 = () => {
+const Card = () => {
   return (
-      <div className="Custom-Card2">
-        <img src="/static/img/1.jpg" alt="test"/>
-        <div className="info">
-          <h2 style={{ color: 'white' }}>AVTECH K40 PRO IPS 23.8</h2>
-          
-          <button>Select</button>
-        </div>
+      <div style={{ marginTop: 30 }}>
+        <div className="Custom-Card">
+        <img alt="example" className="Card-Img" src="/static/img/1.jpg" />
+      </div>
+      <div className="Card-Context">
+          <p>AVTECH K40 PRO IPS 23.8"</p>
+          <Link href="#">
+            <a className="Custom-Card-Button">Select</a>
+          </Link>
+      </div>
       </div>
   );
 }
-export default Card2;
+export default Card;

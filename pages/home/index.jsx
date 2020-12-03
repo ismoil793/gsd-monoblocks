@@ -2,19 +2,22 @@ import HeaderTopContainer from '../../components/Layout/Header/HeaderTop';
 import CustomBreadCrumb from '../../components/Layout/Header/BreadCrumb';
 import Footer from '../../components/Layout/Footer/index';
 import CustomNavbar from '../../components/Layout/Navbar/index';
-import { Select } from 'antd';
+import { Select, Pagination } from 'antd';
 import {
   Container,
   Col,
   Row
 } from 'react-bootstrap';
-import CustomCard from '../../components/Layout/Cards/index';
-import CustomCard2 from '../../components/Layout/Cards/Cards2';
+import CustomCard from '../../components/Layout/Cards/Card';
 
 const { Option } = Select;
 
 function handleChange(value) {
   console.log(`selected ${value}`);
+}
+
+const onChange = (value) => {
+  console.log('values: ', value);
 }
 
 const Home = () => {
@@ -58,33 +61,51 @@ const Home = () => {
             <h4 style={{ color: '#383838', fontWeight: 600 }}>Select model for configuration:</h4>
           </Col>
         </Row>
-        <div style={{ marginBottom: 50, marginTop: 30, display: 'flex', justifyContent: 'space-between'}}>
-        {/* <Card
-          hoverable
-          style={{ width: 300 }}
-          cover={<img alt="example" src="/static/img/1.jpg" />}
-        >
-          <Meta title="Europe Street beat" />
-        </Card>
-        <Card
-          hoverable
-          style={{ width: 300 }}
-          cover={<img alt="example" src="/static/img/1.jpg" />}
-        >
-          <Meta title="Europe Street beat" />
-        </Card>
-        <Card
-          hoverable
-          style={{ width: 300 }}
-          cover={<img alt="example" src="/static/img/1.jpg" />}
-        >
-          <Meta title="Europe Street beat" />
-        </Card> */}
-          {[1,2,3].map((card => <CustomCard id={card} />))}
-        </div>
-        <div className="wrapper">
-          {[1,2,3].map(card => <CustomCard2 key={card} />)}
-        </div>
+      </Container>
+      <Container>
+        <Row>
+          <Col span={8}>
+            <CustomCard />
+          </Col>
+          <Col span={8}>
+            <CustomCard />
+          </Col>
+          <Col span={8}>
+            <CustomCard />
+          </Col>
+        </Row>
+        <Row>
+          <Col span={8}>
+            <CustomCard />
+          </Col>
+          <Col span={8}>
+            <CustomCard />
+          </Col>
+          <Col span={8}>
+            <CustomCard />
+          </Col>
+        </Row>
+        <Row>
+          <Col span={8}>
+            <CustomCard />
+          </Col>
+          <Col span={8}>
+            <CustomCard />
+          </Col>
+          <Col span={8}>
+            <CustomCard />
+          </Col>
+        </Row>
+        <Pagination
+          pageSize={9}
+          onChange={onChange}
+          total={50}
+          style={{
+            textAlign: 'center',
+            marginTop: 30,
+            marginBottom: 30
+          }}
+        />
       </Container>
       <Footer />
     </>

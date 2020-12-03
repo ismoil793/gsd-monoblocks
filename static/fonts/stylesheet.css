@@ -1,0 +1,60 @@
+@font-face {
+    font-family: 'Rajdhani';
+    src: url('Rajdhani-SemiBold.eot');
+    src: local('Rajdhani SemiBold'), local('Rajdhani-SemiBold'),
+        url('Rajdhani-SemiBold.eot?#iefix') format('embedded-opentype'),
+        url('Rajdhani-SemiBold.woff2') format('woff2'),
+        url('Rajdhani-SemiBold.woff') format('woff'),
+        url('Rajdhani-SemiBold.ttf') format('truetype');
+    font-weight: 600;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Rajdhani';
+    src: url('Rajdhani-Regular.eot');
+    src: local('Rajdhani Regular'), local('Rajdhani-Regular'),
+        url('Rajdhani-Regular.eot?#iefix') format('embedded-opentype'),
+        url('Rajdhani-Regular.woff2') format('woff2'),
+        url('Rajdhani-Regular.woff') format('woff'),
+        url('Rajdhani-Regular.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Rajdhani';
+    src: url('Rajdhani-Medium.eot');
+    src: local('Rajdhani Medium'), local('Rajdhani-Medium'),
+        url('Rajdhani-Medium.eot?#iefix') format('embedded-opentype'),
+        url('Rajdhani-Medium.woff2') format('woff2'),
+        url('Rajdhani-Medium.woff') format('woff'),
+        url('Rajdhani-Medium.ttf') format('truetype');
+    font-weight: 500;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Rajdhani';
+    src: url('Rajdhani-Light.eot');
+    src: local('Rajdhani Light'), local('Rajdhani-Light'),
+        url('Rajdhani-Light.eot?#iefix') format('embedded-opentype'),
+        url('Rajdhani-Light.woff2') format('woff2'),
+        url('Rajdhani-Light.woff') format('woff'),
+        url('Rajdhani-Light.ttf') format('truetype');
+    font-weight: 300;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Rajdhani';
+    src: url('Rajdhani-Bold.eot');
+    src: local('Rajdhani Bold'), local('Rajdhani-Bold'),
+        url('Rajdhani-Bold.eot?#iefix') format('embedded-opentype'),
+        url('Rajdhani-Bold.woff2') format('woff2'),
+        url('Rajdhani-Bold.woff') format('woff'),
+        url('Rajdhani-Bold.ttf') format('truetype');
+    font-weight: bold;
+    font-style: normal;
+}
+

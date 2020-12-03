@@ -1,11 +1,16 @@
+@font-face {
+ font-family: Gandhi;
+ src: url("/static/fonts/GandhiSans-Regular.otf") format("opentype"),
+}
+
 body {
   margin : 0;
   padding: 0;
-  font-family: sans-serif;
 }
 
 *, *::before, *::after {
     box-sizing: inherit;
+    font-family: Gandhi;
 }
 
 .TopHeaderContext {
@@ -57,7 +62,6 @@ body {
 }
 
 .Site-Branding {
-  float: left;
   font-size: 27px;
   line-height: 0.8;
   margin-bottom: 0;
@@ -103,6 +107,7 @@ img {
   margin-right: -15px;
   display: flex;
   align-items: center;
+  justify-content: center;
 }
 
 .Dropdown::after {
@@ -290,110 +295,62 @@ img {
   padding-left: 20px;
 }
 
-/* .Card2 {
-  border: 1px solid black;
-  position: relative;
+.Custom-Card{
+  overflow: hidden;
+
 }
 
-.Card2-Img-Wrapper {
-  -webkit-background-size: cover;
-  background-size: cover;
-  background-position: 50%;
-  z-index: 1;
+.Card-Img{
+  max-width: 100%;
+  min-height: auto;
+  transition: all 0.5s ease-in-out;
 }
 
-.Card2-Img {
-  width: 42vw;
-  height: 25vh;
-  border: 1px solid red;
-} */
+.Card-Img:hover {
+  transform: scale(1.2);
+}
 
-
-.wrapper {
-  display: flex;
+.Card-Context {
+  margin-top: 20px;
+  min-height: 151px;
+  text-align: center;
+  -webkit-transition: all .4s;
+  -o-transition: all .4s;
+  transition: all .4s;
   width: 100%;
-	justify-content: space-around;
+  background-color: #f7f7f7;
+  padding: 35px;
+  text-align: center;
+  margin-bottom: 15px;
+  font-size: 23px;
 }
 
-.Custom-Card2 {
-  width: 350px;
-  height: 360px;
-  padding: 1.5rem;
-  background: white;
-  position: relative;
-  display: -webkit-box;
-  display: flex;
-  -webkit-box-align: end;
-          align-items: flex-end;
-  -webkit-transition: 0.4s ease-out;
-  transition: 0.4s ease-out;
-  box-shadow: 0px 7px 10px rgba(0, 0, 0, 0.5);
+.Card-Context p {
+  font-size: 23px;
+  font-weight: 600;
+  color: #55595c;
 }
-.Custom-Card2:hover {
-  -webkit-transform: translateY(20px);
-          transform: translateY(20px);
-}
-.Custom-Card2:hover:before {
-  opacity: 1;
-}
-.Custom-Card2:hover .info {
-  opacity: 1;
-  -webkit-transform: translateY(0px);
-          transform: translateY(0px);
-}
-.Custom-Card2:before {
-  content: "";
-  position: absolute;
-  top: 0;
-  left: 0;
-  display: block;
-  width: 100%;
-  height: 100%;
-  background: rgba(0, 0, 0, 0.6);
-  z-index: 2;
-  -webkit-transition: 0.5s;
-  transition: 0.5s;
-  opacity: 0;
-}
-.Custom-Card2 img {
-  width: 100%;
-  height: 100%;
-  -o-object-fit: cover;
-     object-fit: cover;
-  position: absolute;
-  top: 0;
-  left: 0;
-}
-.Custom-Card2 .info {
-  position: relative;
-  z-index: 3;
-  color: white;
-  opacity: 0;
-  -webkit-transform: translateY(30px);
-          transform: translateY(30px);
-  -webkit-transition: 0.5s;
-  transition: 0.5s;
-}
-.Custom-Card2 .info h1 {
-  margin: 0px;
-}
-.Custom-Card2 .info p {
-  letter-spacing: 1px;
+
+.Custom-Card-Button {
+  display: inline-block;
+  /* line-height: 1; */
+  background-color: #818a91;
   font-size: 15px;
-  margin-top: 8px;
+  padding: 12px 24px;
+  -webkit-border-radius: 3px;
+  border-radius: 3px;
+  color: #fff;
+  fill: #fff;
+  text-align: center;
+  -webkit-transition: all .3s;
+  -o-transition: all .3s;
+  transition: all .3s;
+  -webkit-box-shadow: none;
+  box-shadow: none;
+  text-decoration: none;
 }
-.Custom-Card2 .info button {
-  padding: 0.6rem;
-  outline: none;
-  border: none;
-  background: white;
-  color: black;
-  font-weight: bold;
-  cursor: pointer;
-  -webkit-transition: 0.4s ease;
-  transition: 0.4s ease;
-}
-.Custom-Card2 .info button:hover {
-  background: #E0E0E0;
+
+.Custom-Card-Button:hover {
+  text-decoration: none;
   color: white;
 }
