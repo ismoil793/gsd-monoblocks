@@ -324,12 +324,10 @@ img {
 
 .Card-Context {
   margin-top: 20px;
-  min-height: 151px;
   text-align: center;
   -webkit-transition: all .4s;
   -o-transition: all .4s;
   transition: all .4s;
-  width: 100%;
   background-color: #f7f7f7;
   padding: 35px;
   text-align: center;
