@@ -1,20 +1,20 @@
 import axios from 'axios';
 import { useDispatch, useSelector } from 'react-redux';
-import {wrapper} from '../../redux/store';
 
-export const getStaticProps = wrapper.getStaticProps(
-    async ({store, preview}) => {
-        const test = await axios.get('https://api.spacexdata.com/v3/dragons');
-        await store.dispatch({
-          type: 'getDragons',
-          one: test.data
-        });
+export async function getStaticProps(context){
+  const test = await axios.get('https://api.rrpo.uz/api/products');
+  console.log('test: ', test);
+  return {
+    props: {
+      params: test.data
     }
-);
+  }
+}
 
 
-const Dragons = () => {
-  const test2 = useSelector((state) => state.data);
+const Dragons = ({ params: {data} }) => {
+  console.log(data);
+  const test2 = useSelector((state) => state);
   return <h1>Hello world</h1>
 }
 

@@ -438,6 +438,10 @@ img {
         -ms-flex-direction: column;
             flex-direction: column;
   }
+
+  .Container {
+    width: 80vw;
+  }
 }
 
 .Cards-Wrapper {

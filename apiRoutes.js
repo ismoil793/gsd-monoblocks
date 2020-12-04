@@ -1,0 +1,40 @@
+const host = process.env.REACT_APP_API_HOST;
+
+products
+
+export default {
+  test: () => [host, 'api'].join('/'),
+  /* login: () => [host, 'auth/login/'].join('/'),
+  clients: () => [host, 'clients/'].join('/'),
+  kitchens: () => [host, 'kitchens/'].join('/'),
+  kitchenDetails: (id) => [host, `kitchens/${id}/`].join('/'),
+  kitchenProducts: (id) => [host, `kitchens/${id}/products/`].join('/'),
+  kitchenDisabledAction: (kitchenId, productId) => [host, `kitchens/${kitchenId}/disabled/${productId}/`].join('/'),
+  products: () => [host, 'products/'].join('/'),
+  product: (id) => [host, `products/${id}/`].join('/'),
+  categoryDetails: (id) => [host, `products/categories/${id}/`].join('/'),
+  productsCategory: () => [host, 'products/categories/'].join('/'),
+  riders: () => [host, 'riders/'].join('/'),
+  orderDetails: (id) => [host, `orders/${id}/`].join('/'),
+  orderLogs: (id) => [host, `orders/${id}/logs/`].join('/'),
+  clientDetails: (id) => [host, `clients/${id}/`].join('/'),
+  orders: () => [host, 'orders/active/'].join('/'),
+  cancelOrder: (id) => [host, `orders/${id}/cancel/`].join('/'),
+  admins: () => [host, 'admins/'].join('/'),
+  deleteAdmin: (id) => [host, `admins/${id}/`].join('/'),
+  editAdmin: (id) => [host, `admins/${id}/`].join('/'),
+  acceptOrder: (id) => [host, `orders/${id}/accept/`].join('/'),
+  adminPermissions: () => [host, 'admins/permissions/'].join('/'),
+  riderDetails: (id) => [host, `riders/${id}/`].join('/'),
+  riderDeposit: (id) => [host, `riders/${id}/deposit/`].join('/'),
+  getFinishedOrder: () => [host, 'orders/finished/'].join('/'),
+  announcements: () => [host, 'announcements/'].join('/'),
+  params: () => [host, 'params/'].join('/'),
+  announcementDetails: (id) => [host, `announcements/${id}/`].join('/'),
+  viewOrderSocket: () => [host, 'ws/order/'].join('/'),
+  getSignedURL: () => [host, 'sign-s3'].join('/'),
+  availableProducts: (id) => [host, `orders/${id}/products/`].join('/'),
+  editParam: (id) => [host, `params/${id}/`].join('/'),
+  getBot: () => [host, 'bots/'].join('/'),
+  getMe: () => [host, 'admins/me/'].join('/'), */
+};

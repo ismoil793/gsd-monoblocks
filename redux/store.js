@@ -1,23 +1,60 @@
-import { composeWithDevTools } from 'redux-devtools-extension'
-import { IntlReducer as Intl, IntlProvider } from 'react-redux-multilingual';
-import {
-  applyMiddleware,
-  createStore,
-  compose,
-  combineReducers,
-} from 'redux';
-import {createWrapper, HYDRATE} from 'next-redux-wrapper';
+import { useMemo } from 'react';
+import { applyMiddleware, createStore } from 'redux';
 import thunk from 'redux-thunk';
-import reducer1 from './reducer/index';
-import reducer2 from './reducer/reducer2';
+import { composeWithDevTools } from 'redux-devtools-extension'
+import rootReducer from './reducer/index';
 
-const rootReducer = combineReducers({
-  reducer1,
-  reducer2
-});
-const makeStore = context => {
+let store;
 
-  return createStore(rootReducer, composeWithDevTools());
+const initialState = {
+
 }
 
-export const wrapper = createWrapper(makeStore);
+const initStore = (preloadedState = initialState) => createStore(
+  rootReducer,
+  preloadedState,
+  composeWithDevTools(applyMiddleware())
+);
+
+export const initializeStore = (preloadedState) => {
+  let _store = store ?? initStore(preloadedState)
+
+  // After navigating to a page with an initial Redux state, merge that state
+  // with the current state in the store, and create a new store
+  if (preloadedState && store) {
+    _store = initStore({
+      ...store.getState(),
+      ...preloadedState,
+    })
+    // Reset the current store
+    store = undefined
+  }
+
+  // For SSG and SSR always create a new store
+  if (typeof window === 'undefined') return _store
+  // Create the store once in the client
+  if (!store) store = _store
+
+  return _store
+}
+
+export const useStore = (initialState) => {
+  const store = useMemo(() => initializeStore(initialState), [initialState])
+  return store
+}
+
+
+
+/* const middleware = applyMiddleware(thunk);
+
+export default (initialState, window) => {
+  if (window) {
+    return withRedux(
+      createStore(
+        rootReducer,
+        initialState,
+        composeWithDevTools(applyMiddleware()
+    )));
+  }
+  return withRedux(createStore(rootReducer, initialState, middleware));
+}; */
