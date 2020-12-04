@@ -27,7 +27,7 @@ body {
 }
 
 .Container {
-  width: 1430px;
+  width: 90vw;
   margin: 0 auto;
   padding: 0 16px;
   max-width: 100%;
