@@ -1,3 +1,10 @@
+/*
+* Prefixed by https://autoprefixer.github.io
+* PostCSS: v7.0.29,
+* Autoprefixer: v9.7.6
+* Browsers: last 4 version
+*/
+
 @font-face {
  font-family: Rajdhani;
  src: url("/static/fonts/Rajdhani-SemiBold.eot") format("opentype"),
@@ -14,7 +21,8 @@ body {
 }
 
 *, *::before, *::after {
-    box-sizing: inherit;
+    -webkit-box-sizing: inherit;
+            box-sizing: inherit;
     font-family: Rajdhani;
 }
 
@@ -27,8 +35,12 @@ body {
 
 .TopHeaderContext {
   color  : white;
+  display: -webkit-box;
+  display: -ms-flexbox;
   display: flex;
-  justify-content: space-between;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
   margin-left: -30px;
 }
 
@@ -63,6 +75,8 @@ body {
 }
 
 .Call-msg {
+  display: -webkit-box;
+  display: -ms-flexbox;
   display: flex;
 }
 
@@ -101,6 +115,8 @@ img {
 .Main-Navbar {
   background: transparent;
   clear: both;
+  -webkit-transition: all 0.5s ease-in-out 0s;
+  -o-transition: all 0.5s ease-in-out 0s;
   transition: all 0.5s ease-in-out 0s;
 /*   margin-top: 10px;
   margin-bottom: 5px */;
@@ -116,9 +132,15 @@ img {
 .Inner-Wrapper {
   margin-left: -15px;
   margin-right: -15px;
+  display: -webkit-box;
+  display: -ms-flexbox;
   display: flex;
-  align-items: center;
-  justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
 }
 
 .Dropdown::after {
@@ -141,9 +163,7 @@ img {
   height: 3px;
   background-color: #ff6700;
   -webkit-transition: all 0.33s ease-out;
-  -moz-transition: all 0.33s ease-out;
   -o-transition: all 0.33s ease-out;
-  -ms-transition: all 0.33s ease-out;
   transition: all 0.33s ease-out;
   opacity: 0;
 }
@@ -203,9 +223,7 @@ img {
   height: 3px;
   background-color: #ff6700;
   -webkit-transition: all 0.33s ease-out;
-  -moz-transition: all 0.33s ease-out;
   -o-transition: all 0.33s ease-out;
-  -ms-transition: all 0.33s ease-out;
   transition: all 0.33s ease-out;
   opacity: 0;
 }
@@ -256,8 +274,12 @@ img {
 }
 
 .Footer-Bottom-Inner {
+  display: -webkit-box;
+  display: -ms-flexbox;
   display: flex;
-  justify-content: space-between;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
 }
 
 .Footer {
@@ -277,7 +299,8 @@ img {
   position: absolute;
   background-color: #f9f9f9;
   min-width: 230px;
-  box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+  -webkit-box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+          box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
   z-index: 1;
   border: 1px solid #E0E0E0;
 }
@@ -287,14 +310,20 @@ img {
 }
 
 .DropdownTest{
+  display: -webkit-box;
+  display: -ms-flexbox;
   display: flex;
-  flex-direction: column;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
   border: 1px solid red;
   min-width: 230px;
   position: absolute;
   background-color: #f9f9f9;
   min-width: 230px;
-  box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+  -webkit-box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+          box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
   z-index: 1;
   border: 1px solid #E0E0E0;
 }
@@ -313,11 +342,15 @@ img {
 .Card-Img{
   max-width: 100%;
   min-height: auto;
+  -webkit-transition: all 0.5s ease-in-out;
+  -o-transition: all 0.5s ease-in-out;
   transition: all 0.5s ease-in-out;
 }
 
 .Card-Img:hover {
-  transform: scale(1.2);
+  -webkit-transform: scale(1.2);
+      -ms-transform: scale(1.2);
+          transform: scale(1.2);
 }
 
 .Card-Context {
@@ -345,7 +378,6 @@ img {
   background-color: #818a91;
   font-size: 15px;
   padding: 12px 24px;
-  -webkit-border-radius: 3px;
   border-radius: 3px;
   color: #fff;
   fill: #fff;
@@ -365,12 +397,19 @@ img {
 
 @media screen and (max-width: 767px){
   .Cards-Wrapper {
+    display: -webkit-box;
+    display: -ms-flexbox;
     display: flex;
-    flex-direction: column;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
   }
 
   .Custom-Card-Container {
-    flex: 0 1 auto;
+    -webkit-box-flex: 0;
+        -ms-flex: 0 1 auto;
+            flex: 0 1 auto;
   }
 
   .Card-Context {
@@ -381,7 +420,10 @@ img {
   }
 
   .Footer-Bottom-Inner{
-    flex-direction: column;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
   }
 
   .TopHeaderContext {
@@ -391,19 +433,29 @@ img {
 
 @media screen and (max-width: 550px){
   .row {
-    flex-direction: column;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
   }
 }
 
 .Cards-Wrapper {
+  display: -webkit-box;
+  display: -ms-flexbox;
   display: flex;
-  flex-wrap: wrap;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
   padding-left: 0;
-  justify-content: space-between;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
   
 }
 
 .Custom-Card-Container {
-   flex: 0 0 31.333333%;
+   -webkit-box-flex: 0;
+       -ms-flex: 0 0 31.333333%;
+           flex: 0 0 31.333333%;
    margin-top: 30px;
 }
