@@ -63,7 +63,7 @@ const Home = () => {
         </Row>
       </div>
       <div className="Container">
-        <Row>
+        {/* <Row>
           <Col span={8}>
             <CustomCard />
           </Col>
@@ -95,7 +95,15 @@ const Home = () => {
           <Col span={8}>
             <CustomCard />
           </Col>
-        </Row>
+        </Row> */}
+
+
+        <div className="Cards-Wrapper">
+          {[1,2,3,4,5,6,7,8,9].map((card) => <CustomCard key={card} />)}
+        </div>
+        
+
+
         <Pagination
           pageSize={9}
           onChange={onChange}

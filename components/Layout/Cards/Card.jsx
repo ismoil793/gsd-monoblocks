@@ -2,7 +2,7 @@ import Link from 'next/link';
 
 const Card = () => {
   return (
-      <div style={{ marginTop: 30 }}>
+      <div className="Custom-Card-Container">
         <div className="Custom-Card">
         <img alt="example" className="Card-Img" src="/static/img/1.jpg" />
       </div>

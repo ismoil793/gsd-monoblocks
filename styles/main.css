@@ -309,7 +309,6 @@ img {
 
 .Custom-Card{
   overflow: hidden;
-
 }
 
 .Card-Img{
@@ -363,4 +362,47 @@ img {
 .Custom-Card-Button:hover {
   text-decoration: none;
   color: white;
+}
+
+@media screen and (max-width: 767px){
+  .Cards-Wrapper {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .Custom-Card-Container {
+    flex: 0 1 auto;
+  }
+
+  .Card-Context {
+    padding-top: 35px;
+    padding-bottom: 35px;
+    margin-left: 10%;
+    margin-right: 10%;
+  }
+
+  .Footer-Bottom-Inner{
+    flex-direction: column;
+  }
+
+  .TopHeaderContext {
+    margin-right: 0;
+  }
+}
+
+@media screen and (max-width: 550px){
+  .row {
+    flex-direction: column;
+  }
+}
+
+.Cards-Wrapper {
+  display: flex;
+  flex-wrap: wrap;
+  padding-left: 0;
+}
+
+.Custom-Card-Container {
+   flex: 0 0 33.333333%;
+   margin-top: 30 
 }
