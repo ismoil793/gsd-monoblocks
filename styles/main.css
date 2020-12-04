@@ -30,7 +30,6 @@ body {
   display: flex;
   justify-content: space-between;
   margin-left: -30px;
-  margin-right: -30px;
 }
 
 .TopHeaderBackground {
@@ -400,9 +399,11 @@ img {
   display: flex;
   flex-wrap: wrap;
   padding-left: 0;
+  justify-content: space-between;
+  
 }
 
 .Custom-Card-Container {
-   flex: 0 0 33.333333%;
-   margin-top: 30 
+   flex: 0 0 31.333333%;
+   margin-top: 30px;
 }
