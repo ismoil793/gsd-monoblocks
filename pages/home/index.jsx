@@ -1,26 +1,45 @@
+import { useEffect, useState } from 'react';
 import HeaderTopContainer from '../../components/Layout/Header/HeaderTop';
 import CustomBreadCrumb from '../../components/Layout/Header/BreadCrumb';
 import Footer from '../../components/Layout/Footer/index';
 import CustomNavbar from '../../components/Layout/Navbar/index';
 import { Select, Pagination } from 'antd';
 import {
-  /* Container, */
   Col,
   Row
 } from 'react-bootstrap';
 import CustomCard from '../../components/Layout/Cards/Card';
+import axios from 'axios';
+import { useDispatch } from 'react-redux';
+import * as actions from '../../redux/action/index';
 
 const { Option } = Select;
-
-function handleChange(value) {
-  console.log(`selected ${value}`);
-}
 
 const onChange = (value) => {
   console.log('values: ', value);
 }
 
-const Home = () => {
+export async function getStaticProps(){
+  const test = await axios.get('http://10.2.1.192:8000/api/monoblocks');
+  return {
+    props: {
+      params: monoblocks.data
+    }
+  }
+}
+
+const Home = ({ params: {data} }) => {
+  const [monoblocks, getMonoblocks] = useState(null);
+  const dispatch = useDispatch();
+  
+  useEffect(() => {
+    if(data) {
+      dispatch(actions.isInitialDataLoaded(true))
+      dispatch(actions.initialData(data));
+      getMonoblocks(monoblocks);
+    }
+  }, [data])
+
   return (
     <>
       <HeaderTopContainer>
@@ -63,47 +82,9 @@ const Home = () => {
         </Row>
       </div>
       <div className="Container">
-        {/* <Row>
-          <Col span={8}>
-            <CustomCard />
-          </Col>
-          <Col span={8}>
-            <CustomCard />
-          </Col>
-          <Col span={8}>
-            <CustomCard />
-          </Col>
-        </Row>
-        <Row>
-          <Col span={8}>
-            <CustomCard />
-          </Col>
-          <Col span={8}>
-            <CustomCard />
-          </Col>
-          <Col span={8}>
-            <CustomCard />
-          </Col>
-        </Row>
-        <Row>
-          <Col span={8}>
-            <CustomCard />
-          </Col>
-          <Col span={8}>
-            <CustomCard />
-          </Col>
-          <Col span={8}>
-            <CustomCard />
-          </Col>
-        </Row> */}
-
-
         <div className="Cards-Wrapper">
           {[1,2,3,4,5,6,7,8,9].map((card) => <CustomCard key={card} />)}
         </div>
-        
-
-
         <Pagination
           pageSize={9}
           onChange={onChange}
@@ -119,6 +100,7 @@ const Home = () => {
     </>
   );
 };
+
 
 export default Home;
 

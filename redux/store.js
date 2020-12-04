@@ -42,19 +42,3 @@ export const useStore = (initialState) => {
   const store = useMemo(() => initializeStore(initialState), [initialState])
   return store
 }
-
-
-
-/* const middleware = applyMiddleware(thunk);
-
-export default (initialState, window) => {
-  if (window) {
-    return withRedux(
-      createStore(
-        rootReducer,
-        initialState,
-        composeWithDevTools(applyMiddleware()
-    )));
-  }
-  return withRedux(createStore(rootReducer, initialState, middleware));
-}; */

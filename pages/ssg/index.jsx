@@ -1,6 +1,6 @@
 import axios from 'axios';
 import { useDispatch, useSelector } from 'react-redux';
-
+/* 
 export async function getStaticProps(context){
   const test = await axios.get('https://api.rrpo.uz/api/products');
   console.log('test: ', test);
@@ -11,9 +11,8 @@ export async function getStaticProps(context){
   }
 }
 
-
-const Dragons = ({ params: {data} }) => {
-  console.log(data);
+ */
+const Dragons = () => {
   const test2 = useSelector((state) => state);
   return <h1>Hello world</h1>
 }

@@ -1,20 +1,5 @@
-/* import { createAction } from 'redux-actions'; */
-/* import axios from 'axios'; */
+import { createAction } from 'redux-actions';
+import axios from 'axios'; 
 
-/* export const postMessage = (userNameText, postMessageLink) => async (dispatch) => {
-  dispatch(postMessageRequest());
-  try {
-    await axios.post(postMessageLink, {
-      data: {
-        attributes: {
-          message: userNameText.text,
-          username: userNameText.userName,
-        },
-      },
-    });
-    dispatch(postMessageSuccess(userNameText));
-  } catch (e) {
-    dispatch(postMessageFailure());
-  }
-};
- */
+export const isInitialDataLoaded = createAction('IS_INITIAL_DATA_LOADED'); 
+export const initialData = createAction('INITIAL_DATA');
