@@ -20,25 +20,26 @@ const onChange = (value) => {
 }
 
 export async function getStaticProps(){
-  const test = await axios.get('http://10.2.1.192:8000/api/monoblocks');
+  const monoblocks = await axios.get('http://10.2.1.192:8000/api/monoblocks');
+  console.log('monoblocks: ', monoblocks);
   return {
     props: {
-      params: monoblocks.data
+      params: monoblocks ? monoblocks.data : null
     }
   }
 }
 
-const Home = ({ params: {data} }) => {
+const Home = ({ params }) => {
   const [monoblocks, getMonoblocks] = useState(null);
   const dispatch = useDispatch();
   
   useEffect(() => {
-    if(data) {
+    if(params) {
       dispatch(actions.isInitialDataLoaded(true))
-      dispatch(actions.initialData(data));
+      dispatch(actions.initialData(params.data));
       getMonoblocks(monoblocks);
     }
-  }, [data])
+  }, [params])
 
   return (
     <>
@@ -51,7 +52,7 @@ const Home = ({ params: {data} }) => {
             </li>
             <li className="call-msg-item" style={{ marginLeft: 10 }}>
               <i className="fas fa-envelope"></i>
-              <a href=" info@gsdas.eu"> info@gsdas.eu</a>
+              <a href="info@gsdas.eu"> info@gsdas.eu</a>
             </li>
           </ul>
         </div>
@@ -103,4 +104,3 @@ const Home = ({ params: {data} }) => {
 
 
 export default Home;
-
