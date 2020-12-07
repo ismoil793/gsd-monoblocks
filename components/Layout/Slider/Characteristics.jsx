@@ -18,7 +18,6 @@ const Characteristics = () => {
     setComponentSize(size);
   };
   return (
-    <div>
       <Form
         labelCol={{ span: 4 }}
         wrapperCol={{ span: 14 }}
@@ -63,7 +62,6 @@ const Characteristics = () => {
           </Select>
         </Form.Item>
       </Form>
-    </div>
   );
 }
 

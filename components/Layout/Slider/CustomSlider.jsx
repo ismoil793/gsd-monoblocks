@@ -39,7 +39,7 @@ const CustomSlider = () => {
   ); */
   return (
    <Row>
-     <Col sm={6}>
+     <Col sm={6} className="align-self-center">
         <Carousel
           onSelect={(index) => setCurrImage(index)} activeIndex={currImage}
         >
@@ -71,8 +71,10 @@ const CustomSlider = () => {
             <span><img onClick={() => setCurrImage(2)} className="Custom-Thumbnail-Item" src={imageThree} alt=""/></span>
           </div>
       </Col>
-     <Col sm={6} style={{ border: '1px solid green' }}>
-       <Characteristics />
+     <Col className="align-self-center" sm={6}>
+       <div>
+         <Characteristics />
+       </div>
      </Col>
    </Row>
   );
