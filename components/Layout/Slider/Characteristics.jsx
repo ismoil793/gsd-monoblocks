@@ -24,9 +24,7 @@ const Characteristics = () => {
 
   useEffect(() => {
     setOldPrice(price);
-    console.log('oldPrice: ', oldPrice);
     setPrice(cpu+ram+hddsdd+graphicCard+keyboardMouse);
-    console.log('nePrice: ', price);
   }, [cpu, ram, hddsdd, graphicCard, keyboardMouse])
 
 

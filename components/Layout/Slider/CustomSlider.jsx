@@ -15,8 +15,8 @@ const CustomSlider = () => {
 
   const [currImage, setCurrImage] = useState(0);
   return (
-   <Row>
-     <Col xl={6} lg={7} md={7} sm={12} className="align-self-center">
+   <div className="Container Slide-Form-Wrapper">
+     <div className="align-self-center">
         <Carousel
           onSelect={(index) => setCurrImage(index)} activeIndex={currImage}
         >
@@ -47,13 +47,11 @@ const CustomSlider = () => {
             <span><img onClick={() => setCurrImage(1)} className="Custom-Thumbnail-Item" src={imageTwo} alt=""/></span>
             <span><img onClick={() => setCurrImage(2)} className="Custom-Thumbnail-Item" src={imageThree} alt=""/></span>
           </div>
-      </Col>
-     <Col xl={6} lg={5} md={5} sm={12} className="align-self-center Charac-Respon-Padd">
-       <div>
+      </div>
+     <div className="align-self-center Charac-Respon-Padd">
          <Characteristics />
-       </div>
-     </Col>
-   </Row>
+     </div>
+   </div>
   );
 }
 

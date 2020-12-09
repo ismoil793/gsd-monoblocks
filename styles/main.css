@@ -514,9 +514,23 @@ img {
   border-color: rgb(255, 125, 6) !important;
 }
 
+.Charac-Respon-Padd {
+  width: 85% !important;
+}
 
 @media screen and (max-width: 768px) {
   .Charac-Respon-Padd {
     margin-top: 30px;
   }
+
+  .Slide-Form-Wrapper {
+    display: flex;
+    flex-direction: column !important;
+  }
+}
+
+.Slide-Form-Wrapper {
+  display: flex;
+  justify-content: space-between;
+  flex-direction: row;
 }
