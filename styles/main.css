@@ -499,3 +499,24 @@ img {
 }
 
 .carousel-indicators li { visibility: hidden; }
+
+.Number-Animation {
+  font-size: 18px;
+}
+
+.Characteristics-Margin {
+  margin-top: 40px;
+  margin-bottom: 40px;
+}
+
+.ant-btn:hover, .ant-btn:focus {
+  color: white !important;
+  border-color: rgb(255, 125, 6) !important;
+}
+
+
+@media screen and (max-width: 768px) {
+  .Charac-Respon-Padd {
+    margin-top: 30px;
+  }
+}

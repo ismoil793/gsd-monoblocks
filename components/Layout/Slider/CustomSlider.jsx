@@ -11,55 +11,32 @@ import "slick-carousel/slick/slick-theme.css";
 import { Carousel, Row, Col } from 'react-bootstrap';
 
 const CustomSlider = () => {
-  const [images, setSlides] = useState([imageOne, imageTwo, imageThree].map((image) => <img src={image} />));
+  /* const [images, setSlides] = useState([imageOne, imageTwo, imageThree].map((image) => <img src={image} />)); */
 
   const [currImage, setCurrImage] = useState(0);
-  /* return (
-    <div>
-      <div style={{ display: 'flex', border: '1px solid red', justifyContent: 'space-between', flexFlow: 'row', alignContent: 'center', textAlign: 'center' }}>
-        <Carousel
-        arrows
-        infinite
-        onChange={setCurrImage}
-        value={currImage}
-        animationSpeed={1000}
-        slides={images}
-        style={{ border: '1px solid green' }}
-      />
-      <Characteristics />
-    </div>
-    <Dots
-        number={images.length}
-        thumbnails={images}
-        value={currImage}
-        onChange={setCurrImage}
-        number={images.length}
-      />
-    </div>
-  ); */
   return (
    <Row>
-     <Col sm={6} className="align-self-center">
+     <Col xl={6} lg={7} md={7} sm={12} className="align-self-center">
         <Carousel
           onSelect={(index) => setCurrImage(index)} activeIndex={currImage}
         >
           <Carousel.Item>
             <img
-              className="d-block w-65 Carousel-Image"
+              className="d-block w-90 Carousel-Image"
               src={imageOne}
               alt="First slide"
             />
           </Carousel.Item>
           <Carousel.Item>
             <img
-              className="d-block w-65 Carousel-Image"
+              className="d-block w-90 Carousel-Image"
               src={imageTwo}
               alt="Third slide"
             />
           </Carousel.Item>
             <Carousel.Item>
               <img
-                className="d-block w-65 Carousel-Image"
+                className="d-block w-90 Carousel-Image"
                 src={imageThree}
                 alt="Third slide"
               />
@@ -71,7 +48,7 @@ const CustomSlider = () => {
             <span><img onClick={() => setCurrImage(2)} className="Custom-Thumbnail-Item" src={imageThree} alt=""/></span>
           </div>
       </Col>
-     <Col className="align-self-center" sm={6}>
+     <Col xl={6} lg={5} md={5} sm={12} className="align-self-center Charac-Respon-Padd">
        <div>
          <Characteristics />
        </div>

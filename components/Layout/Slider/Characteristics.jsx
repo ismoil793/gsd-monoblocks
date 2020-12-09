@@ -1,16 +1,9 @@
 import { useState, useEffect } from 'react';
-import dynamic from 'next/dynamic'
+import CountUp from 'react-countup';
 import {
   Form,
-  Input,
   Button,
-  Radio,
   Select,
-  Cascader,
-  DatePicker,
-  InputNumber,
-  TreeSelect,
-  Switch,
 } from 'antd';
 
 const Characteristics = () => {
@@ -20,7 +13,8 @@ const Characteristics = () => {
   const [hddsdd, setHDDSDD] = useState(700);
   const [graphicCard, setGraphicCard] = useState(1000);
   const [keyboardMouse, setKeyboardMouse] = useState(1300);
-  const [price, setPrice] = useState(0)
+  const [price, setPrice] = useState(0);
+  const [oldPrice, setOldPrice] = useState(0);
   const onFormLayoutChange = ({ size }) => {
     setComponentSize(size);
   };
@@ -29,43 +23,22 @@ const Characteristics = () => {
   }
 
   useEffect(() => {
+    setOldPrice(price);
+    console.log('oldPrice: ', oldPrice);
     setPrice(cpu+ram+hddsdd+graphicCard+keyboardMouse);
+    console.log('nePrice: ', price);
   }, [cpu, ram, hddsdd, graphicCard, keyboardMouse])
 
-//   const animateValue = (id, start, end, duration) => {
-//     if (start === end) return;
-//     const range = end - start;
-//     let current = start;
-//     const increment = end > start? 1 : -1;
-//     const stepTime = Math.abs(Math.floor(duration / range));
-//     // const obj = document.getElementById(id);
-//     const timer = setInterval(() => {
-//         current += increment;
-//         // obj.innerHTML = current;
-//         if (current == end) {
-//             clearInterval(timer);
-//         }
-//     }, stepTime);
-
-//     return current;
-// }
-
-
-const Odometer = dynamic(import('react-odometerjs'), {
-  ssr: false,
-  loading: () => 0,
-});
 
   return (
     <div>
       <Form
-        labelCol={{ span: 4 }}
-        wrapperCol={{ span: 14 }}
         layout="horizontal"
         initialValues={{ size: componentSize }}
         onValuesChange={onFormLayoutChange}
         size={componentSize}
         onFinish={onFinish}
+        labelCol={{span: 24}}
         initialValues={{
           cpu: 100,
           ram: 400,
@@ -78,6 +51,7 @@ const Odometer = dynamic(import('react-odometerjs'), {
           label="CPU"
           name="cpu"
           rules={[{ required: true }]}
+           colon={false}
         >
           <Select
             onChange={setCPU}
@@ -116,7 +90,6 @@ const Odometer = dynamic(import('react-odometerjs'), {
         <Form.Item
           label="Graphic card"
           name="graphCard"
-          rules={[{ required: true }]}
         >
           <Select
             onChange={setGraphicCard}
@@ -128,7 +101,6 @@ const Odometer = dynamic(import('react-odometerjs'), {
         </Form.Item>
         <Form.Item
           label="Keyboard and Mouse"
-          rules={[{ required: true }]}
           name="keyMouse"
         >
           <Select
@@ -140,11 +112,27 @@ const Odometer = dynamic(import('react-odometerjs'), {
           </Select>
         </Form.Item>
       </Form>
-      <Odometer
-        value={price}
-        format="(,ddd).dd "
-        duration={1000}
+      {/* {animateValue(oldPrice,price,2000)} */}
+      <h6>Price</h6>
+      <CountUp
+        start={oldPrice}
+        end={price}
+        duration={1.5}
+        prefix="€ "
+        className="Number-Animation"
       />
+      <br/>
+      <Button
+        shape="round"
+        style={{
+          backgroundColor: '#ff7d06',
+          marginTop: 20,
+          color: 'white',
+        }}  
+      >
+          Add to cart
+      </Button>
+      <p style={{ fontSize: 14, marginTop: 10 }}><span style={{ color: 'red' }}>*</span>Required</p>
     </div>
   );
 }

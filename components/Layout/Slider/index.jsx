@@ -3,7 +3,7 @@ import Characteristics from './Characteristics';
 
 const Carousel = () => {
   return (
-      <CustomSlider />
+      <div className="Characteristics-Margin"><CustomSlider /></div>
   );
 }
 
