@@ -16,27 +16,28 @@ const CustomSlider = () => {
   const [currImage, setCurrImage] = useState(0);
   return (
    <div className="Container Slide-Form-Wrapper">
-     <div className="align-self-center">
+     <div className="align-self-center Slide">
         <Carousel
           onSelect={(index) => setCurrImage(index)} activeIndex={currImage}
+          fade={true}
         >
           <Carousel.Item>
             <img
-              className="d-block w-90 Carousel-Image"
+              className="d-block Carousel-Image"
               src={imageOne}
               alt="First slide"
             />
           </Carousel.Item>
           <Carousel.Item>
             <img
-              className="d-block w-90 Carousel-Image"
+              className="d-block Carousel-Image"
               src={imageTwo}
               alt="Third slide"
             />
           </Carousel.Item>
             <Carousel.Item>
               <img
-                className="d-block w-90 Carousel-Image"
+                className="d-block Carousel-Image"
                 src={imageThree}
                 alt="Third slide"
               />

@@ -27,9 +27,10 @@ body {
 }
 
 .Container {
-  width: 90vw;
+  width: 1200px;
   margin: 0 auto;
-  padding: 0 16px;
+  padding-left: 15px;
+  padding-right: 15px;
   max-width: 100%;
 }
 
@@ -445,9 +446,9 @@ img {
             flex-direction: column;
   }
 
-  .Container {
+  /* .Container {
     width: 80vw;
-  }
+  } */
 }
 
 .Cards-Wrapper {
@@ -483,7 +484,6 @@ img {
 }
 
 .Carousel-Image {
-  width: 70%;
   margin: auto;
 }
 
@@ -515,7 +515,11 @@ img {
 }
 
 .Charac-Respon-Padd {
-  width: 85% !important;
+  width: 55% !important;
+}
+
+.Slide {
+  width: 45%;
 }
 
 @media screen and (max-width: 768px) {
@@ -533,4 +537,13 @@ img {
   display: flex;
   justify-content: space-between;
   flex-direction: row;
+}
+
+.ant-form-vertical .ant-form-item-label, .ant-col-24.ant-form-item-label, .ant-col-xl-24.ant-form-item-label {
+  padding: 0 !important;
+}
+
+.ant-form-item {
+  padding-bottom: .75em !important;
+  margin-bottom: 0px !important;
 }
