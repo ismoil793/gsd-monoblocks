@@ -1,5 +1,6 @@
 import { useState, useEffect } from 'react';
 import CountUp from 'react-countup';
+import Navs from '../Navs';
 import {
   Form,
   Button,

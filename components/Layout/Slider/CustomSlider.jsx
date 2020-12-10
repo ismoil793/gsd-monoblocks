@@ -8,7 +8,8 @@ import imageTwo from '../../../static/img/a2.jpg';
 import imageThree from '../../../static/img/a3.png';
 import "slick-carousel/slick/slick.css"; 
 import "slick-carousel/slick/slick-theme.css";
-import { Carousel, Row, Col } from 'react-bootstrap';
+import { Carousel } from 'react-bootstrap';
+import Navs from '../Navs';
 
 const CustomSlider = () => {
   /* const [images, setSlides] = useState([imageOne, imageTwo, imageThree].map((image) => <img src={image} />)); */
