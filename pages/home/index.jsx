@@ -34,8 +34,8 @@ const Home = ({ params }) => {
   
   useEffect(() => {
     if(params) {
-      dispatch(actions.isInitialDataLoaded(true))
-      dispatch(actions.initialData(params.data));
+      /* dispatch(actions.isInitialDataLoaded(true))
+      dispatch(actions.initialData(params.data)); */
       getMonoblocks(monoblocks);
     }
   }, [params])

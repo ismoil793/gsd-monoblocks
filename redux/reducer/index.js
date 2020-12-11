@@ -1,25 +1,29 @@
-
 import { handleActions } from 'redux-actions';
 import { combineReducers } from 'redux';
 import * as actions from '../action/index';
 
-const handleMonoblocks = handleActions({
-  [actions.isInitialDataLoaded](state){
+const handleAuth = handleActions({
+  [actions.signUpRequest](state) {
     return {
       ...state,
-      isInitialDataLoaded: true,
-    }
+      signUpStatus: 'request',
+    };
   },
-  [actions.initialData](state, {payload}){
+  [actions.signUpFailed](state) {
     return {
       ...state,
-      monoblocks: payload
-    }
-  }
-}, {
-  isInitialDataLoaded: false
-});
+      signUpStatus: 'failure',
+    };
+  },
+  [actions.signUpSuccess](state, payload) {
+    console.log(payload);
+    return {
+      ...state,
+      signUpStatus: 'success',
+    };
+  },
+}, {});
 
 export default combineReducers({
-  handleMonoblocks
+  handleAuth,
 });

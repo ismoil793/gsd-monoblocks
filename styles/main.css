@@ -547,3 +547,18 @@ img {
   padding-bottom: .75em !important;
   margin-bottom: 0px !important;
 }
+
+.login-container {
+  height: 100vh;
+  width: 100vw;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.login {
+  padding: 20px;
+  -webkit-box-shadow: 0px 0px 24px -14px rgba(0,0,0,0.83);
+  -moz-box-shadow: 0px 0px 24px -14px rgba(0,0,0,0.83);
+  box-shadow: 0px 0px 24px -14px rgba(0,0,0,0.83);
+}

@@ -1,8 +1,8 @@
 import HeaderTopContainer from '../../components/Layout/Header/HeaderTop';
-import CustomNavbar from '../../components/Layout/Navbar/index';
+import CustomNavbar from '../../components/Layout/Navbar';
 import CustomBreadCrumb from '../../components/Layout/Header/BreadCrumb';
-import Footer from '../../components/Layout/Footer/index';
-import CustomSlider from '../../components/Layout/Slider/index';
+import Footer from '../../components/Layout/Footer';
+import CustomSlider from '../../components/Layout/Slider';
 import { Select } from 'antd';
 const { Option } = Select;
 
