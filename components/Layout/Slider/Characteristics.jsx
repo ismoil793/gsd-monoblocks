@@ -31,6 +31,9 @@ const Characteristics = () => {
 
   return (
     <div>
+      <p className="characteristic-title">
+        AVTECH X5 (Black) All-in-One PC
+      </p>
       <Form
         layout="horizontal"
         initialValues={{ size: componentSize }}

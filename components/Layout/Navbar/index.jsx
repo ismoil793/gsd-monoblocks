@@ -17,28 +17,30 @@ const CustomNavbar = () => {
                {/*  <img src="/static/img/croppedlogo.png" /> */}
               </a>
         </div>
-        {/* <div className="Main-Navbar">
+        <div className="Main-Navbar">
             <nav className="Main-Navigation">
               <ul className="Primary-Menu">
-                <li>Main</li>
-                <li className="Dropdown">
+                <li className="Root-Menu-li">Main</li>
+                <li className="Dropdown Root-Menu-li">
                   About us
+                  {/* <i class="fas drop-down-arrow fa-chevron-down"></i> */}
                   <ul className="Dropdown-Content">
-                    <li>Company Profile</li>
-                    <li>Mission and Vision</li>
-                    <li>History</li>
-                    <li>Our presence</li>
-                    <li>Career</li>
+                    <li><a>Company Profile</a></li>
+                    <li><a>Mission and Vision</a></li>
+                    <li><a>History</a></li>
+                    <li><a>Our presence</a></li>
+                    <li><a>Career</a></li>
                   </ul>
-                 {/*  <div className="DropdownTest">
-                    <p>Main</p>
-                    <p>Company Profile</p>
-                    <p>Services</p>
-                    <p>Solutions</p>
-                    <p>Career</p>
-                  </div> 
+                 {/*<div className="DropdownTest">
+                      <p>Main</p>
+                      <p>Company Profile</p>
+                      <p>Services</p>
+                      <p>Solutions</p>
+                      <p>Career</p>
+                  </div>
+                  */}
                 </li>
-                <li className="Dropdown">
+                <li className="Dropdown Dropdown Root-Menu-li">
                   Solutions
                    <ul className="Dropdown-Content">
                     <li>hello</li>
@@ -46,7 +48,7 @@ const CustomNavbar = () => {
                     <li>hello</li>
                   </ul>
                 </li>
-                <li className="Dropdown">
+                <li className="Dropdown Dropdown Root-Menu-li">
                   Services
                    <ul className="Dropdown-Content">
                     <li>hello</li>
@@ -54,12 +56,12 @@ const CustomNavbar = () => {
                     <li>hello</li>
                   </ul>
                 </li>
-                <li>Vendors</li>
-                <li>Newsroom</li>
-                <li>Contacts</li>
+                <li className="Dropdown Root-Menu-li">Vendors</li>
+                <li className="Dropdown Root-Menu-li">Newsroom</li>
+                <li className="Dropdown Root-Menu-li">Contacts</li>
               </ul>
             </nav>
-        </div> */}
+        </div>
       </div>
     </div>
   );

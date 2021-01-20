@@ -9,8 +9,8 @@ import * as actions from '../../redux/action/index';
 
 
 const layout = {
-  labelCol: { span: 8 },
-  wrapperCol: { span: 16 },
+  labelCol: { span: 9 },
+  wrapperCol: { span: 15 },
 };
 /* eslint-disable */
 const validateMessages = {
