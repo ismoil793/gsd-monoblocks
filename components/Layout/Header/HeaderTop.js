@@ -19,7 +19,7 @@ const HeaderTop = () => {
                   </li>
                 </ul>
                </div>
-               <div>
+              <div>
                 <Select defaultValue="Russian" style={{ width: 120 }}>
                   <Option value="ru">Russian</Option>
                   <Option value="uz">Uzbek</Option>

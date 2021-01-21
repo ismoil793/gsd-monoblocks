@@ -52,6 +52,10 @@ const Characteristics = () => {
         <Form.Item
           label="CPU"
           name="cpu"
+          style={{
+          fontSize: '24px !important',
+          color: 'red',
+        }}
           rules={[{ required: true }]}
            colon={false}
         >
@@ -122,6 +126,9 @@ const Characteristics = () => {
         duration={1.5}
         prefix="€ "
         className="Number-Animation"
+        style={{
+          fontSize: 24,
+        }}
       />
       <br/>
       <Button

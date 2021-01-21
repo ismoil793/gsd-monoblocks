@@ -45,6 +45,8 @@ body {
       -ms-flex-pack: justify;
           justify-content: space-between;
   margin-left: -30px;
+  margin-top: 1rem;
+  font-size: 16px;
 }
 
 .TopHeaderBackground {
@@ -894,4 +896,49 @@ td {
   background-color: #ff7d06 !important;
   color: white !important;
   height: auto !important;
+}
+
+.ant-form-item-label > label {
+  font-size: 18px !important;
+}
+
+.CheckoutFormWrapper {
+  display: flex;
+  justify-content: space-between;
+}
+
+.CheckoutFormButton {
+  background-color: #ff7d06 !important;
+  color: white !important;
+  float: right;
+}
+
+@media screen and (max-width: 769px){
+  .CheckoutFormWrapper {
+    flex-direction: column;
+  }
+}
+
+.order-details-table {
+  border-collapse: collapse;
+  border: 1px solid rgba(0,0,0,.1);
+  margin: 0 -1px 24px 0;
+  text-align: left;
+  width: 100%;
+  border-collapse: separate;
+  border-radius: 5px;
+  background: none repeat scroll 0 0 #ffffff;
+  border-spacing: 0;
+}
+
+.order-details-table td {
+  font-size: 16px;
+}
+
+.colored-table tr:nth-child(odd){
+  background-color: #f2f2f2;
+}
+
+.colored-table tr:first-child{
+  background-color: white;
 }
