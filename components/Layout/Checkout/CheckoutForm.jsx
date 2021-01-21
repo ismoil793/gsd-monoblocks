@@ -109,6 +109,17 @@ const CheckoutForm = (props) => {
         </Form.Item>
 
         <Form.Item
+          label="Town/City"
+          name="town_city"
+          rules={[{
+            required: true,
+            message: 'Town/City is required',
+          }]}
+        >
+          <Input />
+        </Form.Item>
+
+        <Form.Item
           label="Street address1"
           name="street_address1"
           rules={[{
@@ -124,17 +135,6 @@ const CheckoutForm = (props) => {
           name="street_address2"
         >
           <Input placeholder="Apartment, suite, unit, etc. (optional)" />
-        </Form.Item>
-
-        <Form.Item
-          label="Town/City"
-          name="town_city"
-          rules={[{
-            required: true,
-            message: 'Town/City is required',
-          }]}
-        >
-          <Input />
         </Form.Item>
 
         <Form.Item

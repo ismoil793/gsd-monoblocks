@@ -617,8 +617,8 @@ img {
 }
 
 .login-container {
-  height: 100vh;
-  width: 100vw;
+  /* height: 100vh; */
+  width: 49%;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -917,6 +917,14 @@ td {
   .CheckoutFormWrapper {
     flex-direction: column;
   }
+
+  .Cabinet-Form-Wrapper {
+    flex-direction: column;
+  }
+
+  .login-container {
+    width: 100% !important;
+  }
 }
 
 .order-details-table {
@@ -941,4 +949,14 @@ td {
 
 .colored-table tr:first-child{
   background-color: white;
+}
+
+.Cabinet-Form-Wrapper {
+  display: flex;
+  justify-content: space-between;
+}
+
+.ant-checkbox-checked .ant-checkbox-inner {
+  background-color: #ff7d06 !important;
+  border-color: #ff7d06 !important;
 }
