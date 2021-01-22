@@ -1,4 +1,10 @@
-import { Form, Input, Button, Checkbox } from 'antd';
+import Link from 'next/link'
+import {
+  Form,
+  Input,
+  Button,
+  Checkbox,
+} from 'antd';
 
 const layout = {
   labelCol: { span: 24 },
@@ -75,7 +81,11 @@ const LoginForm = () => {
             </Form.Item>
           </div>
           <Form.Item>
-            <p>Lost your password?</p>
+            <Link href="/">
+                <a className="password-recovery">
+                  Lost your password?
+                </a>
+            </Link>
           </Form.Item>
         </Form>
   

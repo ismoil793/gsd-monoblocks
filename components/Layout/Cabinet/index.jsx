@@ -1,15 +1,18 @@
-import LoginForm from './LoginForm';
-import RegisterForm from './RegisterForm';
+import SideMenu from './SideMenu';
+import Orders from './Orders';
 
-const CabinetLayout = () => {
+const Cabinet = () => {
   return (
-    <div className="Cabinet-Form-Wrapper" >
-      <LoginForm />
-      <br/>
-      <RegisterForm />
-      <br/>
+    <div
+      style={{
+        display: 'flex',
+        justifyContent: 'space-between',
+      }}
+    >
+      <SideMenu />
+      <Orders />
     </div>
   );
 };
 
-export default CabinetLayout;
+export default Cabinet;

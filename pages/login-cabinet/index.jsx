@@ -1,9 +1,9 @@
-import CabinetLayout from '../../components/Layout/Cabinet';
+import LoginRegister from "../../components/Layout/LoginRegister";
 import HeaderTopContainer from '../../components/Layout/Header/HeaderTop';
 import CustomBreadCrumb from '../../components/Layout/Header/BreadCrumb';
 import Footer from '../../components/Layout/Footer';
 
-const Cabinet = () => {
+const LoginCabinet = () => {
   return (
     <>
       <HeaderTopContainer />
@@ -11,12 +11,13 @@ const Cabinet = () => {
       <br/>
       <br/>
       <div className="Container">
-        <CabinetLayout />
+        <LoginRegister />
       </div>
       <br/>
+      <br/>
       <Footer />
-    </>  
+    </>
   );
 };
 
-export default Cabinet;
+export default LoginCabinet;

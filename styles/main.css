@@ -34,6 +34,7 @@ body {
   padding-left: 15px;
   padding-right: 15px;
   max-width: 100%;
+  position: relative;
 }
 
 .TopHeaderContext {
@@ -319,6 +320,7 @@ img {
 
 .Footer {
   background: #111 none repeat scroll 0 0;
+  width: 100%;
 }
 
 .Dropdown:hover {
@@ -959,4 +961,46 @@ td {
 .ant-checkbox-checked .ant-checkbox-inner {
   background-color: #ff7d06 !important;
   border-color: #ff7d06 !important;
+}
+
+.password-recovery {
+  color: black;
+}
+
+.password-recovery:hover {
+  color: #ff7d06;
+  text-decoration: none;
+}
+
+.SideMenu {
+  list-style-type: none;
+  /* width: 30%; */
+  background: #f9f9f9;
+  padding: 30px;
+}
+
+.SideMenu li{
+  /* border: 1px solid red; */
+  list-style-type: none;
+  padding-bottom: 10px;
+  padding-top: 10px;
+  font-size: 18px;
+}
+
+.SideMenu li:hover{
+  /* border: 1px solid red; */
+  cursor: pointer;
+  color: #ff7d06;
+  transition: .2s;
+}
+
+.SideMenuWrapper {
+  width: 30%;
+}
+
+.Browse-Products-Button {
+  background-color: #ff7d06 !important;
+  color: white !important;
+  float: right;
+  margin-bottom: 20
 }

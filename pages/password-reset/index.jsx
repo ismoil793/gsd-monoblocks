@@ -1,22 +1,27 @@
-import CabinetLayout from '../../components/Layout/Cabinet';
+import PasswordResetLayout from '../../components/Layout/PasswordReset';
 import HeaderTopContainer from '../../components/Layout/Header/HeaderTop';
 import CustomBreadCrumb from '../../components/Layout/Header/BreadCrumb';
 import Footer from '../../components/Layout/Footer';
 
-const Cabinet = () => {
-  return (
+const PasswordReset = () => {
+   return (
     <>
       <HeaderTopContainer />
       <CustomBreadCrumb />
       <br/>
       <br/>
       <div className="Container">
-        <CabinetLayout />
+        <div
+          style={{
+            minHeight: '40vh'
+          }}
+        >
+          <PasswordResetLayout />
+        </div>
       </div>
-      <br/>
       <Footer />
-    </>  
+    </>
   );
 };
 
-export default Cabinet;
+export default PasswordReset;
