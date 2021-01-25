@@ -54,9 +54,7 @@ const Item = () => {
         </thead>
         <tbody>
           <tr>
-            <td>
-              <img src={removeButton} width="25" alt="removeButton"/>
-            </td>
+            <td></td>
             <td>icon</td>
             <td>
               Barebone AVTECH PRO K40
@@ -103,18 +101,9 @@ const Item = () => {
               </div>
             </td>
             <td>{476}&euro;</td>
-            <td><InputNumber min={1} max={10} defaultValue={3} onChange={onChange} /></td>
+            <td><InputNumber readOnly onChange={onChange} /></td>
             <td>476</td>
           </tr>
-            <tr>
-              <td colSpan="6">
-                <Button
-                  className="updateCartButton"
-                >
-                  Update cart
-                </Button>
-              </td>
-            </tr>
         </tbody>
       </table>
       
