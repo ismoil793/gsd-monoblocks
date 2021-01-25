@@ -124,6 +124,7 @@ img {
   -webkit-transition: all 0.5s ease-in-out 0s;
   -o-transition: all 0.5s ease-in-out 0s;
   transition: all 0.5s ease-in-out 0s;
+  margin-left: 30px;
 /*   margin-top: 10px;
   margin-bottom: 5px */;
 }
@@ -171,12 +172,12 @@ img {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
+  justify-content: space-between;
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
   -webkit-box-pack: center;
       -ms-flex-pack: center;
-          justify-content: center;
 }
 
 .Dropdown::after {
@@ -187,7 +188,6 @@ img {
   position: absolute;
   right: 10px;
   top: 15px;
-  border: 1px solid red;
 }
 
 .Root-Menu-li:before {
@@ -212,7 +212,7 @@ img {
   height: 4px;
   position: absolute;
   right: -25px;
-  top: 47%;
+  top: 37%;
   width: 4px;
 }
 
@@ -358,7 +358,6 @@ img {
   background: #f1f1f1 none repeat scroll 0 0;
   bottom: 1px;
   height: 100%;
-  border: 1px solid red;
 }
 
 .Dropdown-Content li:hover:before {
@@ -619,8 +618,6 @@ img {
 }
 
 .login-container {
-  /* height: 100vh; */
-  width: 49%;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -1003,4 +1000,13 @@ td {
   color: white !important;
   float: right;
   margin-bottom: 20
+}
+
+.register-button:hover {
+  color: #ff7d06 !important;
+}
+
+.dropdown-icon {
+  width: 11px;
+  margin-left: 3px;
 }

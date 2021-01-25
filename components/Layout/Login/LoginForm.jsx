@@ -58,7 +58,7 @@ const LoginForm = () => {
             <Input.Password />
           </Form.Item>
 
-          <div style={{ display: 'flex' }}>
+          <div style={{ display: 'flex', justifyContent: 'space-between' }}>
             <div>
               <Form.Item
                 name="remember"
@@ -67,6 +67,16 @@ const LoginForm = () => {
                 <Checkbox>Remember me</Checkbox>
               </Form.Item>
             </div>
+
+            <Form.Item>
+              <Button className="register-button">
+                <Link
+                  href="/register"
+                >
+                  <a>Register</a>
+                </Link>
+              </Button>
+            </Form.Item>
 
             <Form.Item>
               <Button

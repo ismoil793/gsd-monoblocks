@@ -1,14 +1,47 @@
-import { InputNumber, Button } from 'antd';
+import { useRouter } from 'next/router';
+import HeaderTopContainer from '../../components/Layout/Header/HeaderTop';
+import Footer from '../../components/Layout/Footer';
+import CustomNavbar from '../../components/Layout/Navbar';
 import removeButton from '../../static/img/remove.png';
+import CartLayout from '../../components/Cart/index';
+import {
+  InputNumber,
+  Button,
+} from 'antd';
+
 
 const onChange = (value) => {
   console.log('value: ', value);
 }
 
-const Cart = () => {
+const Item = () => {
+  const router = useRouter();
+  const { id } = router.query;
+
   return (
-    <>
-      <table className="custon-table">
+     <>
+      <HeaderTopContainer />
+      <CustomNavbar />
+      <br/>
+      {/* <h1>item number {id}</h1> */}
+      <br/>
+      <br/>
+      <div className="Container" style={{ minHeight: '30vh' }}>
+        <table className="custon-table" style={{ width: '100%' }}>
+          <thead>
+            <th>Current Status</th>
+            <th>Order Date</th>
+            <th>Destination Address</th>
+          </thead>
+          <tbody>
+            <td>Active</td>
+            <td>10.10.2019</td>
+            <td>Latvia, something something</td>
+          </tbody>
+        </table>
+        <br/>
+        <br/>
+        <table className="custon-table">
         <thead>
           <tr>
             <th></th>
@@ -84,34 +117,12 @@ const Cart = () => {
             </tr>
         </tbody>
       </table>
-      <br/>
-      <br/>
-      <br/>
-      <div className="cartTotalWrapper">
-        <div>
-          <h3>Cart totals</h3>
-          <br/>
-          <table>
-            <tbody className="cartTotals">
-              <tr>
-                <td><b>Subtotal</b></td>
-                <td>1.454,00&euro;</td>
-              </tr>
-              <tr>
-                <td><b>Total</b></td>
-                <td><b>1.454,00&euro;</b></td>
-              </tr>
-            </tbody>
-          </table>
-          <br/>
-          <Button className="proceedButton">
-             Proceed to checkout
-          </Button>
-          <br/>
-        </div>
+      
       </div>
+      <br/>
+      <Footer />
     </>
   );
 };
 
-export default Cart;
+export default Item;

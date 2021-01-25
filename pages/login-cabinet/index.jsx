@@ -1,13 +1,13 @@
-import LoginRegister from "../../components/Layout/LoginRegister";
+import LoginRegister from "../../components/Layout/Login";
 import HeaderTopContainer from '../../components/Layout/Header/HeaderTop';
-import CustomBreadCrumb from '../../components/Layout/Header/BreadCrumb';
 import Footer from '../../components/Layout/Footer';
+import CustomNavbar from '../../components/Layout/Navbar';
 
 const LoginCabinet = () => {
   return (
     <>
       <HeaderTopContainer />
-      <CustomBreadCrumb />
+      <CustomNavbar />
       <br/>
       <br/>
       <div className="Container">

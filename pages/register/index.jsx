@@ -1,4 +1,4 @@
-import { useState } from 'react';
+/* import { useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import {
   Form,
@@ -12,7 +12,7 @@ const layout = {
   labelCol: { span: 9 },
   wrapperCol: { span: 15 },
 };
-/* eslint-disable */
+
 const validateMessages = {
   required: '${label} is required!',
   types: {
@@ -158,3 +158,28 @@ const RegisterForm = () => {
 };
 
 export default RegisterForm;
+ */
+
+import HeaderTopContainer from '../../components/Layout/Header/HeaderTop';
+import Footer from '../../components/Layout/Footer';
+import Register from '../../components/Layout/Register/RegisterForm';
+import CustomNavbar from '../../components/Layout/Navbar';
+
+const Cart = () => {
+  return (
+    <>
+      <HeaderTopContainer />
+      <CustomNavbar />
+      <br/>
+      <br/>
+      <div className="Container">
+        <Register />
+      </div>
+      <br/>
+      <br/>
+      <Footer />
+    </>
+  );
+};
+
+export default Cart;

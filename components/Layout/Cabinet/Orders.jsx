@@ -65,11 +65,13 @@ const Orders = () => {
       style={{
         width: '65%',
         backgroundColor: '#f9f9f9',
+        paddingTop: 10,
       }}
     >
       <Button className="Browse-Products-Button">
         Browse products
       </Button>
+      <h5 style={{ textAlign: 'center' }}>Orders</h5>
       <Table
         columns={columns}
         dataSource={dataSource}

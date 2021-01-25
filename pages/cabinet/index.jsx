@@ -1,13 +1,13 @@
 import CabinetLayout from '../../components/Layout/Cabinet';
 import HeaderTopContainer from '../../components/Layout/Header/HeaderTop';
-import CustomBreadCrumb from '../../components/Layout/Header/BreadCrumb';
 import Footer from '../../components/Layout/Footer';
+import CustomNavbar from '../../components/Layout/Navbar';
 
 const Cabinet = () => {
   return (
     <>
       <HeaderTopContainer />
-      <CustomBreadCrumb />
+      <CustomNavbar />
       <br/>
       <br/>
       <div className="Container">
