@@ -424,6 +424,7 @@ img {
   font-size: 23px;
   font-weight: 600;
   color: #55595c;
+  min-height: 3em;
 }
 
 .Custom-Card-Button {
