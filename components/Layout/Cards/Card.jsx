@@ -1,13 +1,14 @@
 import Link from 'next/link';
+import Image from 'next/image';
 
-const Card = () => {
+const Card = ({ url, title }) => {
   return (
       <div className="Custom-Card-Container">
         <div className="Custom-Card">
-        <img alt="example" className="Card-Img" src="/static/img/1.jpg" />
+        <img alt="example" className="Card-Img" src={url} />
       </div>
       <div className="Card-Context">
-          <p>AVTECH K40 PRO IPS 23.8"</p>
+        <p>{title}</p>
           <Link href="#">
             <a className="Custom-Card-Button">Select</a>
           </Link>
