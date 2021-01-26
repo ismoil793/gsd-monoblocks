@@ -68,20 +68,6 @@ const Home = ({ params }) => {
       </div>
       <div className="Container">
         <div className="Cards-Wrapper">
-
-         {/*  {[
-            {title: 'AVTECH PRO B20 All-in-One PC', url: pic1},
-            {title: 'AVTECH PRO G70 All-in-One PC', url: pic2},
-            {title: 'AVTECH PRO G700 2K All-in-One PC', url: pic3},
-            {title: 'AVTECH PRO G700 (144 HZ) FHD All-in-One PC', url: pic4},
-            {title: 'AVTECH PRO V400 All-in-One PC', url: pic5},
-            {title: 'AVTECH X5 All-in-One PC', url: pic6},
-            ].map((card) => <CustomCard key={card.title} test={pic1} {...card} />)} */}
-           {/*  <CustomCard key={pic2} url={pic2} title={'AVTECH PRO G70 All-in-One PC'} />
-            <CustomCard key={pic3} url={pic3} title={'AVTECH PRO G700 2K All-in-One PC'} />
-            <CustomCard key={pic4} url={pic4} title={'AVTECH PRO G700 (144 HZ) FHD All-in-One PC'} />
-            <CustomCard key={pic5} url={pic5} title={'AVTECH PRO V400 All-in-One PC'} />
-            <CustomCard key={pic6} url={pic6} title={'AVTECH X5 All-in-One PC'} /> */},
             {images.map(({ url, title }) => <CustomCard key={title} title={title} url={url} />)}
         </div>
         <Pagination

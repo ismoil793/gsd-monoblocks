@@ -4,15 +4,15 @@ import Image from 'next/image';
 const Card = ({ url, title }) => {
   return (
       <div className="Custom-Card-Container">
-        <div className="Custom-Card">
-        <img alt="example" className="Card-Img" src={url} />
-      </div>
-      <div className="Card-Context">
-        <p>{title}</p>
-          <Link href="#">
-            <a className="Custom-Card-Button">Select</a>
-          </Link>
-      </div>
+          <div className="Custom-Card">
+            <img alt="example" className="Card-Img" src={url} />
+          </div>
+          <div className="Card-Context">
+            <p>{title}</p>
+              <Link href="#">
+                <a className="Custom-Card-Button">Select</a>
+              </Link>
+          </div>
       </div>
   );
 }
