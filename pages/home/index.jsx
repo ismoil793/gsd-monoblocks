@@ -9,50 +9,45 @@ import {
 } from 'react-bootstrap';
 import CustomCard from '../../components/Layout/Cards/Card';
 import axios from 'axios';
-import { useDispatch } from 'react-redux';
-import * as actions from '../../redux/action/index';
+import { useDispatch, useSelector } from 'react-redux';
+import * as actions from '../../redux/action';
 
-const { Option } = Select;
 
-const onChange = (value) => {
-  console.log('values: ', value);
-}
-/* 
 export async function getStaticProps(){
-  const monoblocks = await axios.get('https://api.spacexdata.com/v3/dragons');
+  const response = await fetch('https://apigsd.rrpo.uz/api/monoblocks?page=1&per_page=9', {
+    method: 'GET',
+    headers: {
+      'Content-Type': 'application/json'
+    },
+  });
+  const monoblocks = await response.json();
   return {
     props: {
-      params: monoblocks ? monoblocks.data : null
+      monoblocks: monoblocks ? monoblocks : [],
     }
   }
-} */
+}
 
-const Home = ({ params }) => {
-  let pic1 = 'static/img/AvtechProG70All-in-OnePC.jpg'
-  const [monoblocks, getMonoblocks] = useState(null);
+const Home = ({ monoblocks }) => {
   const dispatch = useDispatch();
-  const [images, getImages] = useState([
-    {title: 'AVTECH PRO B20 All-in-One PC', url: '/static/img/AvtechProB20All-in-OnePC.jpg'},
-    {title: 'AVTECH PRO G70 All-in-One PC', url: '/static/img/AvtechProG70All-in-OnePC.jpg'},
-    {title: 'AVTECH PRO G700 2K All-in-One PC', url: '/static/img/AvtechProG7002KAll-in-OnePC.jpg'},
-    {title: 'AVTECH PRO G700 (144 HZ) FHD All-in-One PC', url: '/static/img/AvtechProG700(144 HZ)FhdAll-in-OnePC.jpg'},
-    {title: 'AVTECH PRO V400 All-in-One PC', url: '/static/img/AvtechProV400All-in-OnePC.jpg'},
-    {title: 'AVTECH X5 All-in-One PC', url: '/static/img/AvtechX5All-in-OnePC.jpg'},
-  ]);
-  
+  const monoblockTable = useSelector((state) => state.handleHomePage);
+
   useEffect(() => {
-    if(params) {
-      /* dispatch(actions.isInitialDataLoaded(true))
-      dispatch(actions.initialData(params.data)); */
-      getMonoblocks(monoblocks);
-    }
-  }, [params])
+    dispatch(actions.getMonoblocksSuccess(monoblocks));
+  }, [monoblocks]);
+
+  
+  const onChange = (page) => {
+    console.log('page: ', page);
+    dispatch(actions.setPage(page));
+    dispatch(actions.getMonoblocks({ page, per_page: 9 }));
+  }
 
   return (
     <>
       <HeaderTopContainer/>
       <CustomNavbar />
-      <div className="Container">
+      <div className="Container" style={{ minHeight: '30vh' }}>
         <Row>
           <Col>
             <h2 style={{ fontWeight: 900, marginTop: 20 }}>All-in-one constructor</h2>
@@ -68,17 +63,24 @@ const Home = ({ params }) => {
       </div>
       <div className="Container">
         <div className="Cards-Wrapper">
-            {images.map(({ url, title }) => <CustomCard key={title} title={title} url={url} />)}
+           {/*  {images.map(({ url, title }) => <CustomCard key={title} title={title} url={url} />)} */}
+           {monoblockTable.monoblockList.map((monoblock, index) => <CustomCard
+              key={index}
+              title={monoblock.name}
+              url={monoblock.image}
+              slug={monoblock.slug}
+            />)}
         </div>
         <Pagination
           pageSize={9}
           onChange={onChange}
-          total={50}
           style={{
             textAlign: 'center',
             marginTop: 30,
             marginBottom: 30
           }}
+          current={monoblockTable.monoblockCurrentPage}
+          total={monoblockTable.monoblockTotal}
         />
       </div>
       <Footer />

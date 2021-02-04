@@ -3,6 +3,16 @@ import axios from 'axios';
 import api from '../../static/apiRoutes';
 import { message } from 'antd';
 
+export {
+  getMonoblocks,
+  getMonoblocksSuccess,
+} from './homePage';
+
+export {
+  addToCart,
+} from './cart';
+
+export const setPage = createAction('SET_PAGE');
 
 export const signUpRequest = createAction('SIGN_UP_REQUEST');
 export const signUpFailed = createAction('SIGN_UP_FAILED');

@@ -5,7 +5,7 @@ import DownArrow from '../../../static/img/down-arrow.png';
 
 const CustomNavbar = () => {
   return (
-    <div style={{ padding:'15px 0', borderBottom: '1px solid #ddd' }}>
+      <div style={{ padding:'15px 0', borderBottom: '1px solid #ddd' }}>
         <div className="Container">
           <div className="Inner-Wrapper">
             <div className="Site-Branding">
@@ -16,7 +16,6 @@ const CustomNavbar = () => {
                       width="100"
                       height="72"
                     />
-                  {/*  <img src="/static/img/croppedlogo.png" /> */}
                   </a>
             </div>
             <div className="Main-Navbar">
@@ -25,7 +24,6 @@ const CustomNavbar = () => {
                     <li className="Root-Menu-li">Main</li>
                     <li className="Dropdown Root-Menu-li">
                       About us <img className="dropdown-icon" src={DownArrow} alt="arrow"/>
-                      {/* <i class="fas drop-down-arrow fa-chevron-down"></i> */}
                       <ul className="Dropdown-Content">
                         <li><a>Company Profile</a></li>
                         <li><a>Mission and Vision</a></li>
@@ -33,14 +31,6 @@ const CustomNavbar = () => {
                         <li><a>Our presence</a></li>
                         <li><a>Career</a></li>
                       </ul>
-                    {/*<div className="DropdownTest">
-                          <p>Main</p>
-                          <p>Company Profile</p>
-                          <p>Services</p>
-                          <p>Solutions</p>
-                          <p>Career</p>
-                      </div>
-                      */}
                     </li>
                     <li className="Dropdown Dropdown Root-Menu-li">
                       Solutions <img className="dropdown-icon" src={DownArrow} alt="arrow"/>

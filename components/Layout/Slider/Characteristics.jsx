@@ -1,38 +1,65 @@
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useRef } from 'react';
 import CountUp from 'react-countup';
-import Navs from '../Navs';
+import * as actions from '../../../redux/action';
+import { useDispatch } from 'react-redux';
 import {
   Form,
   Button,
   Select,
+  Input,
 } from 'antd';
 
-const Characteristics = () => {
+const { Option } = Select;
+
+const Characteristics = ({ monoblocks }) => {
+  const dispatch = useDispatch();
+  const { monoblock, configuration } = monoblocks;
   const [componentSize, setComponentSize] = useState('default');
-  const [cpu, setCPU] = useState(100);
-  const [ram, setRAM] = useState(400);
-  const [hddsdd, setHDDSDD] = useState(700);
-  const [graphicCard, setGraphicCard] = useState(1000);
-  const [keyboardMouse, setKeyboardMouse] = useState(1300);
-  const [price, setPrice] = useState(0);
-  const [oldPrice, setOldPrice] = useState(0);
+  const [oldPrice, setOldPrice] = useState({ price: 0 });
+  const [baseCompPrice, setBaseCompPrice] = useState(configuration.base_components ? (
+    configuration.base_components.reduce((acc, curValue) => {
+      console.log('curValue.category.price: ', curValue.category);
+      return {
+        ...acc,
+        [curValue.category]: curValue.component.price
+      }
+    }, {})
+  ) : null);
+
+   const [price, setPrice] = useState({ price: 0 });
+
   const onFormLayoutChange = ({ size }) => {
     setComponentSize(size);
   };
   const onFinish = (values) => {
-    console.log(values)
+    console.log(values);
   }
 
-  useEffect(() => {
-    setOldPrice(price);
-    setPrice(cpu+ram+hddsdd+graphicCard+keyboardMouse);
-  }, [cpu, ram, hddsdd, graphicCard, keyboardMouse])
+  const displayInitialValues = (component) => {
+    return component.reduce((acc, currValue) => {
+      return {
+        ...acc,
+        [currValue.component]: currValue.component ? currValue.component.name : null,
+      }
+    }, {});
+  };
+  
 
+  const handleChange = (value, info, component) => {
+    setOldPrice(price);
+    setPrice(prices => {
+      return {
+        ...prices,
+        [component]: info.money
+      }
+    });
+    return null;
+  }
 
   return (
     <div>
       <p className="characteristic-title">
-        AVTECH X5 (Black) All-in-One PC
+        {monoblock.name}
       </p>
       <Form
         layout="horizontal"
@@ -42,87 +69,64 @@ const Characteristics = () => {
         onFinish={onFinish}
         labelCol={{span: 24}}
         initialValues={{
-          cpu: 100,
-          ram: 400,
-          hddSdd: 700,
-          graphCard: 1000,
-          keyMouse: 1300,
+          ...displayInitialValues(configuration.base_components),
+          ...displayInitialValues(configuration.optional_components),
         }}
       >
-        <Form.Item
-          label="CPU"
-          name="cpu"
-          style={{
-          fontSize: '24px !important',
-          color: 'red',
-        }}
-          rules={[{ required: true }]}
-           colon={false}
-        >
-          <Select
-            onChange={setCPU}
-          >
-            <Select.Option value={100}>Intel Pentium DualCore G5420 - 3.8 GHz, 4M</Select.Option>
-            <Select.Option value={200}>1</Select.Option>
-            <Select.Option value={300}>2</Select.Option>
-          </Select>
-        </Form.Item>
-        <Form.Item
-          label="RAM"
-          rules={[{ required: true }]}
-          name="ram"
-        >
-          <Select
-            onChange={setRAM}
-          >
-            <Select.Option value={400}>3</Select.Option>
-            <Select.Option value={500}>4</Select.Option>
-            <Select.Option value={600}>5</Select.Option>
-          </Select>
-        </Form.Item>
-        <Form.Item
-          label="HDD/SDD"
-          rules={[{ required: true }]}
-          name="hddSdd"
-        >
-          <Select
-            onChange={setHDDSDD}
-          >
-            <Select.Option value={700}>HDD 1000GB 2,5"</Select.Option>
-            <Select.Option value={800}>7"</Select.Option>
-            <Select.Option value={900}>8</Select.Option>
-          </Select>
-        </Form.Item>
-        <Form.Item
-          label="Graphic card"
-          name="graphCard"
-        >
-          <Select
-            onChange={setGraphicCard}
-          >
-            <Select.Option value={1000}>PH-GT 1030-02G</Select.Option>
-            <Select.Option value={1100}>10</Select.Option>
-            <Select.Option value={1200}>11</Select.Option>
-          </Select>
-        </Form.Item>
-        <Form.Item
-          label="Keyboard and Mouse"
-          name="keyMouse"
-        >
-          <Select
-            onChange={setKeyboardMouse}
-          >
-            <Select.Option value={1300}>AVT KBM301M101</Select.Option>
-            <Select.Option value={1400}>12</Select.Option>
-            <Select.Option value={1500}>13</Select.Option>
-          </Select>
-        </Form.Item>
+        {configuration.optional_components.map((component, index) => {
+          return (
+            <Form.Item
+              label={component.category}
+              name={`component_ids[${index}]`}
+              key={Math.random()*index}
+            >
+              <Select
+                onChange={(value, info) => {
+                  handleChange(value, info, component.category)
+                }}
+                key={Math.random()*index}
+              >
+                {component.components.map((category, index) => {
+                  return (
+                    <Option
+                      key={`a${index}`}
+                      value={category.id}
+                      money={category.price}
+                    >
+                      {category.name}
+                    </Option>
+                  );
+                })}
+              </Select>
+            </Form.Item>
+          );
+        })}
+        {configuration.base_components.map((component, index) => {
+          return (
+            <Form.Item
+              label={component.category}
+              name={component.component}
+              key={`M${index}`}
+            >
+              <Input
+                disabled
+                value={component.component.name}
+              />
+            </Form.Item>
+          );
+        })}
       </Form>
-      {/* {animateValue(oldPrice,price,2000)} */}
+  
       <h6>Price</h6>
       <CountUp
-        start={oldPrice}
-        end={price}
+        start={
+          Object.values(baseCompPrice).reduce((acc, curValue) => acc + curValue, 0)
+          + Object.values(oldPrice).reduce((acc, curValue) => acc + curValue, 0)
+        }
+        end={
+          Object.values(baseCompPrice).reduce((acc, curValue) => acc + curValue, 0)
+          + Object.values(price).reduce((acc, curValue) => acc + curValue, 0)
+        }
         duration={1.5}
         prefix="€ "
         className="Number-Animation"
@@ -137,7 +141,8 @@ const Characteristics = () => {
           backgroundColor: '#ff7d06',
           marginTop: 20,
           color: 'white',
-        }}  
+        }}
+        onClick={() => dispatch(actions.addToCart())}
       >
           Add to cart
       </Button>

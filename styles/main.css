@@ -48,6 +48,7 @@ body {
   margin-left: -30px;
   margin-top: 1rem;
   font-size: 16px;
+  align-items: baseline;
 }
 
 .TopHeaderBackground {
@@ -392,9 +393,10 @@ img {
   overflow: hidden;
 }
 
-.Card-Img{
-  max-width: 100%;
+.Card-Img {
   min-height: auto;
+  width: 100%;
+  min-width: 100%;
   -webkit-transition: all 0.5s ease-in-out;
   -o-transition: all 0.5s ease-in-out;
   transition: all 0.5s ease-in-out;
@@ -418,13 +420,17 @@ img {
   text-align: center;
   /* margin-bottom: 15px; */
   font-size: 23px;
+  
 }
 
 .Card-Context p {
-  font-size: 23px;
-  font-weight: 600;
-  color: #55595c;
-  min-height: 3em;
+    font-size: 23px;
+    font-weight: 600;
+    color: #55595c;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    width: 15vw;
 }
 
 .Custom-Card-Button {
@@ -508,10 +514,41 @@ img {
   } */
 }
 
+@media screen and (max-width: 900px){
+  .Main-Navbar {
+    display: none;
+  }
+
+  .Inner-Wrapper {
+    justify-content: center;
+    align-items: center;
+  }
+
+  .TopHeaderContext {
+    display: none;
+  }
+
+  .TopHeaderBackground {
+    height: 60px;
+  }
+
+  .Custom-Burger-Menu {
+    display: inline !important;
+  }
+}
+
+.Custom-Burger-Menu {
+  display: none;
+}
+
 .Cards-Wrapper {
-   display: flex;
+   /* display: flex;
    flex-wrap: wrap;
-   justify-content: space-between;
+   justify-content: space-between; */
+   display: grid;
+   grid-template-columns: 1fr 1fr 1fr;
+   column-gap: 30px;
+   row-gap: 30px;
 }
 
 .Custom-Card-Container {
@@ -525,7 +562,7 @@ img {
   flex-wrap: wrap;
   justify-content: space-between;
   border: 1px solid red; */
-   flex: 0 1 calc(30% - 1em);
+/*    flex: 0 1 calc(30% - 1em); */
 }
 
 .carousel-control-prev-icon, .carousel-control-next-icon {
@@ -542,10 +579,11 @@ img {
 
 .Carousel-Image {
   margin: auto;
+  width: 35rem !important;
 }
 
 .Custom-Thumbnail-Item {
-  width: 80%;
+  width: 70%;
   margin: auto;
   opacity: 0.7;
 }
@@ -1014,4 +1052,104 @@ td {
 .dropdown-icon {
   width: 11px;
   margin-left: 3px;
+}
+
+#page-wrap {
+  padding-bottom: 10px;
+  padding-top: 10px;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+
+
+
+
+
+
+/* Position and sizing of burger button */
+.bm-burger-button {
+  position: fixed;
+  width: 36px;
+  height: 30px;
+  left: 24px;
+  top: 10px;
+}
+
+/* Color/shape of burger icon bars */
+.bm-burger-bars {
+  background-color:white;
+  box-shadow: 0 1px 2px #242424;
+}
+
+/* Color/shape of burger icon bars on hover*/
+.bm-burger-bars-hover {
+  background: #a90000;
+      /* background-color: #fa5742;
+    box-shadow: 0 1px 2px #242424;
+    color: #ffffff; */
+}
+
+/* Position and sizing of clickable cross button */
+.bm-cross-button {
+  height: 24px;
+  width: 24px;
+  
+}
+
+/* Color/shape of close button cross */
+.bm-cross {
+  background: #bdc3c7;
+  
+}
+
+/*
+Sidebar wrapper styles
+Note: Beware of modifying this element as it can break the animations - you should not need to touch it in most cases
+*/
+.bm-menu-wrap {
+  position: relative;
+  height: 100%;
+  
+}
+
+/* General sidebar styles */
+.bm-menu {
+  background: #373a47;
+  padding: 2.5em 1.5em 0;
+  font-size: 1.15em;
+  
+}
+
+/* Morph shape necessary with bubble or elastic */
+.bm-morph-shape {
+  fill: #373a47;
+  
+}
+
+/* Wrapper for item list */
+.bm-item-list {
+  color: #b8b7ad;
+  padding: 0.8em;
+}
+
+/* Individual item */
+.bm-item {
+  display: inline-block;
+  margin-top: -5px !important;
+  color: #d1d1d1;
+  margin-bottom: 10px;
+  text-align: left;
+  text-decoration: none;
+  transition: color 0.2s;
+}
+
+.bm-item:hover {
+  color: #ffffff;
+}
+
+.ant-badge-count {
+  background-color: #ff8600 !important;
 }

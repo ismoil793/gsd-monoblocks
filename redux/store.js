@@ -6,9 +6,7 @@ import rootReducer from './reducer';
 
 let store;
 
-const initialState = {
-
-}
+const initialState = {};
 
 const initStore = (preloadedState = initialState) => createStore(
   rootReducer,

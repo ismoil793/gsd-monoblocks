@@ -1,9 +1,7 @@
-const host = process.env.REACT_APP_API_HOST;
-
-products
+const host = 'https://apigsd.rrpo.uz/api';
 
 export default {
-  test: () => [host, 'api'].join('/'),
+  monoblocks: () => [host, 'monoblocks'].join('/'),
   /* login: () => [host, 'auth/login/'].join('/'),
   clients: () => [host, 'clients/'].join('/'),
   kitchens: () => [host, 'kitchens/'].join('/'),
