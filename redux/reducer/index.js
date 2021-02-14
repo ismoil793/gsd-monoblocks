@@ -2,6 +2,8 @@ import { handleActions } from 'redux-actions';
 import { combineReducers } from 'redux';
 import handleHomePage from './handleHomePage';
 import handleCart from './handleCart';
+import user from "./user";
+import footer from "./footer";
 import * as actions from '../action/index';
 
 const handleAuth = handleActions({
@@ -36,4 +38,6 @@ export default combineReducers({
   handleAuth,
   handleHomePage,
   handleCart,
+  user,
+  footer
 });

@@ -1,14 +1,40 @@
+import {useDispatch} from "react-redux";
+import {authLogout} from "../../../redux/action/user";
+import {useRouter} from "next/router";
+
 const SideMenu = () => {
-  return (
-    <div className="SideMenuWrapper">
-      <ul className="SideMenu">
-        <p style={{ textAlign: 'center',  }}>User: <i>Bekhzod</i></p>
-        <li>Orders</li>
-        <li>Settings</li>
-        <li>Logout</li>
-      </ul>
-    </div>
-  );
+
+   const dispatch = useDispatch();
+   const router = useRouter();
+
+   const logoutHandler = () => {
+      router.push('/');
+     dispatch(authLogout());
+   };
+
+   return (
+       <div className="SideMenuWrapper">
+          <ul className="SideMenu">
+             <li
+                 onClick={() => router.push('/cabinet?param=orders')}
+                 className={router.query.param === 'orders' ? 'active' : ''}
+             >
+                Orders
+             </li>
+             <li
+                 onClick={() => router.push('/cabinet?param=details')}
+                 className={router.query.param  === 'details' ? 'active' : ''}
+             >
+                Account details
+             </li>
+             <li
+                 onClick={logoutHandler}
+             >
+                Logout
+             </li>
+          </ul>
+       </div>
+   );
 };
 
 export default SideMenu;

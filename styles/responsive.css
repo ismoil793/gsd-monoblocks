@@ -1,0 +1,41 @@
+@media screen and (max-width: 991px) {
+    .mobile-overflow {
+        overflow-x: scroll;
+    }
+}
+
+@media screen and (max-width: 768px) {
+    html {
+        overflow-x: hidden;
+    }
+
+    .ant-table-wrapper {
+        overflow-x: scroll;
+    }
+
+    .section-order {
+        padding: 10% 0;
+    }
+}
+
+@media screen and (max-width: 576px) {
+    .line-navigation .catalog-btn a {
+        overflow: hidden;
+        font-size: 14px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .line-navigation .catalog-btn a svg {
+    }
+
+    .line-navigation .catalog-btn {
+        padding: 0 5% 0 2%;
+    }
+
+    .line-navigation .nav-right a {
+        text-align: center;
+        font-size: 14px;
+    }
+}

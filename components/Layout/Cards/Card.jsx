@@ -7,12 +7,18 @@ const Card = ({ url, title, slug }) => {
           <div className="Custom-Card">
             <img alt="example" className="Card-Img" src={url} />
           </div>
+
           <div className="Card-Context">
             <p>{title}</p>
-              <Link href={`/monoblock/${slug}`}>
-                <a className="Custom-Card-Button">Select</a>
+              <Link
+                  href={{ pathname: "/monoblock/[slug]" }}
+                  as={`/monoblock/${slug}`}
+              >
+                <a className="Custom-Card-Button">More details</a>
               </Link>
           </div>
+
+
       </div>
   );
 }

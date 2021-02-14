@@ -15,7 +15,6 @@ const handleHomePage = handleActions({
     };
   },
   [actions.getMonoblocksSuccess] (state, { payload }) {
-    console.log('payloaddd: ', payload);
     const { data, meta } = payload;
     return {
       ...state,

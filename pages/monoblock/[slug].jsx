@@ -1,39 +1,38 @@
-import HeaderTopContainer from '../../components/Layout/Header/HeaderTop';
-import Footer from '../../components/Layout/Footer';
 import CustomSlider from '../../components/Layout/Slider';
 import BodyNavs from '../../components/Layout/Navs';
-import CustomNavbar from '../../components/Layout/Navbar';
-import { useRouter } from 'next/router';
-import { useEffect } from 'react';
+import url from "../../api/url";
+import axios from "axios";
+import MainLayout from "../../components/Layout";
 
-export async function getServerSideProps({ params }) {
-  const monoblocksResponse = await fetch(`https://apigsd.rrpo.uz/api/monoblocks/${params.slug}`, {
-    method: 'GET',
-    headers: {
-      'Content-Type': 'application/json'
-    },
-  });  
-  const monoblocksData1 = await monoblocksResponse.json();
-  return {
-    props: {
-      monoblocks: monoblocksData1,
-    }
-  }
-}
+const Monoblock = ({monoblock}) => {
 
-const Monoblock = ({ monoblocks }) => {
-  console.log('monoblocks props; ', monoblocks);
-  return (
-    <>
-      <HeaderTopContainer />
-      <CustomNavbar />
-      <div className="Container">
-        <CustomSlider monoblocks={monoblocks} />
-        <BodyNavs />
-      </div>
-      <Footer />
-    </>
-  )
+   return (
+       <MainLayout>
+          {/*<HeaderTopContainer />*/}
+          {/*<CustomNavbar />*/}
+          <div className="container">
+             {
+                monoblock.monoblock && monoblock.monoblock.name ?
+                    <CustomSlider monoblock={monoblock}/>
+                    : null
+             }
+             <BodyNavs monoblock={monoblock} />
+          </div>
+          {/*<Footer />*/}
+       </MainLayout>
+   )
+};
+
+export async function getServerSideProps(context) {
+   let data = {};
+   await axios.get(`${url}/monoblocks/${context.query.slug}`)
+       .then(res => {
+          data = res.data;
+       });
+
+   console.log(data.configuration)
+
+   return {props: {monoblock: data}}
 }
 
 export default Monoblock;

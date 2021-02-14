@@ -1,9 +1,9 @@
 import CustomSlider from './CustomSlider';
 import Characteristics from './Characteristics';
 
-const Carousel = ({ monoblocks }) => {
+const Carousel = ({ monoblock }) => {
   return (
-      <div className="Characteristics-Margin"><CustomSlider monoblocks={monoblocks} /></div>
+      <div className="Characteristics-Margin"><CustomSlider monoblocks={monoblock} /></div>
   );
 }
 

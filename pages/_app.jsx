@@ -1,11 +1,16 @@
-import '../styles/main.css';
-import 'antd/dist/antd.css';
-import 'bootstrap/dist/css/bootstrap.min.css';
 import '@fortawesome/fontawesome-free/js/fontawesome';
 import '@fortawesome/fontawesome-free/js/solid';
 import '@fortawesome/fontawesome-free/js/regular';
 import '@fortawesome/fontawesome-free/js/brands';
 import '@fortawesome/fontawesome-free/css/all.css';
+
+import 'antd/dist/antd.css';
+import 'bootstrap/dist/css/bootstrap.min.css';
+import "slick-carousel/slick/slick.css";
+import "slick-carousel/slick/slick-theme.css";
+import '../styles/main.css';
+import '../styles/responsive.css';
+
 import { Provider } from 'react-redux';
 import { useStore } from '../redux/store';
 import NextNProgress from 'nextjs-progressbar';

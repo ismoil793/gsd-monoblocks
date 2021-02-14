@@ -2,20 +2,14 @@ import CartLayout from '../../components/Cart/index';
 import HeaderTopContainer from '../../components/Layout/Header/HeaderTop';
 import Footer from '../../components/Layout/Footer';
 import CustomNavbar from '../../components/Layout/Navbar';
+import MainLayout from "../../components/Layout";
 
 const Cart = () => {
-  return (
-    <>
-      <HeaderTopContainer />
-      <CustomNavbar />
-      <br/>
-      <br/>
-      <div className="Container">
-        <CartLayout />
-      </div>
-      <Footer />
-    </>
-  );
+   return (
+       <MainLayout>
+          <CartLayout/>
+       </MainLayout>
+   );
 };
 
 export default Cart;

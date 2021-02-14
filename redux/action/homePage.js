@@ -17,7 +17,6 @@ export const getMonoblocks = ({ page, per_page }) => async (dispatch) => {
         per_page,
       }
     });
-    console.log('response: ', response);
     dispatch(getMonoblocksSuccess(response.data));
   } catch (error) {
     dispatch(getMonoblocksFailed());

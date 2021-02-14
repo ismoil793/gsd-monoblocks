@@ -22,20 +22,26 @@
     "next-fonts": "^1.5.1",
     "next-redux-wrapper": "^6.0.2",
     "nextjs-progressbar": "0.0.7",
+    "notyf": "^3.9.0",
     "react": "17.0.1",
     "react-bootstrap": "^1.4.0",
     "react-burger-menu": "^3.0.3",
     "react-countup": "^4.3.3",
     "react-dom": "17.0.1",
+    "react-icons": "^4.1.0",
     "react-redux": "^7.2.2",
     "react-redux-multilingual": "^2.0.4",
-    "react-slick": "^0.27.13",
+    "react-slick": "^0.27.14",
     "react-table": "^7.6.2",
     "redux": "^4.0.5",
     "redux-actions": "^2.6.5",
     "redux-devtools-extension": "^2.13.8",
     "redux-thunk": "^2.3.0",
     "slick-carousel": "^1.8.1",
-    "styled-components": "^5.2.1"
+    "styled-components": "^5.2.1",
+    "uuid": "^3.4.0"
+  },
+  "devDependencies": {
+    "universal-cookie": "^4.0.4"
   }
 }
