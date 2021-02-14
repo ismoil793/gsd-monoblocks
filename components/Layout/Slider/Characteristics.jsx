@@ -17,7 +17,7 @@ const Characteristics = ({monoblocks}) => {
 
    const getMonths = () => {
      let months = [];
-     for(let i = 1; i <=36; i++) {
+     for(let i = 3; i <=36; i++) {
         months = [...months, i]
      }
      return months
@@ -42,27 +42,6 @@ const Characteristics = ({monoblocks}) => {
        }, {})
    ) : null);
 
-   const calculateDefaultPrice = () => {
-
-      let totalDefaultPrice = 0;
-      if (configuration.base_components && configuration.base_components.length) {
-         configuration.base_components.reduce((acc, curValue) => {
-
-         })
-      }
-
-
-      configuration.base_components.reduce((acc, curValue) => {
-
-         console.log(curValue)
-
-         return {
-            ...acc,
-            [curValue.category]: curValue.component.price
-         }
-      }, {})
-   };
-
    const onFormLayoutChange = ({size}) => {
       setComponentSize(size);
    };
@@ -73,7 +52,7 @@ const Characteristics = ({monoblocks}) => {
             component_ids = [...component_ids, values.components[key]]
          }
       }
-      console.log(component_ids)
+      console.log(values)
    };
 
    const displayInitialValues = (component, type = 'optional') => {
@@ -122,6 +101,7 @@ const Characteristics = ({monoblocks}) => {
               initialValues={{
                  ['components']: {...displayInitialValues(configuration.optional_components)},
                  ...displayInitialValues(configuration.base_components, 'base'),
+                 month: 3
               }}
           >
              {configuration.optional_components.map((component, index) => {
@@ -167,27 +147,25 @@ const Characteristics = ({monoblocks}) => {
                 );
              })}
 
-             <div>
+             <div className="d-flex justify-content-between align-items-center">
                 <Form.Item
                     label={"Rental period"}
                     name={'month'}
                 >
-                   <Select
-                   >
-                      {component.components.map((category, index) => {
+                   <Select>
+                      {getMonths().map((item, i) => {
                          return (
                              <Option
-                                 key={`${index}`}
-                                 value={category.id}
-                                 money={category.price}
+                                 key={i}
+                                 value={item}
                              >
-                                {category.name}
+                                {item} {i===0 ? 'month' : 'months'}
                              </Option>
                          );
                       })}
                    </Select>
                 </Form.Item>
-                <h5>Price&nbsp;
+                <h5 className="mb-0 pt-3">Price&nbsp;
                    <span className="gsd-orange">
                    from&nbsp;
                       <CountUp
@@ -218,7 +196,7 @@ const Characteristics = ({monoblocks}) => {
              >
                 Add to cart
              </Button>
-             <p style={{fontSize: 14, marginTop: 10}}><span style={{color: 'red'}}>*</span>Required</p>
+             {/*<p style={{fontSize: 14, marginTop: 10}}><span style={{color: 'red'}}>*</span>Required</p>*/}
           </Form>
        </div>
    );

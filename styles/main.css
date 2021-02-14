@@ -641,6 +641,7 @@ img {
     transform: scale(1.05);
     cursor: pointer;
 }
+
 .carousel-control-next, .carousel-control-prev {
     justify-content: flex-start;
     width: 11%;
@@ -653,6 +654,7 @@ img {
 .Number-Animation {
     font-size: 18px;
 }
+
 .carousel-inner {
     width: 95%;
 }
@@ -1299,7 +1301,11 @@ Note: Beware of modifying this element as it can break the animations - you shou
 }
 
 /*----------------------------- Ismoil styles -----------------------------*/
-
+.Characteristics-Margin .ant-select:not(.ant-select-customize-input) .ant-select-selector {
+    border-radius: 10px;
+    padding: 4px 11px;
+    height: auto;
+}
 
 /*----------------------------- Header -----------------------------*/
 
@@ -1602,7 +1608,7 @@ a:hover {
     font-size: 15px;
 }
 
-.table-orange thead tr th:first-child{
+.table-orange thead tr th:first-child {
     border-top-left-radius: 10px;
 }
 
@@ -1610,6 +1616,7 @@ a:hover {
 .table-orange > tbody tr td:last-child {
     border-top-right-radius: 10px;
 }
+
 .table-orange {
     border-radius: 10px;
 }
@@ -1665,7 +1672,6 @@ a:hover {
 }
 
 
-
 /*----------------------------- Checkout----------------------- */
 
 .checkout-section {
@@ -1673,8 +1679,6 @@ a:hover {
 }
 
 /*----------------------------- Notify notyf ----------------------- */
-
-
 
 
 /*----------------------------Notifications------------------------------*/
@@ -1707,7 +1711,6 @@ a:hover {
 /*    background-image: url("/static/images/logo/printershopNotyf.png");*/
 /*    background-size: contain;*/
 /*}*/
-
 
 
 /* Fixing notyf Package since it has some issues */
