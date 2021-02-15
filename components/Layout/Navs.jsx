@@ -1,22 +1,25 @@
 import {Tabs, Tab} from 'react-bootstrap';
 import pic from '../../static/img/a2.jpg';
 import {Table} from 'react-bootstrap';
+import {useSelector} from "react-redux";
 
 const CustomNavs = ({monoblock}) => {
 
    const product = monoblock.monoblock;
 
-   console.log(monoblock)
+   const configurator = useSelector(state => state.configurator);
 
    const renderPricePlans = () => (
-       [100, 95, 92, 87, 82, 75, 71, 68, 65, 62, 59, 56].map((item, i) => (
-           <div className="col-lg-2 col-md-4 col-sm-6" key={i}>
-              <div className="price-plan">
-                 <span className="gsd-orange">{item} <sup>€</sup></span>
-                 <p>{i + 1} {i === 0 ? 'month' : 'months'}</p>
-              </div>
-           </div>
-       ))
+       configurator.payments.length ?
+           configurator.payments.map((item, i) => (
+               <div className="col-lg-2 col-md-4 col-sm-6" key={i}>
+                  <div className="price-plan">
+                     <span className="gsd-orange">{item} <sup>€</sup></span>
+                     <p>{i + 3} {i === 0 ? 'month' : 'months'}</p>
+                  </div>
+               </div>
+           ))
+           : null
    );
 
    const renderFeatures = (features) => (

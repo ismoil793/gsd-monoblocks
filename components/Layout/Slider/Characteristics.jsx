@@ -1,28 +1,34 @@
 import {useState, useEffect, useRef} from 'react';
 import CountUp from 'react-countup';
 import * as actions from '../../../redux/action';
-import {useDispatch} from 'react-redux';
+import {useDispatch, useSelector} from 'react-redux';
 import {
    Form,
    Button,
    Select,
    Input,
 } from 'antd';
+import {httpGet, httpPost} from "../../../api";
+import {calculateConfigurator} from "../../../redux/action/configurator";
+import {addToCart} from "../../../redux/action/cart";
 
 const {Option} = Select;
 
 const Characteristics = ({monoblocks}) => {
    const dispatch = useDispatch();
+   const configurator = useSelector(state => state.configurator);
+
    const {monoblock, configuration} = monoblocks;
 
    const getMonths = () => {
-     let months = [];
-     for(let i = 3; i <=36; i++) {
-        months = [...months, i]
-     }
-     return months
+      let months = [];
+      for (let i = 3; i <= 36; i++) {
+         months = [...months, i]
+      }
+      return months
    };
 
+   const [productMonth, setProductMonth] = useState(36);
    const [componentSize, setComponentSize] = useState('default');
    const [oldPrice, setOldPrice] = useState({price: 0});
    const [price, setPrice] = useState(configuration.optional_components ? (
@@ -42,6 +48,20 @@ const Characteristics = ({monoblocks}) => {
        }, {})
    ) : null);
 
+   useEffect(() => {
+      getTotalMonthlyPrice()
+   }, [price, productMonth]);
+
+
+   const getTotalMonthlyPrice = () => {
+      const total = Object.values(baseCompPrice).reduce((acc, curValue) => acc + curValue, 0)
+          + Object.values(price).reduce((acc, curValue) => acc + curValue, 0);
+      dispatch(calculateConfigurator({
+         months: productMonth,
+         total
+      }))
+   };
+
    const onFormLayoutChange = ({size}) => {
       setComponentSize(size);
    };
@@ -52,7 +72,13 @@ const Characteristics = ({monoblocks}) => {
             component_ids = [...component_ids, values.components[key]]
          }
       }
-      console.log(values)
+      console.log(component_ids)
+      console.log(monoblock.id)
+      dispatch(addToCart({
+         monoblock_id: monoblock.id,
+         component_ids,
+         months: values.month
+      }))
    };
 
    const displayInitialValues = (component, type = 'optional') => {
@@ -73,6 +99,10 @@ const Characteristics = ({monoblocks}) => {
       }
    };
 
+
+   const handleProductMonthChange = (val) => {
+      setProductMonth(val)
+   };
 
    const handleChange = (value, info, component) => {
       setOldPrice(price);
@@ -97,11 +127,11 @@ const Characteristics = ({monoblocks}) => {
               size={componentSize}
               onFinish={onFinish}
               labelCol={{span: 24}}
-
+              onKeyDown={(e)=> e.keyCode == 13 ? e.preventDefault(): ''}
               initialValues={{
                  ['components']: {...displayInitialValues(configuration.optional_components)},
                  ...displayInitialValues(configuration.base_components, 'base'),
-                 month: 3
+                 month: 36
               }}
           >
              {configuration.optional_components.map((component, index) => {
@@ -152,32 +182,26 @@ const Characteristics = ({monoblocks}) => {
                     label={"Rental period"}
                     name={'month'}
                 >
-                   <Select>
+                   <Select onChange={(val) => handleProductMonthChange(val)}>
                       {getMonths().map((item, i) => {
                          return (
                              <Option
                                  key={i}
                                  value={item}
                              >
-                                {item} {i===0 ? 'month' : 'months'}
+                                {item} {i === 0 ? 'month' : 'months'}
                              </Option>
                          );
                       })}
                    </Select>
                 </Form.Item>
-                <h5 className="mb-0 pt-3">Price&nbsp;
+                <h5 className="mb-0 pt-3 text-right">Price&nbsp;
                    <span className="gsd-orange">
                    from&nbsp;
                       <CountUp
-                          start={
-                             Object.values(baseCompPrice).reduce((acc, curValue) => acc + curValue, 0)
-                             + Object.values(oldPrice).reduce((acc, curValue) => acc + curValue, 0)
-                          }
-                          end={
-                             Object.values(baseCompPrice).reduce((acc, curValue) => acc + curValue, 0)
-                             + Object.values(price).reduce((acc, curValue) => acc + curValue, 0)
-                          }
-                          duration={1.5}
+                          start={0}
+                          end={configurator.minimum}
+                          duration={1}
                           prefix="€ "
                           className="Number-Animation"
                           style={{
@@ -188,6 +212,7 @@ const Characteristics = ({monoblocks}) => {
                 </span>
                 </h5>
              </div>
+
              <Button
                  htmlType="submit"
                  shape="round"
@@ -199,7 +224,7 @@ const Characteristics = ({monoblocks}) => {
              {/*<p style={{fontSize: 14, marginTop: 10}}><span style={{color: 'red'}}>*</span>Required</p>*/}
           </Form>
        </div>
-   );
-}
+   )
+};
 
 export default Characteristics;

@@ -10,3 +10,10 @@ export const CLEAN_USER_INFO = "CLEAN_USER_INFO";
 export const FETCH_ORDERS = "FETCH_ORDERS";
 
 export const FETCH_FOOTER = "FETCH_FOOTER";
+
+// Configurator
+export const CHANGE_CONFIGURATOR = 'CHANGE_CONFIGURATOR';
+
+// Cart
+export const FETCH_CART = 'FETCH_CART';
+export const ADD_TO_CART = 'ADD_TO_CART';

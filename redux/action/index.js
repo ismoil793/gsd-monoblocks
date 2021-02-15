@@ -8,10 +8,6 @@ export {
   getMonoblocksSuccess,
 } from './homePage';
 
-export {
-  addToCart,
-} from './cart';
-
 export const setPage = createAction('SET_PAGE');
 
 export const signUpRequest = createAction('SIGN_UP_REQUEST');

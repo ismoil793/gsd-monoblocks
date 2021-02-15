@@ -3,12 +3,19 @@ import {HiMenuAlt2} from 'react-icons/hi'
 import Link from "next/link";
 import Cookies from "universal-cookie";
 import uuid from 'uuid'
+import {useDispatch, useSelector} from "react-redux";
+import {getCart} from "../../../redux/action/cart";
 
 const Header = () => {
 
    const [hasToken, setToken] = useState('');
+   const dispatch = useDispatch();
+   const cart = useSelector(state => state.cart);
 
    useEffect(() => {
+
+      fetchCart();
+
       const nextYear = new Date();
       const cookies = new Cookies();
       nextYear.setFullYear(new Date().getFullYear() + 1);
@@ -25,6 +32,13 @@ const Header = () => {
          setToken(true)
       }
    }, []);
+
+
+   const fetchCart = () => {
+      if(!cart.cartItems.id) {
+         dispatch(getCart())
+      }
+   };
 
    return (
        <header>

@@ -8,7 +8,6 @@ import { ShoppingCartOutlined } from '@ant-design/icons';
 const { Option } = Select;
 
 const HeaderTop = () => {
-  const cart = useSelector((state) => state.handleCart);
 
   return (
     <div className="TopHeaderBackground">
