@@ -58,12 +58,13 @@ const Home = ({monoblocks}) => {
       arrows: deviceWidth > 769,
       accessibility: true,
       autoplaySpeed: 5000,
-      speed: 700,
+      // speed: 700,
       slidesToShow: 1,
       slidesToScroll: 1,
       nextArrow: <GrNext/>,
       prevArrow: <GrPrevious/>,
-      dots: true
+      dots: true,
+      speed: 450
    };
 
    return (

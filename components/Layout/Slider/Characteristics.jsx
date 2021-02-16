@@ -10,7 +10,7 @@ import {
 } from 'antd';
 import {httpGet, httpPost} from "../../../api";
 import {calculateConfigurator} from "../../../redux/action/configurator";
-import {addToCart} from "../../../redux/action/cart";
+import {addToCart, getCart} from "../../../redux/action/cart";
 
 const {Option} = Select;
 
@@ -65,7 +65,7 @@ const Characteristics = ({monoblocks}) => {
    const onFormLayoutChange = ({size}) => {
       setComponentSize(size);
    };
-   const onFinish = (values) => {
+   const onFinish = async (values) => {
       let component_ids = [];
       for (let key in values.components) {
          if (values.components.hasOwnProperty(key)) {
@@ -74,11 +74,12 @@ const Characteristics = ({monoblocks}) => {
       }
       console.log(component_ids)
       console.log(monoblock.id)
-      dispatch(addToCart({
+      await dispatch(addToCart({
          monoblock_id: monoblock.id,
          component_ids,
          months: values.month
-      }))
+      }));
+      dispatch(getCart())
    };
 
    const displayInitialValues = (component, type = 'optional') => {

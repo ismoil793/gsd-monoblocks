@@ -10,7 +10,6 @@ const Cabinet = () => {
    const router = useRouter();
 
    useEffect(() => {
-      console.log(router)
    }, [router])
 
    const handleSidebar = (nav) => {

@@ -80,7 +80,7 @@ const Header = () => {
                                    : <Link href="/login"><a>Login</a></Link>
                             }
                             <Link href="/cart">
-                               <a>My cart <span className="cart-num">2</span></a>
+                               <a>My cart <span className="cart-num">{cart.cartCount}</span></a>
                             </Link>
                          </div>
 

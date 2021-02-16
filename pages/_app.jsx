@@ -14,7 +14,6 @@ import '../styles/responsive.css';
 import { Provider } from 'react-redux';
 import { useStore } from '../redux/store';
 import NextNProgress from 'nextjs-progressbar';
-import { YMInitializer } from 'react-yandex-metrika';
 
 
 const App = ({ Component, pageProps }) => {
@@ -25,7 +24,6 @@ const App = ({ Component, pageProps }) => {
         color="#FF8C00"
         height="5"
       />
-      <YMInitializer accounts={[72439126]} />
       <Component {...pageProps} />
     </Provider>
   );

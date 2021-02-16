@@ -2,7 +2,7 @@ import React from 'react';
 
 const PriceRefactor = ({price}) => {
 
-   const formatPrice = priceF => {
+   const formatPrice = (priceF = 0) => {
       priceF = priceF.toString();
 
       if (priceF.length === 5) {
@@ -19,7 +19,7 @@ const PriceRefactor = ({price}) => {
          priceF = priceF.slice(0, 3) + ' ' + priceF.slice(3, 6) + ' ' + priceF.slice(6, 9)
       }
 
-      return (<span>{priceF} сум</span>)
+      return (<span>&euro;{priceF}</span>)
    };
 
    return (

@@ -13,8 +13,7 @@ const Cart = () => {
    const cart = useSelector(state => state.cart);
 
    useEffect(() => {
-      if (!cart.cartItems.id)
-         dispatch(getCart())
+      dispatch(getCart())
    }, []);
 
    return (

@@ -1,7 +1,8 @@
 import * as actions from '../actionTypes';
 
 const initialState = {
-   cartItems: {}
+   cartItems: {},
+   cartCount: 0
 };
 
 const cart = (state = {...initialState}, action) => {
@@ -10,7 +11,16 @@ const cart = (state = {...initialState}, action) => {
          return {...state, addCart: action.payload};
 
       case actions.FETCH_CART:
-         return {...state, cartItems: action.payload};
+         const cartCount = action.payload.subscriptions.reduce((acc, cur) => {
+            return acc + cur.quantity
+         }, 0);
+         return {...state, cartItems: action.payload, cartCount};
+
+      case actions.DECREASE_CART_ITEM:
+         return {...state, minus: action.payload};
+
+      case actions.INCREASE_CART_ITEM:
+         return {...state, plus: action.payload};
       default:
          return state;
    }
