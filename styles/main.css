@@ -1073,6 +1073,39 @@ td {
 .CheckoutFormWrapper {
     display: flex;
     justify-content: space-between;
+    flex-direction: column;
+}
+
+.CheckoutFormWrapper .ant-form-item {
+    flex-basis: 50%;
+    width: 45%;
+    display: inline-block;
+}
+
+.CheckoutFormWrapper .ant-form-item:nth-child(2n) {
+    margin-left: 4%;
+}
+
+.CheckoutFormWrapper .ant-form-item:last-child {
+    /*margin-left: 0%;*/
+}
+
+.special-input span.ant-input-affix-wrapper {
+    background: #f9f9f9;
+}
+
+.ant-select-show-search.ant-select:not(.ant-select-customize-input) .ant-select-selector {
+    border-radius: 10px;
+}
+
+.special-bg-select .ant-select-show-search.ant-select:not(.ant-select-customize-input) .ant-select-selector {
+    background: #f9f9f9;
+}
+
+.ant-form-item-has-error .ant-input, .ant-form-item-has-error .ant-input-affix-wrapper,
+.ant-form-item-has-error .ant-input:hover,
+.ant-form-item-has-error .ant-input-affix-wrapper:hover {
+    background-color: #f9f9f9;
 }
 
 .CheckoutFormButton {
@@ -1675,7 +1708,13 @@ a:hover {
 /*----------------------------- Checkout----------------------- */
 
 .checkout-section {
-    padding: 3% 0 5% 0;
+    padding: 0 0 5% 0;
+}
+
+.checkout-section input,
+.checkout-section textarea {
+    background: #f9f9f9;
+    resize: none;
 }
 
 /*----------------------------- Notify notyf ----------------------- */

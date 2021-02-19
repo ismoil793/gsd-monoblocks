@@ -34,7 +34,3 @@ export const userInfoUpdateAPI = (data) => httpPost({
    url: '/user',
    data
 });
-
-export const userOrdersHistoryAPI = () => httpGet({
-   url: '/api/user/orders'
-});

@@ -2,33 +2,62 @@ import {
    Table,
    Button,
 } from 'antd';
+import {useEffect} from "react";
+import {useDispatch, useSelector} from "react-redux";
+import {getOrders} from "../../../redux/action/order";
+import {useRouter} from "next/router";
+import PriceRefactor from "../../../helpers/Refactors/PriceRefactor";
 
 const Orders = () => {
+
+   const dispatch = useDispatch();
+   const router = useRouter();
+   const order = useSelector(state => state.order);
+
+   useEffect(() => {
+      dispatch(getOrders())
+   }, []);
+
+   const getFormattedDate = (date) => {
+      let formattedDate = `${new Date(date).getDay()}/`;
+      formattedDate = `${formattedDate}${new Date(date).getMonth() + 1}/`;
+      formattedDate = `${formattedDate}${new Date(date).getFullYear()}`;
+      return formattedDate
+   };
+
    const columns = [
       {
          title: 'Order',
-         dataIndex: 'order',
+         dataIndex: 'id',
          key: 'order',
       },
       {
-         title: 'Date',
-         dataIndex: 'date',
+         title: 'Date (dd/mm/yyy)',
+         // title: 'Date',
+         dataIndex: 'created_at',
+         render: (date) => (
+             <>{getFormattedDate(date)}</>
+         ),
          key: 'date',
       },
       {
          title: 'Status',
-         dataIndex: 'status',
+         dataIndex: 'order_state',
          key: 'status',
       },
       {
          title: 'Total',
          dataIndex: 'total',
+         render: (total) => (
+             <><PriceRefactor price={total} /></>
+         ),
          key: 'total',
       },
       {
          title: 'Actions',
-         render: () => (
+         render: (data) => (
              <Button
+                 onClick={() => router.push(`/order/${data.id}`)}
                  className="btn btn-trans"
                  style={{
                     backgroundColor: 'transparent',
@@ -42,29 +71,6 @@ const Orders = () => {
       },
    ];
 
-   const dataSource = [
-      {
-         key: '1',
-         order: '#582',
-         date: '08.10.2020',
-         status: 'Processing',
-         total: '468,000$ for 1 item'
-      },
-      {
-         key: '3',
-         order: '#581',
-         date: '08.10.2020',
-         status: 'Processing',
-         total: '1.254,00$ for 3 item'
-      },
-      {
-         key: '4',
-         order: '#583',
-         date: '08.10.2020',
-         status: 'Processing',
-         total: '555,00$ for 1 item'
-      },
-   ];
    return (
        <div
            style={{
@@ -76,8 +82,12 @@ const Orders = () => {
           <h5 className="font-weight-bold">Orders</h5>
           <div className="custom-table">
              <Table
+                 pagination={{
+                    pageSize: 5,
+                    // total: order.orders.length
+                 }}
                  columns={columns}
-                 dataSource={dataSource}
+                 dataSource={order.orders}
                  style={{
                     textAlign: 'center',
                  }}

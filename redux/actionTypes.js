@@ -7,7 +7,6 @@ export const AUTH_LOGOUT = "AUTH_LOGOUT";
 export const FETCH_USER = "FETCH_USER";
 export const USER_UPDATE = "USER_UPDATE";
 export const CLEAN_USER_INFO = "CLEAN_USER_INFO";
-export const FETCH_ORDERS = "FETCH_ORDERS";
 
 export const FETCH_FOOTER = "FETCH_FOOTER";
 
@@ -20,3 +19,9 @@ export const ADD_TO_CART = 'ADD_TO_CART';
 export const INCREASE_CART_ITEM = 'INCREASE_CART_ITEM';
 export const DECREASE_CART_ITEM = 'DECREASE_CART_ITEM';
 export const REMOVE_FROM_CART = 'REMOVE_FROM_CART';
+
+
+// Order
+export const CREATE_ORDER = 'CREATE_ORDER';
+export const CLEAR_CREATED_ORDER = 'CLEAR_CREATED_ORDER';
+export const FETCH_ORDERS = 'FETCH_ORDERS';

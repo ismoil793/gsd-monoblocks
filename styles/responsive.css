@@ -16,6 +16,22 @@
     .section-order {
         padding: 10% 0;
     }
+    .profile-section .ant-form-item .ant-form-item-label > label{
+        text-overflow: ellipsis;
+        overflow: hidden;
+        white-space: nowrap;
+    }
+    .profile-section .ant-table-tbody tr td:first-child,
+    .profile-section .ant-table-tbody tr td:last-child,
+    .profile-section .ant-table-tbody tr td:nth-child(4){
+        padding: 0;
+    }
+    .profile-section .ant-table-tbody tr td:last-child button{
+        padding: 0;
+    }
+    .profile-section .ant-table-tbody tr td:last-child span{
+        font-size: 12px;
+    }
 }
 
 @media screen and (max-width: 576px) {

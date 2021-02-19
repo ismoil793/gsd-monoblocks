@@ -13,9 +13,6 @@ const user = (state = {...initialState}, action) => {
       case actions.FETCH_USER:
          return { ...state, info: action.payload };
 
-      case actions.FETCH_ORDERS:
-         return { ...state, orders: action.payload };
-
       case actions.USER_UPDATE:
          return { ...state, info: action.payload };
 

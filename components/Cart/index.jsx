@@ -4,14 +4,13 @@ import {OverlayTrigger, Tooltip} from "react-bootstrap";
 import {MdAdd, MdRemove} from 'react-icons/md'
 import {useRouter} from "next/router";
 import {useDispatch, useSelector} from "react-redux";
-import PriceRefactor from "../../helpers/Refactors/PriceRefactor";
 import {getCart, minusCartItem, plusCartItem, removeFromCart} from "../../redux/action/cart";
 
 const onChange = (value) => {
    console.log('value: ', value);
 };
 
-const Cart = () => {
+const Cart = ({checkout = false}) => {
 
    const cart = useSelector(state => state.cart);
    const router = useRouter();
@@ -42,7 +41,6 @@ const Cart = () => {
                       <h3>My cart</h3>
                    </div>
 
-
                    {
                       cart.cartItems.total ?
                           <table className="table-orange">
@@ -52,7 +50,9 @@ const Cart = () => {
                                 <th>Price</th>
                                 <th>Quantity</th>
                                 <th>Subtotal</th>
-                                <th></th>
+                                {
+                                   !checkout ? <th></th> : null
+                                }
                              </tr>
                              </thead>
                              <tbody>
@@ -94,7 +94,13 @@ const Cart = () => {
 
                                            <td className="add-delete-prod noselect">
 
-                                              <MdRemove onClick={() => handleCartActions('decrease', item.id)}/>
+                                              {
+                                                 !checkout ?
+                                                     <MdRemove onClick={() => handleCartActions('decrease', item.id)}/>
+                                                     : null
+                                              }
+
+
                                               <InputNumber
                                                   className="price-change-input noselect"
                                                   readOnly={true}
@@ -103,26 +109,38 @@ const Cart = () => {
                                                   defaultValue={item.quantity}
                                                   onChange={onChange}
                                               />
-                                              <MdAdd onClick={() => handleCartActions('increase', item.id)}/>
+
+                                              {
+                                                 !checkout ?
+                                                     <MdAdd onClick={() => handleCartActions('increase', item.id)}/>
+                                                     : null
+                                              }
+
                                            </td>
                                            <td>&euro;{item.total * item.quantity}</td>
-                                           <td>
-                                              <OverlayTrigger
-                                                  placement={'bottom'}
-                                                  overlay={
-                                                     <Tooltip id={`tooltip-delete`}>
-                                                        Delete from cart
-                                                     </Tooltip>
-                                                  }
-                                              >
-                                                 <img
-                                                     onClick={() => handleCartActions('delete', item.id)}
-                                                     style={{cursor: 'pointer'}}
-                                                     src={removeButton} width="25"
-                                                     alt="removeButton"
-                                                 />
-                                              </OverlayTrigger>
-                                           </td>
+
+
+                                           {
+                                              !checkout ?
+                                                  <td>
+                                                     <OverlayTrigger
+                                                         placement={'bottom'}
+                                                         overlay={
+                                                            <Tooltip id={`tooltip-delete`}>
+                                                               Delete from cart
+                                                            </Tooltip>
+                                                         }
+                                                     >
+                                                        <img
+                                                            onClick={() => handleCartActions('delete', item.id)}
+                                                            style={{cursor: 'pointer'}}
+                                                            src={removeButton} width="25"
+                                                            alt="removeButton"
+                                                        />
+                                                     </OverlayTrigger>
+                                                  </td>
+                                                  : null
+                                           }
                                         </tr>
                                     ))
                                     : null
@@ -141,11 +159,11 @@ const Cart = () => {
 
 
                 <div className="col-12">
-                   <div className="cartTotalWrapper">
-                      <div className="text-right mt-4" style={{fontSize: 18}}>
+                   <div className="cartTotalWrapper" style={cart.cartItems.total ? {} : {justifyContent: 'flex-start'}}>
+                      <div className={`text-right mt-4`} style={{fontSize: 18}}>
 
                          {
-                            cart.cartItems.total ?
+                            !checkout && cart.cartItems.total ?
                                 <>
                                    <div><strong>Cart totals:</strong></div>
                                    <p>Total:&nbsp;
@@ -160,15 +178,15 @@ const Cart = () => {
                                    </button>
                                 </>
                                 :
-                                <button
-                                    onClick={() => router.push('/monoblock')}
-                                    className="btn-gsd-orange"
-                                    style={{fontSize: 16}}
-                                >
-                                   Shop now
-                                </button>
+                                !checkout ?
+                                    <button
+                                        onClick={() => router.push('/monoblock')}
+                                        className="btn-gsd-orange"
+                                        style={{fontSize: 16}}
+                                    >
+                                       Shop now
+                                    </button> : null
                          }
-
 
 
                       </div>

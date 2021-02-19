@@ -4,7 +4,6 @@ import {
    userInfoUpdateAPI,
    userLoginAPI, userLogoutAPI,
    userRefreshToken, userRegisterAPI,
-   userOrdersHistoryAPI
 } from "../../api/auth";
 import {notifyError, notifySuccess} from "../../helpers/NotifyBtn";
 import Cookies from "universal-cookie";
@@ -167,17 +166,6 @@ export function userInfoClean() {
       dispatch({
          type: actions.CLEAN_USER_INFO,
          payload: {}
-      })
-   }
-}
-
-export function getOrdersHistory() {
-   return async dispatch => {
-      await userOrdersHistoryAPI().then(res => {
-         dispatch({
-            type: actions.FETCH_ORDERS,
-            payload: res.data.data
-         })
       })
    }
 }

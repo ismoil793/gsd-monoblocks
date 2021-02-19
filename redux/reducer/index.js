@@ -4,6 +4,7 @@ import handleHomePage from './handleHomePage';
 import user from "./user";
 import footer from "./footer";
 import cart from "./cart";
+import order from "./order";
 import configurator from "./configurator";
 import * as actions from '../action/index';
 
@@ -41,5 +42,6 @@ export default combineReducers({
   user,
   configurator,
   footer,
-  cart
+  cart,
+  order
 });

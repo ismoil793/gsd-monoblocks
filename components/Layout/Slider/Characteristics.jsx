@@ -196,7 +196,7 @@ const Characteristics = ({monoblocks}) => {
                       })}
                    </Select>
                 </Form.Item>
-                <h5 className="mb-0 pt-3 text-right">Price&nbsp;
+                <h5 className="mb-0 pt-3 text-right">Price:&nbsp;
                    <span className="gsd-orange">
                    from&nbsp;
                       <CountUp
