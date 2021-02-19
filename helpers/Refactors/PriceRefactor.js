@@ -3,6 +3,7 @@ import React from 'react';
 const PriceRefactor = ({price}) => {
 
    const formatPrice = (priceF = 0) => {
+      priceF = Math.round(priceF);
       priceF = priceF.toString();
 
       if (priceF.length === 5) {

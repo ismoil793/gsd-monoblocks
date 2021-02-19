@@ -8,3 +8,7 @@ export const API_createOrder = (data) => httpPost({
 export const API_getOrders = () => httpGet({
    url: '/user/orders'
 });
+
+export const API_getSingleOrder = (id) => httpGet({
+   url: `/user/order/details/${id}`
+});

@@ -7,6 +7,7 @@ import {useDispatch, useSelector} from "react-redux";
 import {getOrders} from "../../../redux/action/order";
 import {useRouter} from "next/router";
 import PriceRefactor from "../../../helpers/Refactors/PriceRefactor";
+import DateRefactor from "../../../helpers/Refactors/DateRefactor";
 
 const Orders = () => {
 
@@ -17,13 +18,6 @@ const Orders = () => {
    useEffect(() => {
       dispatch(getOrders())
    }, []);
-
-   const getFormattedDate = (date) => {
-      let formattedDate = `${new Date(date).getDay()}/`;
-      formattedDate = `${formattedDate}${new Date(date).getMonth() + 1}/`;
-      formattedDate = `${formattedDate}${new Date(date).getFullYear()}`;
-      return formattedDate
-   };
 
    const columns = [
       {
@@ -36,7 +30,7 @@ const Orders = () => {
          // title: 'Date',
          dataIndex: 'created_at',
          render: (date) => (
-             <>{getFormattedDate(date)}</>
+             <><DateRefactor date={date} /></>
          ),
          key: 'date',
       },

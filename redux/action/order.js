@@ -1,5 +1,5 @@
 import * as actions from "../actionTypes";
-import {API_createOrder, API_getOrders} from "../../api/order";
+import {API_createOrder, API_getOrders, API_getSingleOrder} from "../../api/order";
 import {notifyError, notifySuccess} from "../../helpers/NotifyBtn";
 
 export function createOrder(data) {
@@ -28,6 +28,17 @@ export function getOrders() {
           .then(response => {
              dispatch({
                 type: actions.FETCH_ORDERS,
+                payload: response.data.data
+             })
+          }).catch(e => notifyError(e.data.message));
+   }
+}
+export function getSingleOrder(id) {
+   return async dispatch => {
+      await API_getSingleOrder(id)
+          .then(response => {
+             dispatch({
+                type: actions.FETCH_ORDER,
                 payload: response.data.data
              })
           }).catch(e => notifyError(e.data.message));

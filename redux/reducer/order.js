@@ -2,7 +2,8 @@ import * as actions from '../actionTypes';
 
 const initialState = {
    orderCreated: false,
-   orders: []
+   orders: [],
+   order: {}
 };
 
 const order = (state = {...initialState}, action) => {
@@ -15,6 +16,9 @@ const order = (state = {...initialState}, action) => {
 
       case actions.FETCH_ORDERS:
          return {...state, orders: action.payload};
+
+      case actions.FETCH_ORDER:
+         return {...state, order: action.payload};
 
       default:
          return state;
