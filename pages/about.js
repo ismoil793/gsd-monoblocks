@@ -9,6 +9,11 @@ const About = () => {
                 <div className="row">
                    <div className="col-12">
                       <h2 className="text-center products-title">About us</h2>
+                   </div>
+                   <div className="col-lg-6 mb-4">
+                      <img src="/static/img/gsd-big.jpg" alt="GSD"/>
+                   </div>
+                   <div className="col-lg-6">
                       <div>
                          <p>Global Smart Distribution Company was founded in 2018 in Riga, Latvia. GSD is in the
                             international business of distribution and we help top-managers of these organizations to do
