@@ -15,7 +15,7 @@ const CustomNavs = ({monoblock}) => {
                <div className="col-lg-2 col-md-4 col-sm-6" key={i}>
                   <div className="price-plan">
                      <span className="gsd-orange">{item} <sup>€</sup></span>
-                     <p>{i + 3} {i === 0 ? 'month' : 'months'}</p>
+                     <p>{i + 1} {i === 0 ? 'month' : 'months'}</p>
                   </div>
                </div>
            ))
