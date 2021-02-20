@@ -48,7 +48,7 @@ const Catalog = ({monoblocks}) => {
 };
 
 
-export async function getStaticProps() {
+export async function getServerSideProps() {
    const response = await fetch('https://apigsd.rrpo.uz/api/monoblocks?page=1&per_page=6', {
       method: 'GET',
       headers: {

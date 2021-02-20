@@ -135,7 +135,7 @@ const RegisterForm = () => {
                        <Form.Item
                            name={['user', 'email']}
                            label="Email"
-                           rules={[{type: 'email'}]}
+                           rules={[{type: 'email', required: true}]}
                        >
                           <Input/>
                        </Form.Item>
