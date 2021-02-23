@@ -7,6 +7,7 @@ const VerifyEmail = () => {
 
    const router = useRouter();
    const dispatch = useDispatch();
+   const {id, ...params} = router.query;
 
    return (
        <MainLayout>
