@@ -1660,6 +1660,16 @@ a:hover {
 }
 
 
+
+/*----------------------------- About----------------------- */
+.restore-pass .ant-col.ant-form-item-control{
+    height: 62px;
+}
+.restore-pass .ant-form-item{
+    padding-bottom: 0 !important;
+}
+
+
 /*----------------------------- Cart----------------------- */
 .section-cart {
     padding: 3% 0 5% 0;
