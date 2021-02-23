@@ -1,7 +1,6 @@
 import React, {useEffect} from 'react';
 import MainLayout from "../../../components/Layout";
 import {useRouter} from "next/router";
-import {useDispatch} from "react-redux";
 import {httpGet} from "../../../api";
 import url from "../../../api/url";
 import {notifyError, notifySuccess} from "../../../helpers/NotifyBtn";
@@ -9,7 +8,6 @@ import {notifyError, notifySuccess} from "../../../helpers/NotifyBtn";
 const VerifyEmail = () => {
 
    const router = useRouter();
-   const dispatch = useDispatch();
    const {id, ...params} = router.query;
 
    useEffect(() => {
