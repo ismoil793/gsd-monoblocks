@@ -100,9 +100,7 @@ const PasswordRecover = () => {
                                       type="primary"
                                       htmlType="submit"
                                       className="btn-gsd"
-                                  >
-                                     Reset password
-                                  </Button>
+                                  >Reset password</Button>
                                </div>
                             </Form.Item>
                          </Form>
