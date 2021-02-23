@@ -24,6 +24,7 @@ const PasswordRecover = () => {
       },
    };
 
+   // function for validating password of 6 chars
    const validatePassword = ({target}) => {
       const {value} = target;
       const regEx = new RegExp("^(?=.{6,})");
