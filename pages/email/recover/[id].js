@@ -95,7 +95,7 @@ const PasswordRecover = () => {
                             </Form.Item>
 
                             <Form.Item>
-                               <div className="d-flex justify-content-end mt-3">
+                               <div className="d-flex justify-content-end">
                                   <Button
                                       type="primary"
                                       htmlType="submit"
