@@ -58,7 +58,7 @@ const PasswordReset = () => {
                             </Form.Item>
 
                             <Form.Item>
-                               <div className="d-flex justify-content-between mt">
+                               <div className="d-flex justify-content-between">
                                   <Link href="/register">
                                      <a>Do not have an account?</a>
                                   </Link>
