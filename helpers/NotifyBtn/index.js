@@ -60,7 +60,7 @@ export function notifyWarn(msg, duration = 2000) {
          {
             type: "warning",
             backgroundColor: "orange",
-
+            className: 'notyf__warn_notif'
             // icon: {
             //    className: 'notify-icon-img',
             //    tagName: 'div'
@@ -69,7 +69,7 @@ export function notifyWarn(msg, duration = 2000) {
          }
       ],
       duration,
-      position: { x: 'right', y: window.innerWidth <= 768 ? 'bottom' : 'top' },
+      position: { x: 'center', y: window.innerWidth <= 768 ? 'bottom' : 'top' },
       dismissible: true
    });
 

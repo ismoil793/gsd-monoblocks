@@ -1760,6 +1760,10 @@ a:hover {
     background-color: #5BC660;
 }
 
+.notyf__toast.notyf__warn_notif {
+    background-color: orange;
+}
+
 .notyf__toast.notyf__toast--error {
     background-color: #d84326 !important;
 }

@@ -5,6 +5,9 @@ import {MdAdd, MdRemove} from 'react-icons/md'
 import {useRouter} from "next/router";
 import {useDispatch, useSelector} from "react-redux";
 import {getCart, minusCartItem, plusCartItem, removeFromCart} from "../../redux/action/cart";
+import {useEffect} from "react";
+import {userInfo} from "../../redux/action/user";
+import {notifyWarn} from "../../helpers/NotifyBtn";
 
 const onChange = (value) => {
    console.log('value: ', value);
@@ -13,9 +16,16 @@ const onChange = (value) => {
 const Cart = ({checkout = false}) => {
 
    const cart = useSelector(state => state.cart);
+   const user = useSelector(state => state.user);
    const router = useRouter();
    const dispatch = useDispatch();
    const cartItems = cart.cartItems.subscriptions;
+
+   useEffect(() => {
+      if (!user.info.id) {
+         dispatch(userInfo())
+      }
+   }, []);
 
    const handleCartActions = async (type, id) => {
       switch (type) {
@@ -30,6 +40,15 @@ const Cart = ({checkout = false}) => {
             break;
       }
       dispatch(getCart())
+   };
+
+   const handleCheckoutButton = () => {
+      if (user.info.id)
+         router.push('/checkout');
+      else {
+         notifyWarn("Only registered users can place an order!", 3000);
+         router.push('/login')
+      }
    };
 
    return (
@@ -170,7 +189,7 @@ const Cart = ({checkout = false}) => {
                                       <strong>&euro;{cart.cartItems.total}</strong>
                                    </p>
                                    <button
-                                       onClick={() => router.push('/checkout')}
+                                       onClick={handleCheckoutButton}
                                        className="btn-gsd-orange"
                                        style={{fontSize: 16}}
                                    >

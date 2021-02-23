@@ -199,10 +199,12 @@ const Characteristics = ({monoblocks}) => {
                 <h5 className="mb-0 pt-3 text-right">Price:&nbsp;
                    <span className="gsd-orange">
                    from&nbsp;
+                      {console.log(configurator.minimum)}
                       <CountUp
                           start={0}
                           end={configurator.minimum}
                           duration={1}
+                          decimals={2}
                           prefix="€ "
                           className="Number-Animation"
                           style={{
