@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {useEffect} from 'react';
 import MainLayout from "../../../components/Layout";
 import {useRouter} from "next/router";
 import {useDispatch} from "react-redux";
@@ -8,6 +8,10 @@ const VerifyEmail = () => {
    const router = useRouter();
    const dispatch = useDispatch();
    const {id, ...params} = router.query;
+
+   useEffect(() => {
+
+   }, []);
 
    return (
        <MainLayout>
