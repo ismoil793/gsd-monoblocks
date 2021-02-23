@@ -10,7 +10,9 @@ const MainLayout = (props) => {
    return (
        <>
           <Header/>
-          {props.children}
+          <div style={{minHeight: '55vh'}}>
+             {props.children}
+          </div>
           <Footer/>
        </>
    );

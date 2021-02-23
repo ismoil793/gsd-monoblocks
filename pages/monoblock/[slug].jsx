@@ -8,8 +8,6 @@ const Monoblock = ({monoblock}) => {
 
    return (
        <MainLayout>
-          {/*<HeaderTopContainer />*/}
-          {/*<CustomNavbar />*/}
           <div className="container">
              {
                 monoblock.monoblock && monoblock.monoblock.name ?
@@ -18,7 +16,6 @@ const Monoblock = ({monoblock}) => {
              }
              <BodyNavs monoblock={monoblock} />
           </div>
-          {/*<Footer />*/}
        </MainLayout>
    )
 };
@@ -29,8 +26,6 @@ export async function getServerSideProps(context) {
        .then(res => {
           data = res.data;
        });
-
-   console.log(data.configuration)
 
    return {props: {monoblock: data}}
 }

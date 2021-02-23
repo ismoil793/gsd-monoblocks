@@ -9,6 +9,10 @@
         overflow-x: hidden;
     }
 
+    .Charac-Respon-Padd {
+        width: 95% !important;
+    }
+
     .ant-table-wrapper {
         overflow-x: scroll;
     }
@@ -16,20 +20,24 @@
     .section-order {
         padding: 10% 0;
     }
-    .profile-section .ant-form-item .ant-form-item-label > label{
+
+    .profile-section .ant-form-item .ant-form-item-label > label {
         text-overflow: ellipsis;
         overflow: hidden;
         white-space: nowrap;
     }
+
     .profile-section .ant-table-tbody tr td:first-child,
     .profile-section .ant-table-tbody tr td:last-child,
-    .profile-section .ant-table-tbody tr td:nth-child(4){
+    .profile-section .ant-table-tbody tr td:nth-child(4) {
         padding: 0;
     }
-    .profile-section .ant-table-tbody tr td:last-child button{
+
+    .profile-section .ant-table-tbody tr td:last-child button {
         padding: 0;
     }
-    .profile-section .ant-table-tbody tr td:last-child span{
+
+    .profile-section .ant-table-tbody tr td:last-child span {
         font-size: 12px;
     }
 }
@@ -41,6 +49,24 @@
         display: flex;
         justify-content: center;
         align-items: center;
+    }
+
+    .account-title {
+        margin-bottom: 7%;
+    }
+
+    .nav-tabs .nav-link:first-child {
+        margin-left: 2%;
+    }
+
+    .nav-tabs .nav-link {
+        padding: 0.3rem 0.5rem;
+        font-size: 16px;
+        margin-right: 0;
+    }
+
+    .recommended-monoblocks .products-title {
+        margin-top: 7%;
     }
 
     .line-navigation .catalog-btn a svg {

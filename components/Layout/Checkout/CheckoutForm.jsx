@@ -231,7 +231,7 @@ const CheckoutForm = (props) => {
                                 label="Order notes (optional)"
                                 name="order_notes"
                             >
-                               <Input.TextArea placeholder="Notes about your order, e.g. special notes for delivery"/>
+                               <Input.TextArea placeholder="Notes about your order"/>
                             </Form.Item>
                          </div>
                       </div>
