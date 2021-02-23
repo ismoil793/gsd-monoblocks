@@ -23,7 +23,7 @@ const user = (state = {...initialState}, action) => {
          return { ...state, isLogin: action.payload };
 
       case actions.AUTH_LOGOUT:
-         return { ...state, isLogin: action.payload };
+         return { ...state, isLogin: action.payload, info: {} };
 
       case actions.AUTH_REGISTER:
          return {...state, regSuccess: action.payload.regSuccess, isRegistering: action.payload.isRegistering};

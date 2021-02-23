@@ -1,5 +1,5 @@
 import {useDispatch} from "react-redux";
-import {authLogout} from "../../../redux/action/user";
+import {authLogout, userInfoClean} from "../../../redux/action/user";
 import {useRouter} from "next/router";
 
 const SideMenu = () => {
@@ -10,6 +10,7 @@ const SideMenu = () => {
    const logoutHandler = () => {
       router.push('/');
      dispatch(authLogout());
+     dispatch(userInfoClean())
    };
 
    return (
@@ -27,11 +28,7 @@ const SideMenu = () => {
              >
                 Account details
              </li>
-             <li
-                 onClick={logoutHandler}
-             >
-                Logout
-             </li>
+             <li onClick={logoutHandler}>Logout</li>
           </ul>
        </div>
    );

@@ -122,7 +122,6 @@ export function authLogout() {
                 type: actions.AUTH_LOGOUT,
                 payload: false
              });
-             userInfoClean()
 
           }).catch(e => notifyError(e.data.message));
    }

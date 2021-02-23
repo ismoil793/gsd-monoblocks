@@ -79,7 +79,7 @@ const Login = () => {
                          <Link href="/register">
                             <a>Do not have an account?</a>
                          </Link>
-                         <Link href="/forgot">
+                         <Link href="/password-reset">
                             <a>Forgot your password?</a>
                          </Link>
                          <Button

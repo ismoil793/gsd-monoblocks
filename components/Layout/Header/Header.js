@@ -5,16 +5,21 @@ import Cookies from "universal-cookie";
 import uuid from 'uuid'
 import {useDispatch, useSelector} from "react-redux";
 import {getCart} from "../../../redux/action/cart";
+import {userInfo} from "../../../redux/action/user";
 
 const Header = () => {
 
-   const [hasToken, setToken] = useState('');
    const dispatch = useDispatch();
    const cart = useSelector(state => state.cart);
+   const user = useSelector(state => state.user);
 
    useEffect(() => {
 
       fetchCart();
+
+      if(!user.info.id) {
+         dispatch(userInfo())
+      }
 
       const nextYear = new Date();
       const cookies = new Cookies();
@@ -27,9 +32,6 @@ const Header = () => {
          cookies.set('device_token', device_id, {
             path: '/', expires: nextYear
          })
-      }
-      if(cookies.get('access_token')) {
-         setToken(true)
       }
    }, []);
 
@@ -76,7 +78,7 @@ const Header = () => {
 
                          <div className="nav-right">
                             {
-                               hasToken ? <Link href="/cabinet?param=orders"><a>My account</a></Link>
+                               user.info.id ? <Link href="/cabinet?param=orders"><a>My account</a></Link>
                                    : <Link href="/login"><a>Login</a></Link>
                             }
                             <Link href="/cart">
