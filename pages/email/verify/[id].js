@@ -1,7 +1,6 @@
 import React, {useEffect} from 'react';
 import MainLayout from "../../../components/Layout";
 import {useRouter} from "next/router";
-import {useDispatch} from "react-redux";
 import {httpGet} from "../../../api";
 import url from "../../../api/url";
 import {notifyError, notifySuccess} from "../../../helpers/NotifyBtn";
