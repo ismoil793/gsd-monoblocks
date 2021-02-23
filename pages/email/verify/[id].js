@@ -9,6 +9,7 @@ import {notifyError, notifySuccess} from "../../../helpers/NotifyBtn";
 const VerifyEmail = () => {
 
    const router = useRouter();
+   const dispatch = useDispatch();
    const {id, ...params} = router.query;
 
    useEffect(() => {
