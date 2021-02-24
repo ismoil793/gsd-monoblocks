@@ -59,7 +59,6 @@ const Cart = ({checkout = false}) => {
                    <div className="account-title">
                       <h3>My cart</h3>
                    </div>
-
                    {
                       cart.cartItems.total ?
                           <table className="table-orange">
@@ -75,8 +74,6 @@ const Cart = ({checkout = false}) => {
                              </tr>
                              </thead>
                              <tbody>
-
-
                              {
                                 cartItems && cartItems.length ?
                                     cartItems.map((item, i) => (
@@ -92,7 +89,6 @@ const Cart = ({checkout = false}) => {
                                                     </tr>
                                                     </thead>
                                                     <tbody>
-
                                                     {
                                                        item.components && item.components.length ?
                                                            item.components.map((val, idx) => (
@@ -108,18 +104,13 @@ const Cart = ({checkout = false}) => {
                                                  </table>
                                               </div>
                                            </td>
-
                                            <td>&euro;{item.total} <br/> for {item.months}month(s)</td>
-
                                            <td className="add-delete-prod noselect">
-
                                               {
                                                  !checkout ?
                                                      <MdRemove onClick={() => handleCartActions('decrease', item.id)}/>
                                                      : null
                                               }
-
-
                                               <InputNumber
                                                   className="price-change-input noselect"
                                                   readOnly={true}
@@ -128,17 +119,13 @@ const Cart = ({checkout = false}) => {
                                                   defaultValue={item.quantity}
                                                   onChange={onChange}
                                               />
-
                                               {
                                                  !checkout ?
                                                      <MdAdd onClick={() => handleCartActions('increase', item.id)}/>
                                                      : null
                                               }
-
                                            </td>
                                            <td>&euro;{item.total * item.quantity}</td>
-
-
                                            {
                                               !checkout ?
                                                   <td>
@@ -164,8 +151,6 @@ const Cart = ({checkout = false}) => {
                                     ))
                                     : null
                              }
-
-
                              </tbody>
                           </table>
                           :
@@ -173,7 +158,6 @@ const Cart = ({checkout = false}) => {
                              <h4>Your cart is empty</h4>
                           </div>
                    }
-
                 </div>
 
 
@@ -206,8 +190,6 @@ const Cart = ({checkout = false}) => {
                                        Shop now
                                     </button> : null
                          }
-
-
                       </div>
                    </div>
                 </div>

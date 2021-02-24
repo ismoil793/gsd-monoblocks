@@ -25,7 +25,7 @@ const Login = () => {
    };
 
    useEffect(() => {
-      if (user.isLogin) {
+      if (user.isLogin && user.info.id) {
          router.push('/cabinet?param=orders')
       }
    }, [user]);
