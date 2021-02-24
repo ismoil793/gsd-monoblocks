@@ -30,7 +30,6 @@ const VerifyEmail = () => {
              <div className="row mt-5">
                 <div className="col-12 mt-5 p-0">
                    <div style={{height: '40vh'}}>
-                      <!-- asdasasdasdasd -->
                       <h1 className="heading-dark text-center">Approving your email...</h1>
                    </div>
                 </div>
