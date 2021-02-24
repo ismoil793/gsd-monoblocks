@@ -15,14 +15,14 @@ const Header = () => {
 
    useEffect(() => {
 
+      const cookies = new Cookies();
       fetchCart();
 
-      if(!user.info.id) {
+      if(!user.info.id && cookies.get('access_token')) {
          dispatch(userInfo())
       }
 
       const nextYear = new Date();
-      const cookies = new Cookies();
       nextYear.setFullYear(new Date().getFullYear() + 1);
 
       cookies.set('device_type', 'web',

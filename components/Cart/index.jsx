@@ -8,6 +8,7 @@ import {getCart, minusCartItem, plusCartItem, removeFromCart} from "../../redux/
 import {useEffect} from "react";
 import {userInfo} from "../../redux/action/user";
 import {notifyWarn} from "../../helpers/NotifyBtn";
+import Cookies from "universal-cookie";
 
 const onChange = (value) => {
    console.log('value: ', value);
@@ -15,6 +16,7 @@ const onChange = (value) => {
 
 const Cart = ({checkout = false}) => {
 
+   const cookies = new Cookies();
    const cart = useSelector(state => state.cart);
    const user = useSelector(state => state.user);
    const router = useRouter();
@@ -22,7 +24,7 @@ const Cart = ({checkout = false}) => {
    const cartItems = cart.cartItems.subscriptions;
 
    useEffect(() => {
-      if (!user.info.id) {
+      if (!user.info.id && cookies.get('access_token')) {
          dispatch(userInfo())
       }
    }, []);
