@@ -9,12 +9,12 @@ import {httpGet_NO_DEVICE_TOKEN} from "../../../api";
 const VerifyEmail = () => {
 
    const router = useRouter();
-   const {id, ...params} = router.query;
+   const {u_id, ...params} = router.query;
 
-   useEffect(async () => {
-      if (id) {
+   useEffect(() => {
+      if (u_id) {
          httpGet_NO_DEVICE_TOKEN({
-            url: `${url}/auth/user/verify/${id}`,
+            url: `${url}/auth/user/verify/${u_id}`,
             params
          }).then(response => {
             notifySuccess('Your account is approved');
@@ -29,7 +29,7 @@ const VerifyEmail = () => {
             // router.push('/')
          })
       }
-   }, [id]);
+   }, [u_id]);
 
    return (
        <MainLayout>
