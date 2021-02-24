@@ -4,6 +4,7 @@ import {useRouter} from "next/router";
 import url from "../../../api/url";
 import {notifyError, notifySuccess} from "../../../helpers/NotifyBtn";
 import axios from "axios";
+import {httpGet} from "../../../api";
 
 const VerifyEmail = () => {
 
@@ -12,6 +13,9 @@ const VerifyEmail = () => {
 
    useEffect(async () => {
 
+      httpGet({
+         url: `${url}/user/info`
+      })
 
       if (id) {
          console.log(`${url}/auth/user/verify/${id}?expires=${params.expires}&signature=${params.signature}`)
