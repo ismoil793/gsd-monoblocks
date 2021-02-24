@@ -1458,8 +1458,12 @@ a:hover {
     object-fit: contain;
 }
 
+.slick-dots {
+    bottom: -25px;
+}
+
 .homepage-banner .slick-dots li button:before {
-    font-size: 25px;
+    font-size: 12px;
 }
 
 .Custom-Card-Container {

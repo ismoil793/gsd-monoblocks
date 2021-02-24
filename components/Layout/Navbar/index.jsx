@@ -1,7 +1,6 @@
 /* import { Container } from 'react-bootstrap'; */
 import Link from 'next/link';
 import Image from 'next/image';
-import DownArrow from '../../../static/img/down-arrow.png';
 
 const CustomNavbar = () => {
    return (
@@ -26,7 +25,7 @@ const CustomNavbar = () => {
                       <ul className="Primary-Menu">
                          <li className="Root-Menu-li">Main</li>
                          <li className="Dropdown Root-Menu-li">
-                            About us <img className="dropdown-icon" src={DownArrow} alt="arrow"/>
+                            About us <img className="dropdown-icon" src="/static/img/down-arrow.png" alt="arrow"/>
                             <ul className="Dropdown-Content">
                                <li><a>Company Profile</a></li>
                                <li><a>Mission and Vision</a></li>
@@ -36,7 +35,7 @@ const CustomNavbar = () => {
                             </ul>
                          </li>
                          <li className="Dropdown Dropdown Root-Menu-li">
-                            Solutions <img className="dropdown-icon" src={DownArrow} alt="arrow"/>
+                            Solutions <img className="dropdown-icon" src="/static/img/down-arrow.png" alt="arrow"/>
                             <ul className="Dropdown-Content">
                                <li>hello</li>
                                <li>hello</li>
@@ -44,7 +43,7 @@ const CustomNavbar = () => {
                             </ul>
                          </li>
                          <li className="Dropdown Dropdown Root-Menu-li">
-                            Services <img className="dropdown-icon" src={DownArrow} alt="arrow"/>
+                            Services <img className="dropdown-icon" src="/static/img/down-arrow.png" alt="arrow"/>
                             <ul className="Dropdown-Content">
                                <li>hello</li>
                                <li>hello</li>

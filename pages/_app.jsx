@@ -6,8 +6,6 @@ import '@fortawesome/fontawesome-free/css/all.css';
 
 import 'antd/dist/antd.css';
 import 'bootstrap/dist/css/bootstrap.min.css';
-import "slick-carousel/slick/slick.css";
-import "slick-carousel/slick/slick-theme.css";
 import '../styles/main.css';
 import '../styles/responsive.css';
 

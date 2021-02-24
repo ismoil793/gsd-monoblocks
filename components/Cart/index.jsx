@@ -1,5 +1,4 @@
 import {InputNumber, Button} from 'antd';
-import removeButton from '../../static/img/remove.png';
 import {OverlayTrigger, Tooltip} from "react-bootstrap";
 import {MdAdd, MdRemove} from 'react-icons/md'
 import {useRouter} from "next/router";
@@ -9,6 +8,7 @@ import {useEffect} from "react";
 import {userInfo} from "../../redux/action/user";
 import {notifyWarn} from "../../helpers/NotifyBtn";
 import Cookies from "universal-cookie";
+import PriceRefactor from "../../helpers/Refactors/PriceRefactor";
 
 const onChange = (value) => {
    console.log('value: ', value);
@@ -106,7 +106,7 @@ const Cart = ({checkout = false}) => {
                                                  </table>
                                               </div>
                                            </td>
-                                           <td>&euro;{item.total} <br/> for {item.months}month(s)</td>
+                                           <td><PriceRefactor price={item.total} /> <br/> for {item.months}month(s)</td>
                                            <td className="add-delete-prod noselect">
                                               {
                                                  !checkout ?
@@ -127,7 +127,7 @@ const Cart = ({checkout = false}) => {
                                                      : null
                                               }
                                            </td>
-                                           <td>&euro;{item.total * item.quantity}</td>
+                                           <td><PriceRefactor price={item.total * item.quantity} /></td>
                                            {
                                               !checkout ?
                                                   <td>
@@ -142,7 +142,7 @@ const Cart = ({checkout = false}) => {
                                                         <img
                                                             onClick={() => handleCartActions('delete', item.id)}
                                                             style={{cursor: 'pointer'}}
-                                                            src={removeButton} width="25"
+                                                            src="/static/img/remove.png" width="25"
                                                             alt="removeButton"
                                                         />
                                                      </OverlayTrigger>
@@ -172,7 +172,7 @@ const Cart = ({checkout = false}) => {
                                 <>
                                    <div><strong>Cart totals:</strong></div>
                                    <p>Total:&nbsp;
-                                      <strong>&euro;{cart.cartItems.total}</strong>
+                                      <strong><PriceRefactor price={cart.cartItems.total} /></strong>
                                    </p>
                                    <button
                                        onClick={handleCheckoutButton}

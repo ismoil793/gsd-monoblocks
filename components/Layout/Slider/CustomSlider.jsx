@@ -1,16 +1,6 @@
 import {useState} from 'react';
-/* import Slider from 'react-slick'; */
-/* import Carousel, { Dots, arrowsPlugin, autoplayPlugin } from '@brainhubeu/react-carousel'; */
-/* import '@brainhubeu/react-carousel/lib/style.css'; */
 import Characteristics from './Characteristics';
-/* import imageOne from '../../../static/img/a1.jpg';
-import imageTwo from '../../../static/img/a2.jpg';
-import imageThree from '../../../static/img/a3.png';
-import "slick-carousel/slick/slick.css"; 
-import "slick-carousel/slick/slick-theme.css"; */
 import {Carousel} from 'react-bootstrap';
-import Navs from '../Navs';
-import {BsArrowLeft, BsArrowRight} from 'react-icons/bs';
 
 const CustomSlider = ({monoblocks}) => {
 

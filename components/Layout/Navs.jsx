@@ -1,5 +1,4 @@
 import {Tabs, Tab} from 'react-bootstrap';
-import pic from '../../static/img/a2.jpg';
 import {Table} from 'react-bootstrap';
 import {useSelector} from "react-redux";
 

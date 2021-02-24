@@ -1,36 +1,12 @@
 import React, {useEffect, useState} from 'react';
-import HeaderTopContainer from '../../components/Layout/Header/HeaderTop';
-import Footer from '../../components/Layout/Footer/index';
-import CustomNavbar from '../../components/Layout/Navbar';
-import {Select, Pagination} from 'antd';
-import {
-   Col,
-   Row
-} from 'react-bootstrap';
 import Slider from "react-slick";
-import CustomCard from '../../components/Layout/Cards/Card';
-import axios from 'axios';
 import {useDispatch, useSelector} from 'react-redux';
 import * as actions from '../../redux/action';
 import MainLayout from "../../components/Layout";
 import {GrNext, GrPrevious} from 'react-icons/gr'
-import {BsDot} from 'react-icons/bs'
 import ProductsWrap from "../../components/Products";
-
-export async function getServerSideProps() {
-   const response = await fetch('https://apigsd.rrpo.uz/api/monoblocks?page=1&per_page=6', {
-      method: 'GET',
-      headers: {
-         'Content-Type': 'application/json'
-      },
-   });
-   const monoblocks = await response.json();
-   return {
-      props: {
-         monoblocks: monoblocks ? monoblocks : [],
-      }
-   }
-}
+import "slick-carousel/slick/slick.css";
+import "slick-carousel/slick/slick-theme.css";
 
 const Home = ({monoblocks}) => {
    const dispatch = useDispatch();
@@ -57,7 +33,7 @@ const Home = ({monoblocks}) => {
       infinite: true,
       arrows: deviceWidth > 769,
       accessibility: true,
-      autoplaySpeed: 5000,
+      autoplaySpeed: 50000,
       // speed: 700,
       slidesToShow: 1,
       slidesToScroll: 1,
@@ -156,5 +132,20 @@ const Home = ({monoblocks}) => {
    );
 };
 
+
+export async function getServerSideProps() {
+   const response = await fetch('https://apigsd.rrpo.uz/api/monoblocks?page=1&per_page=6', {
+      method: 'GET',
+      headers: {
+         'Content-Type': 'application/json'
+      },
+   });
+   const monoblocks = await response.json();
+   return {
+      props: {
+         monoblocks: monoblocks ? monoblocks : [],
+      }
+   }
+}
 
 export default Home;
