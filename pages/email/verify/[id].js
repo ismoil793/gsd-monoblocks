@@ -12,6 +12,7 @@ const VerifyEmail = () => {
 
    useEffect(() => {
       if (router.query.id) {
+         console.log(router)
          axios.get(`${url}/auth/user/verify/${id}`, {
             params
          })
