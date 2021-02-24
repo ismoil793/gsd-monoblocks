@@ -11,26 +11,28 @@ const VerifyEmail = () => {
    const {id, ...params} = router.query;
 
    useEffect(() => {
-      httpGet({
-         url: `${url}/auth/user/verify/${id}`,
-         params
-      })
-          .then(response => {
-             notifySuccess('Your account is approved');
-             router.push('/login')
-          })
-          .catch(e => {
-             notifyError(e.data.message);
-             router.push('/')
-          })
-   }, []);
+      if (router.query.id) {
+         httpGet({
+            url: `${url}/auth/user/verify/${id}`,
+            params
+         })
+             .then(response => {
+                notifySuccess('Your account is approved');
+                router.push('/login')
+             })
+             .catch(e => {
+                notifyError(e.data.message);
+                router.push('/')
+             })
+      }
+   }, [router]);
 
    return (
        <MainLayout>
           <div className="container-fluid">
              <div className="row mt-5">
                 <div className="col-12 mt-5 p-0">
-                   <div style={{ height: '40vh' }}>
+                   <div style={{height: '40vh'}}>
                       <h1 className="heading-dark">Approving your email...</h1>
                    </div>
                 </div>
