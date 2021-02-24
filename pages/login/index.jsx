@@ -6,7 +6,7 @@ import {
 import MainLayout from "../../components/Layout";
 import Link from "next/link";
 import {useDispatch, useSelector} from "react-redux";
-import {authLogin} from "../../redux/action/user";
+import {authLogin, userInfo} from "../../redux/action/user";
 import {useEffect} from "react";
 import {useRouter} from "next/router";
 
@@ -16,8 +16,9 @@ const Login = () => {
    const user = useSelector((state) => state.user);
    const router = useRouter();
 
-   const onFinish = (values) => {
-      dispatch(authLogin(values))
+   const onFinish = async (values) => {
+      await dispatch(authLogin(values))
+      await dispatch(userInfo())
    };
 
    const onFinishFailed = (errorInfo) => {
