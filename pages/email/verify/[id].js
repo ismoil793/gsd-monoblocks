@@ -10,20 +10,19 @@ const VerifyEmail = () => {
    const router = useRouter();
    const {id, ...params} = router.query;
 
-   useEffect(() => {
+   useEffect( async () => {
       if (router.query.id) {
-         console.log(router)
-         axios.get(`${url}/auth/user/verify/${id}`, {
-            params
+         await axios.get(`${url}/auth/user/verify/${id}`, {
+            params: {
+               ...params
+            }
+         }).then(response => {
+            notifySuccess('Your account is approved');
+            router.push('/login')
+         }).catch(e => {
+            notifyError(e.response.data.message);
+            router.push('/')
          })
-             .then(response => {
-                notifySuccess('Your account is approved');
-                router.push('/login')
-             })
-             .catch(e => {
-                notifyError(e.data.message);
-                router.push('/')
-             })
       }
    }, [router]);
 
