@@ -1,9 +1,9 @@
 import React, {useEffect} from 'react';
 import MainLayout from "../../../components/Layout";
 import {useRouter} from "next/router";
-import {httpGet} from "../../../api";
 import url from "../../../api/url";
 import {notifyError, notifySuccess} from "../../../helpers/NotifyBtn";
+import axios from "axios";
 
 const VerifyEmail = () => {
 
@@ -12,8 +12,7 @@ const VerifyEmail = () => {
 
    useEffect(() => {
       if (router.query.id) {
-         httpGet({
-            url: `${url}/auth/user/verify/${id}`,
+         axios.get(`${url}/auth/user/verify/${id}`, {
             params
          })
              .then(response => {

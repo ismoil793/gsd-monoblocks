@@ -6,6 +6,7 @@ import {httpPost} from "../../../api";
 import url from "../../../api/url";
 import {useRouter} from "next/router";
 import {notifyError, notifySuccess} from "../../../helpers/NotifyBtn";
+import axios from "axios";
 
 const PasswordRecover = () => {
 
@@ -27,16 +28,14 @@ const PasswordRecover = () => {
       return null;
    };
 
-
    const onFinish = (values) => {
-      httpPost({
-         url: `${url}/auth/user/password/new/${id}`,
-         data: {
-            ...params,
-            password: values.user.password,
-            password_confirmation: values.user.password_confirmation
-         }
-      }).then(r => {
+      axios.post(`${url}/auth/user/password/new/${id}`,
+          {
+             ...params,
+             password: values.user.password,
+             password_confirmation: values.user.password_confirmation
+          }
+      ).then(r => {
          notifySuccess("Your account has been restored", 3000);
          router.push('/login')
       }).catch(e => notifyError(e.data.message))
