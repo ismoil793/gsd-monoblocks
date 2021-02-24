@@ -20,7 +20,12 @@ const VerifyEmail = () => {
             notifySuccess('Your account is approved');
             router.push('/login')
          }).catch(e => {
-            notifyError(e.response.data.message);
+            if (e.data)
+               notifyError(e.data.message);
+            else if (e.response)
+               notifyError(e.response.message);
+            else
+               notifyError("Something went wrong...")
             // router.push('/')
          })
       }
