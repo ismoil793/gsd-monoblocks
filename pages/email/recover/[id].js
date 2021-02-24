@@ -1,8 +1,6 @@
 import React, {useState} from 'react';
 import MainLayout from "../../../components/Layout";
 import {Button, Form, Input} from "antd";
-import Link from "next/link";
-import {httpPost} from "../../../api";
 import url from "../../../api/url";
 import {useRouter} from "next/router";
 import {notifyError, notifySuccess} from "../../../helpers/NotifyBtn";
