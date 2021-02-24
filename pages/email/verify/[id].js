@@ -11,11 +11,9 @@ const VerifyEmail = () => {
    const {id, ...params} = router.query;
 
    useEffect( async () => {
-      if (router.query.id) {
+      if (id) {
          await axios.get(`${url}/auth/user/verify/${id}`, {
-            params: {
-               ...params
-            }
+            params
          }).then(response => {
             notifySuccess('Your account is approved');
             router.push('/login')
