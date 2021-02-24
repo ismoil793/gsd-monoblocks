@@ -97,6 +97,14 @@ export const httpGet = (params) => httpClient.request({
    }
 });
 
+export const httpGet_NO_DEVICE_TOKEN = (params) => httpClient.request({
+   method: 'get',
+   ...params,
+   params: {
+      ...params.params
+   }
+})
+
 export const httpPost = (params) => httpClient.request({
    method: 'post',
    ...params,
