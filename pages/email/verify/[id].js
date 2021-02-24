@@ -10,17 +10,16 @@ const VerifyEmail = () => {
    const router = useRouter();
    const {id, ...params} = router.query;
 
-   useEffect( async () => {
+   useEffect(async () => {
       if (id) {
-         await axios.get(`${url}/auth/user/verify/${id}/`, {
-            params
-         }).then(response => {
-            notifySuccess('Your account is approved');
-            router.push('/login')
-         }).catch(e => {
-            notifyError(e.response.data.message);
-            router.push('/')
-         })
+         await axios.get(`${url}/auth/user/verify/${id}?expires=${params.expires}&signature=${params.signature}`)
+             .then(response => {
+                notifySuccess('Your account is approved');
+                router.push('/login')
+             }).catch(e => {
+                notifyError(e.response.data.message);
+                router.push('/')
+             })
       }
    }, [router]);
 
