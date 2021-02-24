@@ -12,7 +12,7 @@ const VerifyEmail = () => {
 
    useEffect( async () => {
       if (id) {
-         await axios.get(`${url}/auth/user/verify/${id}`, {
+         await axios.get(`${url}/auth/user/verify/${id}/`, {
             params
          }).then(response => {
             notifySuccess('Your account is approved');
