@@ -26,3 +26,12 @@ export function getSingleSubscription(id) {
           }).catch(e => notifyError(e.data.message));
    }
 }
+
+export function clearSubscription () {
+   return async dispatch => {
+      dispatch({
+         type: actions.CLEAR_SUBSCRIPTION,
+         payload: {}
+      })
+   }
+}

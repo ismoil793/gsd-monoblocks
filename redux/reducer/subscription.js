@@ -13,6 +13,9 @@ const subscription = (state = {...initialState}, action) => {
       case actions.FETCH_SUBSCRIPTION:
          return {...state, subscription: action.payload};
 
+      case actions.CLEAR_SUBSCRIPTION:
+         return {...state, subscription: action.payload};
+
       default:
          return state;
    }
