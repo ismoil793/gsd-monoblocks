@@ -1,49 +1,62 @@
-import React from 'react';
+import React, {useEffect} from 'react';
 import DateRefactor from "../../helpers/Refactors/DateRefactor";
 import PriceRefactor from "../../helpers/Refactors/PriceRefactor";
 import {Button, Table} from "antd";
 import {useRouter} from "next/router";
 import {useDispatch, useSelector} from "react-redux";
+import {getSubscriptions} from "../../redux/action/subscription";
+
 
 const Subscriptions = () => {
 
    const dispatch = useDispatch();
    const router = useRouter();
-   const order = useSelector(state => state.order);
+   const subscription = useSelector(state => state.subscription);
+
+   useEffect(() => {
+      dispatch(getSubscriptions())
+   }, [])
 
    const columns = [
       {
-         title: 'Order',
+         title: 'ID',
          dataIndex: 'id',
          key: 'order',
       },
       {
-         title: 'Date (dd/mm/yyy)',
-         // title: 'Date',
-         dataIndex: 'created_at',
-         render: (date) => (
-             <><DateRefactor date={date} /></>
-         ),
-         key: 'date',
+         title: 'Product',
+         dataIndex: 'monoblock',
+         key: 'monoblock.name',
+         render: data => (
+             <>{data.name}</>
+         )
       },
       {
-         title: 'Status',
-         dataIndex: 'order_state',
-         key: 'status',
+         title: 'Subscription Length',
+         dataIndex: 'months',
+         key: 'months',
+         render: data => (
+             <>{data} month(s)</>
+         )
       },
       {
-         title: 'Total',
+         title: 'Quantity',
+         dataIndex: 'quantity',
+         key: 'order_state',
+      },
+      {
+         title: 'Subscription Total',
          dataIndex: 'total',
          render: (total) => (
-             <><PriceRefactor price={total} /></>
+             <><PriceRefactor price={total}/></>
          ),
          key: 'total',
       },
       {
-         title: 'Actions',
+         title: 'View Details',
          render: (data) => (
              <Button
-                 onClick={() => router.push(`/order/${data.id}`)}
+                 onClick={() => router.push(`/subscription/${data.id}`)}
                  className="btn btn-trans"
                  style={{
                     backgroundColor: 'transparent',
@@ -51,7 +64,7 @@ const Subscriptions = () => {
                     fontWeight: 'bold'
                  }}
              >
-                View Detail
+                More
              </Button>
          ),
       },
@@ -74,7 +87,7 @@ const Subscriptions = () => {
                     // total: order.orders.length
                  }}
                  columns={columns}
-                 dataSource={order.orders}
+                 dataSource={subscription.subscriptions}
                  style={{
                     textAlign: 'center',
                  }}

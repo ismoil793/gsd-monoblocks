@@ -5,6 +5,7 @@ import user from "./user";
 import footer from "./footer";
 import cart from "./cart";
 import order from "./order";
+import subscription from "./subscription";
 import configurator from "./configurator";
 import * as actions from '../action/index';
 
@@ -43,5 +44,6 @@ export default combineReducers({
   configurator,
   footer,
   cart,
-  order
+  order,
+  subscription
 });

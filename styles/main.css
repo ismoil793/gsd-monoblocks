@@ -1177,6 +1177,10 @@ td {
     transform: translateX(0);
 }
 
+.account-title.subscr:after {
+    width: 150px;
+}
+
 .ant-checkbox-checked .ant-checkbox-inner {
     background-color: #ff7d06 !important;
     border-color: #ff7d06 !important;
@@ -1665,7 +1669,7 @@ a:hover {
 
 
 
-/*----------------------------- About----------------------- */
+/*----------------------------- Password recover----------------------- */
 .restore-pass .ant-col.ant-form-item-control{
     height: 62px;
 }
@@ -1673,6 +1677,35 @@ a:hover {
     padding-bottom: 0 !important;
 }
 
+
+/*----------------------------- Subscription page----------------------- */
+.subscription-price-plans {
+    display: flex;
+    flex-wrap: wrap;
+}
+.subscription-price-plans .price-plan{
+    flex-basis: 16%;
+}
+
+.subscription-price-plans .price-plan .gsd-orange span{
+    font-size: 18px;
+}
+
+.subscription-price-plans .price-plan p {
+    font-size: 16px;
+}
+
+.payment-stat {
+    font-size: 14px;
+}
+
+.payment-stat.red {
+    color: #dc3545;
+}
+
+.payment-stat.green {
+    color: #28A745;
+}
 
 /*----------------------------- Cart----------------------- */
 .section-cart {
