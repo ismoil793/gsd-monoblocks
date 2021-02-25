@@ -2,6 +2,7 @@ import SideMenu from './SideMenu';
 import Orders from './Orders';
 import {useEffect, useState} from "react";
 import Details from "../../Account/details";
+import Subscriptions from "../../Account/Subscriptions";
 import {useRouter} from "next/router";
 
 const Cabinet = () => {
@@ -29,7 +30,9 @@ const Cabinet = () => {
                    <SideMenu sideNav={sideNav} handleSidebar={handleSidebar}/>
                 </div>
                 <div className="col-md-9">
-                   {router.query.param === 'details' ? <Details/> : <Orders/>}
+                   {
+                      router.query.param === 'details' ? <Details/> :
+                          router.query.param === 'subscriptions' ? <Subscriptions/> : <Orders/>}
                 </div>
              </div>
           </div>

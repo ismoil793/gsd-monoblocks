@@ -15,7 +15,7 @@ const order = (state = {...initialState}, action) => {
          return {...state, orderCreated: action.payload};
 
       case actions.FETCH_ORDERS:
-         return {...state, orders: action.payload};
+         return {...state, orders: action.payload.reverse()};
 
       case actions.FETCH_ORDER:
          return {...state, order: action.payload};

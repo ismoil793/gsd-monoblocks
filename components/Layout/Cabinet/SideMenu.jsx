@@ -28,6 +28,12 @@ const SideMenu = () => {
              >
                 Account details
              </li>
+             <li
+                 onClick={() => router.push('/cabinet?param=subscriptions')}
+                 className={router.query.param  === 'subscriptions' ? 'active' : ''}
+             >
+                Subscriptions
+             </li>
              <li onClick={logoutHandler}>Logout</li>
           </ul>
        </div>
