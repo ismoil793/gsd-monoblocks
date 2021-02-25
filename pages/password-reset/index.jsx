@@ -8,9 +8,12 @@ import Link from "next/link";
 import {httpPost} from "../../api";
 import url from "../../api/url";
 import {notifyError, notifySuccess} from "../../helpers/NotifyBtn";
+import {useRouter} from "next/router";
 
 
 const PasswordReset = () => {
+
+   const router = useRouter();
 
    const onFinish = (values) => {
       httpPost({
@@ -20,6 +23,7 @@ const PasswordReset = () => {
          }
       }).then(response => {
          notifySuccess("We have sent a message to your email", 3000);
+         router.push('/');
       }).catch(e => notifyError(e.data.message))
    };
 

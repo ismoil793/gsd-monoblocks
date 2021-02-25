@@ -41,71 +41,77 @@ const Details = () => {
                  {...layout}
                  className="form-user-details"
              >
-                <Form.Item
-                    label="First Name"
-                    name="first_name"
-                    className="half-field"
-                    initialValue={user.info.first_name}
-                >
-                   <Input placeholder="Enter your name"/>
-                </Form.Item>
+                {
+                   user.info.id ?
+                       <>
+                          <Form.Item
+                              label="First Name"
+                              name="first_name"
+                              className="half-field"
+                              initialValue={user.info.first_name}
+                          >
+                             <Input placeholder="Enter your name"/>
+                          </Form.Item>
 
-                <Form.Item
-                    label="Last Name"
-                    name="last_name"
-                    className="half-field"
-                    initialValue={user.info.last_name}
-                >
-                   <Input placeholder="Enter your surname"/>
-                </Form.Item>
+                          <Form.Item
+                              label="Last Name"
+                              name="last_name"
+                              className="half-field"
+                              initialValue={user.info.last_name}
+                          >
+                             <Input placeholder="Enter your surname"/>
+                          </Form.Item>
 
-                <h5 className="font-weight-bold mt-3 mb-3">Password change</h5>
-                <Form.Item
-                    label="Current password"
-                    className="half-field mr-5"
-                    name="password_old"
-                >
-                   <Input.Password placeholder="Enter your password"/>
-                </Form.Item>
+                          <h5 className="font-weight-bold mt-3 mb-3">Password change</h5>
+                          <Form.Item
+                              label="Current password"
+                              className="half-field mr-5"
+                              name="password_old"
+                          >
+                             <Input.Password placeholder="Enter your password"/>
+                          </Form.Item>
 
-                <Form.Item
-                    label="New password"
-                    className="half-field"
-                    name="password"
-                >
-                   <Input.Password placeholder="New password"/>
-                </Form.Item>
+                          <Form.Item
+                              label="New password"
+                              className="half-field"
+                              name="password"
+                          >
+                             <Input.Password placeholder="New password"/>
+                          </Form.Item>
 
-                <Form.Item
-                    label="Confirm new password"
-                    className="half-field"
-                    name="password_confirmation"
-                    rules={[
-                       ({getFieldValue}) => ({
-                          validator(rule, value) {
-                             if (!value || getFieldValue('password') === value) {
-                                return Promise.resolve();
-                             }
-                             return Promise.reject('The two passwords that you entered do not match!');
-                          },
-                       })
-                    ]}
-                >
-                   <Input.Password placeholder="Confirm new password"/>
-                </Form.Item>
+                          <Form.Item
+                              label="Confirm new password"
+                              className="half-field"
+                              name="password_confirmation"
+                              rules={[
+                                 ({getFieldValue}) => ({
+                                    validator(rule, value) {
+                                       if (!value || getFieldValue('password') === value) {
+                                          return Promise.resolve();
+                                       }
+                                       return Promise.reject('The two passwords that you entered do not match!');
+                                    },
+                                 })
+                              ]}
+                          >
+                             <Input.Password placeholder="Confirm new password"/>
+                          </Form.Item>
 
 
-                <Form.Item>
-                   <div className="d-flex mt-3">
-                      <Button
-                          type="primary"
-                          htmlType="submit"
-                          className="btn-gsd"
-                      >
-                         Save changes
-                      </Button>
-                   </div>
-                </Form.Item>
+                          <Form.Item>
+                             <div className="d-flex mt-3">
+                                <Button
+                                    type="primary"
+                                    htmlType="submit"
+                                    className="btn-gsd"
+                                >
+                                   Save changes
+                                </Button>
+                             </div>
+                          </Form.Item>
+                       </>
+                       : null
+                }
              </Form>
           </div>
        </div>

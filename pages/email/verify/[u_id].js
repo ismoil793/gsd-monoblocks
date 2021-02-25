@@ -26,7 +26,7 @@ const VerifyEmail = () => {
                notifyError(e.response.message);
             else
                notifyError("Something went wrong...")
-            // router.push('/')
+            router.push('/')
          })
       }
    }, [u_id]);
