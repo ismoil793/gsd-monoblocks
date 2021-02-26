@@ -12,10 +12,10 @@ const Header = () => {
    const dispatch = useDispatch();
    const cart = useSelector(state => state.cart);
    const user = useSelector(state => state.user);
+   const cookies = new Cookies();
 
    useEffect(() => {
 
-      const cookies = new Cookies();
       fetchCart();
 
       if(!user.info.id && cookies.get('access_token')) {
@@ -78,7 +78,7 @@ const Header = () => {
 
                          <div className="nav-right">
                             {
-                               user.info.id ? <Link href="/cabinet?param=orders"><a>My account</a></Link>
+                               user.info.id && cookies.get('access_token') ? <Link href="/cabinet?param=orders"><a>My account</a></Link>
                                    : <Link href="/login"><a>Login</a></Link>
                             }
                             <Link href="/cart">
