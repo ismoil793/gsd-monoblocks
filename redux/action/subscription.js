@@ -27,11 +27,9 @@ export function getSingleSubscription(id) {
    }
 }
 
-export function clearSubscription () {
-   return async dispatch => {
-      dispatch({
-         type: actions.CLEAR_SUBSCRIPTION,
-         payload: {}
-      })
+export function clearSubscription() {
+   return {
+      type: actions.CLEAR_SUBSCRIPTION,
+      payload: {}
    }
 }

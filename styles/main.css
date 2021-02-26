@@ -1707,6 +1707,18 @@ a:hover {
     color: #28A745;
 }
 
+/*----------------------------- Ant Spinner ----------------------- */
+.my-ant-spinner {
+    margin: 20px 0;
+    padding: 30px 50px;
+    text-align: center;
+    border-radius: 4px;
+}
+
+.ant-spin-dot-item {
+    background-color: var(--gsd-orange);
+}
+
 /*----------------------------- Cart----------------------- */
 .section-cart {
     padding: 3% 0 5% 0;

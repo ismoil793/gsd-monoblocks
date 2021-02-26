@@ -68,9 +68,9 @@ httpClient.interceptors.response.use((response) => {
 
    if (parseInt(status) === 404) {
       notifyWarn(data.message);
-      Router.push({
-         pathname: `/404`
-      })
+      // Router.push({
+      //    pathname: `/404`
+      // })
    }
 
    if (parseInt(status) === 429) {
