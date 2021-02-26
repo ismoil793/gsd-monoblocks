@@ -28,6 +28,13 @@ export function getCart() {
    }
 }
 
+export function clearCart() {
+   return {
+      type: actions.CLEAR_CART,
+      payload: {}
+   }
+}
+
 export function minusCartItem(id) {
    return async dispatch => {
       await API_minusCartItem({subscription_id: id})

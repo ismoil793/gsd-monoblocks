@@ -1,16 +1,18 @@
 import {useDispatch} from "react-redux";
 import {authLogout, userInfoClean} from "../../../redux/action/user";
 import {useRouter} from "next/router";
+import {clearCart} from "../../../redux/action/cart";
 
 const SideMenu = () => {
 
    const dispatch = useDispatch();
    const router = useRouter();
 
-   const logoutHandler = () => {
+   const logoutHandler = async () => {
       router.push('/');
-     dispatch(authLogout());
-     dispatch(userInfoClean())
+      await dispatch(clearCart())
+      await dispatch(authLogout());
+      await dispatch(userInfoClean())
    };
 
    return (
@@ -24,13 +26,13 @@ const SideMenu = () => {
              </li>
              <li
                  onClick={() => router.push('/cabinet?param=details')}
-                 className={router.query.param  === 'details' ? 'active' : ''}
+                 className={router.query.param === 'details' ? 'active' : ''}
              >
                 Account details
              </li>
              <li
                  onClick={() => router.push('/cabinet?param=subscriptions')}
-                 className={router.query.param  === 'subscriptions' ? 'active' : ''}
+                 className={router.query.param === 'subscriptions' ? 'active' : ''}
              >
                 Subscriptions
              </li>

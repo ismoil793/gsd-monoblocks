@@ -16,6 +16,7 @@ export const CHANGE_CONFIGURATOR = 'CHANGE_CONFIGURATOR';
 
 // Cart
 export const FETCH_CART = 'FETCH_CART';
+export const CLEAR_CART = 'CLEAR_CART';
 export const ADD_TO_CART = 'ADD_TO_CART';
 export const INCREASE_CART_ITEM = 'INCREASE_CART_ITEM';
 export const DECREASE_CART_ITEM = 'DECREASE_CART_ITEM';

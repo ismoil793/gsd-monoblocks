@@ -11,12 +11,17 @@ import {
 import {httpGet, httpPost} from "../../../api";
 import {calculateConfigurator} from "../../../redux/action/configurator";
 import {addToCart, getCart} from "../../../redux/action/cart";
+import Cookies from "universal-cookie";
+import {notifyError} from "../../../helpers/NotifyBtn";
+import {useRouter} from "next/router";
 
 const {Option} = Select;
 
 const Characteristics = ({monoblocks}) => {
    const dispatch = useDispatch();
+   const cookies =  new Cookies();
    const configurator = useSelector(state => state.configurator);
+   const router = useRouter();
 
    const {monoblock, configuration} = monoblocks;
 
@@ -72,14 +77,18 @@ const Characteristics = ({monoblocks}) => {
             component_ids = [...component_ids, values.components[key]]
          }
       }
-      console.log(component_ids)
-      console.log(monoblock.id)
-      await dispatch(addToCart({
-         monoblock_id: monoblock.id,
-         component_ids,
-         months: values.month
-      }));
-      dispatch(getCart())
+
+      if(cookies.get('access_token')) {
+         await dispatch(addToCart({
+            monoblock_id: monoblock.id,
+            component_ids,
+            months: values.month
+         }));
+         dispatch(getCart())
+      } else {
+         notifyError('You are not authorized')
+         router.push('/login')
+      }
    };
 
    const displayInitialValues = (component, type = 'optional') => {

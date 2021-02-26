@@ -16,6 +16,9 @@ const cart = (state = {...initialState}, action) => {
          }, 0);
          return {...state, cartItems: action.payload, cartCount};
 
+      case actions.CLEAR_CART:
+         return {...state, cartItems: action.payload, cartCount: 0}
+
       case actions.DECREASE_CART_ITEM:
          return {...state, minus: action.payload};
 
