@@ -76,8 +76,6 @@ const Header = () => {
                             </Link>
                          </div>
 
-                         {console.log(user.info.id, cookies.get('access_token'))}
-
                          <div className="nav-right">
                             {
                                user.info.id && cookies.get('access_token') ? <Link href="/cabinet?param=orders"><a>My account</a></Link>
