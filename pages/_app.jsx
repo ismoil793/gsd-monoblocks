@@ -10,22 +10,22 @@ import '../styles/main.css';
 import '../styles/responsive.css';
 
 import { Provider } from 'react-redux';
-import { useStore } from '../redux/store';
 import NextNProgress from 'nextjs-progressbar';
+
+import {wrapper} from "../redux/store"
 
 
 const App = ({ Component, pageProps }) => {
-  const store = useStore(pageProps);
   return (
-    <Provider store={store}>
+    <>
       <NextNProgress
         color="#FF8C00"
         height="5"
       />
       <Component {...pageProps} />
-    </Provider>
+    </>
   );
 };
 
-export default App;
+export default wrapper.withRedux(App);
 
