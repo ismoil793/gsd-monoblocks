@@ -1427,12 +1427,16 @@ a:hover {
     font-size: 16px;
 }
 
-.line-navigation .nav-right a:first-child::after {
+.line-navigation .nav-right a::after {
     content: "";
     width: 2px;
     height: 40px;
     background-color: #FFA675;
     margin: 0 20px;
+}
+
+.line-navigation .nav-right a:last-child::after {
+    display: none;
 }
 
 .line-navigation .nav-right .cart-num {
@@ -1668,12 +1672,12 @@ a:hover {
 }
 
 
-
 /*----------------------------- Password recover----------------------- */
-.restore-pass .ant-col.ant-form-item-control{
+.restore-pass .ant-col.ant-form-item-control {
     height: 62px;
 }
-.restore-pass .ant-form-item{
+
+.restore-pass .ant-form-item {
     padding-bottom: 0 !important;
 }
 
@@ -1683,11 +1687,12 @@ a:hover {
     display: flex;
     flex-wrap: wrap;
 }
-.subscription-price-plans .price-plan{
+
+.subscription-price-plans .price-plan {
     flex-basis: 16%;
 }
 
-.subscription-price-plans .price-plan .gsd-orange span{
+.subscription-price-plans .price-plan .gsd-orange span {
     font-size: 18px;
 }
 

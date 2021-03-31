@@ -1,7 +1,4 @@
-import {
-   Table,
-   Button,
-} from 'antd';
+import {Table, Button,} from 'antd';
 import {useEffect} from "react";
 import {useDispatch, useSelector} from "react-redux";
 import {getOrders} from "../../../redux/action/order";
@@ -30,7 +27,7 @@ const Orders = () => {
          // title: 'Date',
          dataIndex: 'created_at',
          render: (date) => (
-             <><DateRefactor date={date} /></>
+             <><DateRefactor date={date}/></>
          ),
          key: 'date',
       },
@@ -43,7 +40,7 @@ const Orders = () => {
          title: 'Total',
          dataIndex: 'total',
          render: (total) => (
-             <><PriceRefactor price={total} /></>
+             <><PriceRefactor price={total}/></>
          ),
          key: 'total',
       },

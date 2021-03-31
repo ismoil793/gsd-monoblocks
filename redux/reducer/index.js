@@ -7,6 +7,7 @@ import cart from "./cart";
 import order from "./order";
 import subscription from "./subscription";
 import configurator from "./configurator";
+import goods from "./goods";
 import * as actions from '../action/index';
 
 const handleAuth = handleActions({
@@ -45,5 +46,6 @@ export default combineReducers({
   footer,
   cart,
   order,
-  subscription
+  subscription,
+  goods
 });

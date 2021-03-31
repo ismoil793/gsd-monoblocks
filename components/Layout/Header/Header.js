@@ -78,7 +78,11 @@ const Header = () => {
 
                          <div className="nav-right">
                             {
-                               user.info.id && cookies.get('access_token') ? <Link href="/cabinet?param=orders"><a>My account</a></Link>
+                               user.info.id && cookies.get('access_token') ?
+                                   <>
+                                      <Link href="/goods"><a>Remains of goods</a></Link>
+                                      <Link href="/cabinet?param=orders"><a>My account</a></Link>
+                                   </>
                                    : <Link href="/login"><a>Login</a></Link>
                             }
                             <Link href="/cart">
